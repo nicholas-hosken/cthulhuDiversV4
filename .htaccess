@@ -1,0 +1,28 @@
+RewriteEngine On
+
+# Allow access to .webp images only from your own domain
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?cthulhudivers\.com/ [NC]
+RewriteRule \.webp$ - [F,NC,L]
+
+# Redirect HTTP to HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+
+# Add .html extension to URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+Redirect 301 /blog/cancun-diving-checklist.html/ https://cthulhudivers.com/articles/cancun-diving-checklist
+Redirect 301 /blog/cenote-car-wash.html/ https://cthulhudivers.com/dive-sites/cenote-car-wash
+Redirect 301 /bubble-blog/cancun-best-dive-sites-for-beginners-and-the-refresher-course.html/ https://cthulhudivers.com/dive-sites/cancun-best-dive-sites-for-beginners-and-the-refresher-course
+Redirect 301 /cancun-playa-mujeres-xoximilco.html/ https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xoximilco
+Redirect 301 /cancuns-best-snorkeling-tour.html/ https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour
+Redirect 301 /cenote-diving-cancun.html/ https://cthulhudivers.com/cancun-cenote-cavern-diving
+Redirect 301 /portugues/blog/cancuns-underwater-museum-musa.html/ https://cthulhudivers.com/dive-sites/musa-cancuns-underwater-museum
+Redirect 301 /portugues/contato.html/ https://cthulhudivers.com/contact
+Redirect 301 /portugues/melhor-passeio-de-snorkel-cancun.html/ https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour
+Redirect 301 /portugu%C3%AAs/cancun-landlubber-tours.html/ https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor
+Redirect 301 /portugu%C3%AAs/cancun-padi-discover-scuba-diving-dsd.html/ https://cthulhudivers.com/cancun-padi-discover-scuba-diving-dsd
+RedirectMatch 301 /dive-sites/(historyofwar.org|combinedfleet.com|uboat.net|pacific.valka.cz)/ https://cthulhudivers.com/dive-sites/c55-juan-de-la-barrera-wreck-cancun

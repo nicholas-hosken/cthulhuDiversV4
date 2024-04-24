@@ -1,0 +1,23 @@
+#heroNecronomicon {
+	background-image: url(../img/hero/necronomicon.webp);
+}
+
+thead {
+	background-color: #00aace;
+	color: #fff;
+}
+th,
+td {
+	border: 1px solid #fff;
+	text-align: center;
+	padding: 10px;
+	font-size: 16px;
+}
+
+tbody tr:hover {
+	background-color: #1f2e32;
+}
+
+#cenoteTable tbody tr th:nth-child(3) {
+	background-color: green !important;
+}
