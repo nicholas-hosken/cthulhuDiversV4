@@ -1,6 +1,6 @@
 const activity = document.querySelector('.hero h1').innerHTML;
 const locations = document.getElementById('locations');
-const exchangeRate = 16.81;
+const exchangeRate = 16.5;
 
 const populateLocations = (site) => {
 	if (!site || typeof site !== 'string') {
@@ -27,6 +27,7 @@ const scubaSpecifics = (site, arrivalD1, departureD1, arrivalD2, departureD2, mi
 	const tourPickUpD2 = document.querySelector(`#${site}PickUpD2`);
 	const tourDropOffD2 = document.querySelector(`#${site}DropOffD2`);
 	const tourMinAge = document.querySelector(`#${site}MinAge`);
+	const tourDepth = document.querySelector(`#${site}Depth`);
 
 	if (locations != null) {
 		let arr = convertTime(arrivalD1);
@@ -57,9 +58,15 @@ const scubaSpecifics = (site, arrivalD1, departureD1, arrivalD2, departureD2, mi
 			}
 		}
 
-		if (site === 'bullShark') {
+		if (site === 'bullShark' || site === 'cozumel') {
 			let area = hotelList[selectedHotel].location;
-			travelTime = area === 'cun' ? 90 : area === 'pm' ? 105 : 35;
+			if (area === 'cun') {
+				travelTime = 90;
+			} else if (area === 'pm' || area === 'cm') {
+				travelTime = 105;
+			} else {
+				travelTime = 35;
+			}
 		}
 
 		if (tourPickUp) tourPickUp.textContent = revertTime(arr - travelTime);
@@ -68,13 +75,14 @@ const scubaSpecifics = (site, arrivalD1, departureD1, arrivalD2, departureD2, mi
 		if (tourDropOffD2) tourDropOffD2.textContent = revertTime(depD2 + travelTime);
 	}
 	if (tourMinAge) tourMinAge.textContent = minAge;
+	if (tourDepth) tourDepth.textContent = cenotePricing[site]?.depth;
 };
 
 const roundUp = (x) => {
 	return Math.ceil(x / 5) * 5;
 };
 
-const quotePrice = (pricelist, site, cost, profit) => {
+const quotePrice = (pricelist, site, cost) => {
 	let tourCash = document.querySelector(`#${site}Cash`);
 	let quoteCash = roundUp(cost * pricelist[site].profitPercent);
 
@@ -132,7 +140,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	angelita: {
@@ -156,7 +164,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	calavera: {
@@ -180,7 +188,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	chacMool: {
@@ -204,16 +212,18 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	dosOjos: {
 		name: 'Dos Ojos',
 		aka: 'Two Eyes',
+		arrivalD1: '9:00',
+		departureD1: '14:30',
 		cardImg: '../img/cards/cenote-dos-ojos.webp',
 		days: 1,
-		depth: '23ft / 7m',
-		href: '',
+		depth: '45ft / 14m',
+		href: 'https://cthulhudivers.com/dive-sites/cenote-dos-ojos',
 		minAge: 15,
 		photosAllowed: false,
 		profitPercent: 1.3,
@@ -226,7 +236,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	dreamgate: {
@@ -248,7 +258,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	elPit: {
@@ -270,7 +280,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	maravilla: {
@@ -292,7 +302,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	ponderosa: {
@@ -314,7 +324,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	sucActun: {
@@ -336,7 +346,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	tajmaHa: {
@@ -360,7 +370,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	zapote: {
@@ -381,7 +391,7 @@ const cenotePricing = {
 			return cost;
 		},
 		get deposit() {
-			return roundUp(this.shuttle / 2);
+			return roundUp(this.shuttle / 2 / exchangeRate);
 		},
 	},
 	calcCost: function (site) {
@@ -421,7 +431,7 @@ const coursePricing = {
 		days: 1,
 		deposit: 1350,
 		elearning: 0,
-		guide: 25,
+		guide: 500 / exchangeRate,
 		photosAllowed: true,
 		profitPercent: 1.62,
 		tanks: 3,
@@ -435,7 +445,7 @@ const coursePricing = {
 		boat: 1350,
 		days: 2,
 		deposit: 175 * exchangeRate,
-		elearning: 173.1,
+		elearning: 183.55,
 		guide: 100,
 		photosAllowed: true,
 		profitPercent: 1.3,
@@ -454,7 +464,7 @@ const coursePricing = {
 		guide: 100,
 		photosAllowed: true,
 		profitPercent: 1.3,
-		tanks: 5,
+		tanks: 4,
 	},
 	refresher: {
 		name: 'PADI Scuba Refresher',
@@ -486,6 +496,7 @@ const coursePricing = {
 	},
 	calcCost: function (site) {
 		let cost = coursePricing[site].guide + coursePricing[site].elearning + (coursePricing[site].boat * coursePricing[site].days) / exchangeRate;
+		console.log(cost);
 		quotePrice(coursePricing, site, cost, coursePricing[site].profitPercent);
 		scubaSpecifics(site, coursePricing[site].arrivalD1, coursePricing[site].departureD1, coursePricing[site].arrivalD2, coursePricing[site].departureD2);
 	},
@@ -512,6 +523,74 @@ const nonDiving = {
 			const tourEarlyKidsCard = document.querySelector('#chichenItzaEarlyKidsCard');
 			tourEarlyAdultCard.textContent = roundUp(this.ticket * this.profitPercent * 1.16);
 			tourEarlyKidsCard.textContent = roundUp(this.ticket * this.profitPercent * 1.16 * 0.9);
+		},
+	},
+	cmt: {
+		get info() {
+			populateLocations('cmt');
+			const location = hotelList[locations.options[locations.selectedIndex].value].location;
+			const tourCard3 = document.querySelector('#cmtCard3');
+			const tourCash3 = document.querySelector('#cmtCash3');
+			const tourCardReturn3 = document.querySelector('#cmtCardReturn3');
+			const tourCashReturn3 = document.querySelector('#cmtCashReturn3');
+			const tourCard8 = document.querySelector('#cmtCard8');
+			const tourCash8 = document.querySelector('#cmtCash8');
+			const tourCardReturn8 = document.querySelector('#cmtCardReturn8');
+			const tourCashReturn8 = document.querySelector('#cmtCashReturn8');
+
+			const cmtPricing = {
+				cun: {
+					cash3: 35,
+					cashReturn3: 65,
+					cash8: 55,
+					cashReturn8: 85,
+				},
+				cm: {
+					cash3: 75,
+					cashReturn3: 145,
+					cash8: 95,
+					cashReturn8: 165,
+				},
+				pm: {
+					cash3: 60,
+					cashReturn3: 115,
+					cash8: 80,
+					cashReturn8: 135,
+				},
+				puertoMorelos: {
+					cash3: 55,
+					cashReturn3: 105,
+					cash8: 75,
+					cashReturn8: 125,
+				},
+				pdc: {
+					cash3: 85,
+					cashReturn3: 155,
+					cash8: 105,
+					cashReturn8: 175,
+				},
+				maya: {
+					cash3: 100,
+					cashReturn3: 180,
+					cash8: 130,
+					cashReturn8: 200,
+				},
+				unknown: {
+					cash3: 0,
+					cashReturn3: 0,
+					cash8: 0,
+					cashReturn8: 0,
+				},
+			};
+
+			tourCash3.textContent = cmtPricing[location].cash3;
+			tourCashReturn3.textContent = cmtPricing[location].cashReturn3;
+			tourCard3.textContent = roundUp(tourCash3.innerHTML * 1.16);
+			tourCardReturn3.textContent = roundUp(tourCashReturn3.innerHTML * 1.16);
+			tourCash8.textContent = cmtPricing[location].cash8;
+			tourCashReturn8.textContent = cmtPricing[location].cashReturn8;
+			tourCard8.textContent = roundUp(tourCash8.innerHTML * 1.16);
+			tourCardReturn8.textContent = roundUp(tourCashReturn8.innerHTML * 1.16);
 		},
 	},
 	columbus: {
@@ -616,10 +695,25 @@ const oceanPricing = {
 		boat: 1350,
 		days: 1,
 		deposit: 1350,
-		guide: 15,
+		guide: 300 / exchangeRate,
 		minAge: 10,
 		photosAllowed: true,
 		profitPercent: 1.55,
+		tanks: 2,
+		type: 'ocean',
+	},
+	cozumel: {
+		name: 'Cozumel',
+		arrivalD1: '8:00',
+		departureD1: '13:00',
+		boat: 2000,
+		days: 1,
+		deposit: 2000,
+		guide: 20,
+		href: 'https://cthulhudivers.com/cancun-cozumel',
+		minAge: 10,
+		photosAllowed: true,
+		profitPercent: 1.5,
 		tanks: 2,
 		type: 'ocean',
 	},
@@ -649,33 +743,39 @@ const snorkelPricing = {
 		name: 'Musa & Reef Snorkeling',
 		arrivalD1: '12:20',
 		departureD1: '16:45',
-		boat: 1350,
+		boat: 1350 / exchangeRate,
 		boatDpt: '13:00',
+		cardAlt: 'musa snorkeling tour',
 		cardImg: '../img/cards/musa-snorkeling.webp',
 		days: 1,
 		deposit: 1350,
-		guide: 5,
+		guide: 0,
 		href: 'https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour',
 		minAge: 6,
 		photosAllowed: false,
-		profitPercent: 1.2,
+		profitPercent: 1.3,
 		get info() {
-			let cost = this.guide + this.boat / exchangeRate;
+			let cost = this.guide + this.boat;
 			quotePrice(snorkelPricing, 'musaSnorkel', cost, snorkelPricing.musaSnorkel.profitPercent);
 			scubaSpecifics('musaSnorkel', snorkelPricing.musaSnorkel.arrivalD1, snorkelPricing.musaSnorkel.departureD1, snorkelPricing.musaSnorkel.arrivalD2, snorkelPricing.musaSnorkel.departureD2);
+		},
+		shuttle: (hotel) => {
+			return 0;
 		},
 	},
 	turtleSnorkel: {
 		name: 'Turtle 5-in-1 Snorkel',
 		departureD1: '10:00',
+		boat: 45,
 		boatDpt: '7:30',
+		cardAlt: '5-1 snorkeling tour',
 		cardImg: '../img/cards/turtle-snorkeling.webp',
 		days: 1,
 		groupSize: 10,
 		href: 'https://cthulhudivers.com/non-diving/turtle-snorkel-tour-5-in-1',
 		minAge: 6,
 		photosAllowed: false,
-		profitPercent: 1.3,
+		profitPercent: 1.6,
 		get info() {
 			populateLocations('mpnPickup');
 			const tourPickUpD1 = document.querySelector('#turtleSnorkelPickUpD1');
@@ -695,13 +795,16 @@ const snorkelPricing = {
 			tourGroupSize.textContent = snorkelPricing.turtleSnorkel.groupSize;
 			tourMinAge.textContent = snorkelPricing.turtleSnorkel.minAge;
 		},
+		shuttle: (hotel) => {
+			return 0;
+		},
 	},
 	whaleShark: {
 		name: 'Whale Shark Snorkeling',
 		boatDpt: '7:45',
 		departureD1: '13:15',
-		boat: 110 * exchangeRate,
-		cardAlt: 'Musa & Turtle snorkeling',
+		boat: 110,
+		cardAlt: 'Whale shark snorkeling',
 		cardImg: '../img/cards/whale-shark-snorkeling.webp',
 		days: 1,
 		deposit: 110,
@@ -711,7 +814,7 @@ const snorkelPricing = {
 		listPrice: 170,
 		minAge: 5,
 		photosAllowed: false,
-		profitPercent: 1.3,
+		profitPercent: 1.45,
 		get info() {
 			populateLocations('whaleShark');
 			const tourPickUp = document.querySelector('#whaleSharkPickUp');
@@ -738,6 +841,9 @@ const snorkelPricing = {
 			tourDeposit.textContent = snorkelPricing.whaleShark.deposit;
 			tourDockFee.textContent = snorkelPricing.whaleShark.dockFee;
 		},
+		shuttle: (hotel) => {
+			return hotelList[hotel].whaleSharkTransportFee;
+		},
 	},
 };
 
@@ -760,6 +866,9 @@ const tourPricing = (activity) => {
 		case 'Cenote Chac Mool':
 			cenotePricing.calcCost('chacMool');
 			break;
+		case 'Cenote Dos Ojos':
+			cenotePricing.calcCost('dosOjos');
+			break;
 		case 'Cenote Tajma Ha':
 			cenotePricing.calcCost('tajmaHa');
 			break;
@@ -774,6 +883,9 @@ const tourPricing = (activity) => {
 			break;
 		case 'Columbus Dinner Cruise':
 			nonDiving.columbus.info;
+			break;
+		case 'Cozumel':
+			oceanPricing.calcCost('cozumel', oceanPricing);
 			break;
 		case 'Discover Scuba Diving':
 			coursePricing.calcCost('dsd');
@@ -800,6 +912,9 @@ const tourPricing = (activity) => {
 			break;
 		case 'PADI Scuba Refresher':
 			coursePricing.calcCost('refresher');
+			break;
+		case 'Shuttle Service':
+			nonDiving.cmt.info;
 			break;
 		case 'Turtle Snorkel Adventure':
 			snorkelPricing.turtleSnorkel.info;

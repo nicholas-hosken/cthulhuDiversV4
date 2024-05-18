@@ -1,23 +1,151 @@
 #heroNecronomicon {
 	background-image: url(../img/hero/necronomicon.webp);
 }
-
-thead {
+#sidebar {
+	display: none;
+}
+#necro-hotel,
+#q0 .input-group,
+.questions select {
+	width: 80%;
+	max-width: 500px;
+	margin: 0px auto;
+}
+.calendar {
+	margin: 0px auto;
+	width: 215px;
+}
+.calendar label {
+	margin: 0 auto 5px;
+	/* background-color: #00aace; */
+	width: 215px;
+	text-align: center;
+}
+.calendar input {
+	color: #000;
+}
+#necro-menu {
+	display: none;
+	justify-content: center;
+	margin: 0px auto 20px;
+}
+#necro-menu > div {
+	width: 80%;
+}
+#necro-menu button {
+	background-color: #00aace;
+	border: 1px solid #fff;
+	color: #fff;
+	padding: 10px 10px;
+	text-decoration: none;
+	width: 33%;
+	font-weight: bold;
+}
+#necro-menu button:hover,
+#necro-menu .active {
+	background-color: #fff;
+	color: #00aace;
+	border-color: #fff;
+}
+.info {
+	display: none;
+}
+#scripts {
+	width: 80%;
+	margin: 15px auto;
+}
+#known-info {
+	background-color: #1f2e32;
+	border: 1px solid #fff;
+	color: #00aace;
+	padding: 10px;
+	min-height: 200px;
+}
+#known-info span {
+	color: #00aace;
+}
+#known-caution {
+	background-color: #832222;
+	border: 1px solid #fff;
+	padding: 10px;
+	margin-top: 20px;
+	display: none;
+}
+#scripts .btn {
+	background-color: #00aace;
+	border: 1px solid #fff;
+	color: #fff;
+}
+#scripts .btn-outline-secondary {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+#output-script {
+	background-color: #1f2e32;
+	border: 1px solid #fff;
+	color: #00aace;
+	padding: 10px;
+	width: 100%;
+}
+#new-client-btn,
+#clipboard-btn {
+	display: none;
+	width: 200px;
+}
+#produced-script {
+	margin: 0 auto 15px;
+	background-color: #fff;
+	width: 100%;
+	padding: 10px;
+	font-size: 13px;
+}
+#produced-script p,
+#produced-script strong,
+#produced-script em,
+#produced-script span {
+	color: #000;
+	font-size: 13px;
+}
+#produced-script a {
+	color: blue;
+	font-size: 13px;
+}
+#overview table {
+	width: 100%;
+	visibility: hidden;
+}
+#overview .table-column-names td {
+	width: 5%;
+}
+#overview .table-column-names td:first-child {
+	min-width: 245px;
+}
+#overview thead {
 	background-color: #00aace;
 	color: #fff;
 }
-th,
-td {
+#overview th,
+#overview td {
 	border: 1px solid #fff;
 	text-align: center;
 	padding: 10px;
 	font-size: 16px;
 }
-
-tbody tr:hover {
+#overview tbody tr:hover {
 	background-color: #1f2e32;
 }
-
-#cenoteTable tbody tr th:nth-child(3) {
-	background-color: green !important;
+#overview tbody tr:hover td {
+	color: #fff !important;
+}
+#prep thead,
+#prep td {
+	text-align: center;
+}
+.highlighted-row {
+	background-color: #334d54;
+}
+#content {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }

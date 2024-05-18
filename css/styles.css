@@ -133,6 +133,9 @@ a {
 #heroCalavera {
 	background-image: url('../img/hero/cenote-calavera.webp');
 }
+#heroCancunaMatata {
+	background-image: url('../img/hero/cancuna-matata.webp');
+}
 #heroCarwash {
 	background-image: url('../img/hero/cenote-carwash2.webp');
 	background-position: 35% 50%;
@@ -161,8 +164,14 @@ a {
 #heroContact {
 	background-image: url('../img/hero/contact.webp');
 }
+#heroCozumel {
+	background-image: url('../img/hero/cozumel.webp');
+}
 #heroDSD {
 	background-image: url('../img/hero/discover-scuba-diving.webp');
+}
+#heroDosOjos {
+	background-image: url('../img/hero/cenote-dos-ojos.webp');
 }
 #heroMusa {
 	background-image: url('../img/hero/musa2.webp');
@@ -573,6 +582,10 @@ article a {
 article a:hover {
 	color: #00daff;
 }
+
+article strong {
+	font-weight: inherit;
+}
 .tourMenu h2 {
 	font-size: 60px;
 	line-height: 60px;
@@ -735,6 +748,53 @@ blockquote.nbInfo p {
 .diveOptions tr:nth-child(even) {
 	background-color: #3f3f3f;
 }
+.cdTable {
+	width: 100%;
+	margin: 15px 0;
+}
+.cdTable .form-switch,
+.cdTable .form-check-label {
+	float: right;
+}
+
+.cdTable .form-check-input {
+	margin-top: 1px;
+	background-image: url('../img/layout/flag-round-usa.webp');
+}
+.form-check-input:checked {
+	background-image: url('../img/layout/flag-round-mx.webp');
+	background-color: #fff;
+	border: none;
+}
+.cdTable tbody tr td {
+	width: 15%;
+}
+.cdTable th,
+.cdTable td {
+	padding: 5px 2px;
+	border: 1px solid #fff;
+}
+.cdTable th {
+	background-color: #00aace;
+	color: #fff;
+	text-shadow: 2px 2px 3px #000;
+}
+.cdTable tbody tr:hover td {
+	background-color: #afafaf;
+	color: #222;
+}
+#ladiesWetsuit th {
+	background-color: #a34ab8;
+}
+#ladiesWetsuit .form-check-input,
+#ladiesWetsuit .form-check-label,
+#mensWetsuit .form-check-input,
+#mensWetsuit .form-check-label {
+	cursor: pointer;
+}
+#mensWetsuit thead tr th:first-child {
+	width: 0%;
+}
 #contact-form {
 	padding: 15px;
 	margin-bottom: 15px;
@@ -837,7 +897,6 @@ input[type='checkbox'] {
 .sources a {
 	margin: 15px 15px 0;
 	width: 230px;
-	/* border: 1px solid #fff; */
 }
 .faq {
 	font-weight: bolder;
@@ -1373,6 +1432,12 @@ footer a:hover {
 	#checklist div div:first-child {
 		margin-bottom: -15px;
 	}
+	#ladiesWetsuit thead tr th:nth-child(3),
+	#ladiesWetsuit tbody tr td:nth-child(3),
+	#mensWetsuit thead tr th:nth-child(3),
+	#mensWetsuit tbody tr td:nth-child(3) {
+		display: none;
+	}
 }
 @media screen and (max-width: 415px) {
 	#jumbotron-heading {
@@ -1404,6 +1469,12 @@ footer a:hover {
 	.staff p {
 		padding: 0;
 		margin: 0;
+	}
+	#ladiesWetsuit thead tr th:nth-child(5),
+	#ladiesWetsuit tbody tr td:nth-child(5),
+	#mensWetsuit thead tr th:nth-child(5),
+	#mensWetsuit tbody tr td:nth-child(5) {
+		display: none;
 	}
 }
 @media screen and (max-width: 397px) {
@@ -1441,6 +1512,10 @@ footer a:hover {
 		margin-right: auto;
 		margin-left: auto;
 		padding: 0px;
+	}
+	#mensWetsuit thead tr th,
+	#mensWetsuit tbody tr td {
+		padding: 5px 0;
 	}
 }
 @media screen and (max-width: 308px) {

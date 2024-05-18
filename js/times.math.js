@@ -35,7 +35,7 @@ const hotelList = {
 	acamayareef: {
 		name: 'Acamaya Reef',
 		sb805: 999,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -51,7 +51,7 @@ const hotelList = {
 	adhara: {
 		name: 'Adhara',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -67,7 +67,7 @@ const hotelList = {
 	adharaexpress: {
 		name: 'Adhara Express',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -83,7 +83,7 @@ const hotelList = {
 	aguayfuego: {
 		name: 'Agua y Fuego',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -99,7 +99,7 @@ const hotelList = {
 	akumalbay: {
 		name: 'Akumal Bay',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '7:15',
 		xcaret: '7:15',
@@ -115,7 +115,7 @@ const hotelList = {
 	allritmocancun: {
 		name: 'All Ritmo',
 		sb805: 35,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -131,7 +131,7 @@ const hotelList = {
 	allegroplayacar: {
 		name: 'Allegro Playacar',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:15',
 		xcaret: '9:20',
@@ -145,9 +145,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	aloftcancun: {
-		name: 'Aloft Cancun',
+		name: 'Aloft Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -177,9 +177,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	aluxcancun: {
-		name: 'Alux Cancun',
+		name: 'Alux Cancún',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -195,7 +195,7 @@ const hotelList = {
 	amarinnpuertomorelos: {
 		name: 'Amar Inn Puerto Morelos',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -205,13 +205,13 @@ const hotelList = {
 		xoximilco: 999,
 		xplor: 999,
 		xplorFuego: 999,
-		location: 'unknown',
+		location: 'puertoMorelos',
 		mpnPickup: mpnCol.pu,
 	},
 	ambiancesuitescancun: {
-		name: 'Ambiance Suites Cancun',
+		name: 'Ambiance Suites Cancún',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -227,7 +227,7 @@ const hotelList = {
 	andazmayakoba: {
 		name: 'Andaz Mayakoba',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:20',
 		xcaret: '7:05',
@@ -243,7 +243,7 @@ const hotelList = {
 	antera: {
 		name: 'Antera',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -257,9 +257,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	antillanocancun: {
-		name: 'Antillano Cancun',
+		name: 'Antillano Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -275,7 +275,7 @@ const hotelList = {
 	aquamarinabeach: {
 		name: 'Aquamarina Beach',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -291,7 +291,7 @@ const hotelList = {
 	arenabeachclub: {
 		name: 'Arena Beach Club',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -307,7 +307,7 @@ const hotelList = {
 	atelier: {
 		name: 'Atelier',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -323,7 +323,7 @@ const hotelList = {
 	atelierestudio: {
 		name: 'Atelier Estudio',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -339,7 +339,7 @@ const hotelList = {
 	azulbeach: {
 		name: 'Azul Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:40',
 		xcaret: '8:05',
@@ -355,7 +355,7 @@ const hotelList = {
 	azulthefives: {
 		name: 'Azul The Fives',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -371,7 +371,7 @@ const hotelList = {
 	azulsensatori: {
 		name: 'Azul Sensatori',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -387,7 +387,7 @@ const hotelList = {
 	bahiapincipeakumal: {
 		name: 'Bahia Principe Akumal',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:00',
 		xavage: '7:30',
 		xcaret: '9:05',
@@ -403,7 +403,7 @@ const hotelList = {
 	bahiapincipegrandcoba: {
 		name: 'Bahia Principe Grand Coba',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:00',
 		xavage: '7:25',
 		xcaret: '9:00',
@@ -419,7 +419,7 @@ const hotelList = {
 	bahiapincipesiankaan: {
 		name: 'Bahia Principe Sian Kaan',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:00',
 		xavage: '7:25',
 		xcaret: '8:50',
@@ -435,7 +435,7 @@ const hotelList = {
 	bahiapincipegrandtulum: {
 		name: 'Bahia Principe Grand Tulum',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:00',
 		xavage: '7:30',
 		xcaret: '9:15',
@@ -451,7 +451,7 @@ const hotelList = {
 	banyantreemayakoba: {
 		name: 'Banyan Tree Mayakoba',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '6:05',
 		xavage: '8:20',
 		xcaret: '7:05',
@@ -467,7 +467,7 @@ const hotelList = {
 	barcelomayabeach: {
 		name: 'Barcelo Maya Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: 999,
 		xcaret: 999,
@@ -483,7 +483,7 @@ const hotelList = {
 	barcelomayacaribe: {
 		name: 'Barcelo Maya Caribe',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:35',
 		xcaret: '7:15',
@@ -499,7 +499,7 @@ const hotelList = {
 	barcelomayacolonial: {
 		name: 'Barcelo Maya Colonial',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:40',
 		xcaret: '7:25',
@@ -515,7 +515,7 @@ const hotelList = {
 	barcelomayapalace: {
 		name: 'Barcelo Maya Palace',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:40',
 		xcaret: '7:25',
@@ -531,7 +531,7 @@ const hotelList = {
 	barcelomayariviera: {
 		name: 'Barcelo Maya Riviera',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:35',
 		xcaret: '7:15',
@@ -547,7 +547,7 @@ const hotelList = {
 	barcelomayatropical: {
 		name: 'Barcelo Maya Tropical',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: 999,
 		xcaret: 999,
@@ -579,7 +579,7 @@ const hotelList = {
 	beachpalace: {
 		name: 'Beach Palace',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -595,7 +595,7 @@ const hotelList = {
 	beachscapekinhavillas: {
 		name: 'Beachscape Kin Ha Villas',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -611,7 +611,7 @@ const hotelList = {
 	belmondmaroma: {
 		name: 'Belmond Maroma',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:35',
 		xcaret: '7:15',
@@ -627,7 +627,7 @@ const hotelList = {
 	belovedplayamujeres: {
 		name: 'Beloved Playa Mujeres',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:05',
 		xavage: '6:35',
 		xcaret: '6:35',
@@ -643,7 +643,7 @@ const hotelList = {
 	bluebaygrandesmeralda: {
 		name: 'Blue Bay Grand Esmeralda',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:05',
 		xcaret: '7:20',
@@ -659,7 +659,7 @@ const hotelList = {
 	bluediamond: {
 		name: 'Blue Diamond',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:30',
 		xcaret: '7:10',
@@ -673,9 +673,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	breathlesscancunsoul: {
-		name: 'Breathless Cancun Soul',
+		name: 'Breathless Cancún Soul',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -689,9 +689,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu18,
 	},
 	breathlessrivieracancun: {
-		name: 'Breathless Riviera Cancun',
+		name: 'Breathless Riviera Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:45',
 		xcaret: '8:25',
@@ -707,7 +707,7 @@ const hotelList = {
 	brisascondos: {
 		name: 'Brisas Condos',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: 999,
 		xcaret: 999,
@@ -721,9 +721,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu3,
 	},
 	bseacancunplaza: {
-		name: 'Bsea Cancun Plaza',
+		name: 'Bsea Cancún Plaza',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -739,7 +739,7 @@ const hotelList = {
 	calypso: {
 		name: 'Calypso',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: 999,
 		xcaret: 999,
@@ -755,7 +755,7 @@ const hotelList = {
 	cancunbayresort: {
 		name: 'Cancun Bay Resort',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -771,7 +771,7 @@ const hotelList = {
 	canopybyhilton: {
 		name: 'Canopy by Hilton',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '7:15',
 		xcaret: '7:15',
@@ -787,7 +787,7 @@ const hotelList = {
 	caribbeanparadise: {
 		name: 'Caribbean Paradise',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -803,7 +803,7 @@ const hotelList = {
 	caribeinternacional: {
 		name: 'Caribe Internacional',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -819,7 +819,7 @@ const hotelList = {
 	carmininn: {
 		name: 'Carmin Inn',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -835,7 +835,7 @@ const hotelList = {
 	carrillos: {
 		name: 'Carrillos',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -851,7 +851,7 @@ const hotelList = {
 	casamaya: {
 		name: 'Casa Maya',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -867,7 +867,7 @@ const hotelList = {
 	casaticul: {
 		name: 'Casa Ticul',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -883,7 +883,7 @@ const hotelList = {
 	casaturquesa: {
 		name: 'Casa Turquesa',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:35',
 		xavage: 999,
 		xcaret: 999,
@@ -899,7 +899,7 @@ const hotelList = {
 	cataloniagrandcostamujeres: {
 		name: 'Catalonia Grand Costa Mujeres',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -909,13 +909,13 @@ const hotelList = {
 		xoximilco: '18:10',
 		xplor: '6:40',
 		xplorFuego: '14:40',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu14,
 	},
 	cataloniaplayamaroma: {
 		name: 'Catalonia Playa Maroma',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: '9:45',
 		xcaret: '7:30',
@@ -931,7 +931,7 @@ const hotelList = {
 	cataloniarivieramaya: {
 		name: 'Catalonia Riviera Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:30',
 		xcaret: '7:50',
@@ -947,7 +947,7 @@ const hotelList = {
 	cataloniaroyaltulum: {
 		name: 'Catalonia Royal Tulum',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:25',
 		xcaret: '7:00',
@@ -963,7 +963,7 @@ const hotelList = {
 	cataloniayucatan: {
 		name: 'Catalonia Yucatan',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:25',
 		xcaret: '7:40',
@@ -979,7 +979,7 @@ const hotelList = {
 	citycondos: {
 		name: 'City Condos',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -995,7 +995,7 @@ const hotelList = {
 	cityexpressplayadelcarmen: {
 		name: 'City Express Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: '7:20',
 		xcaret: '9:20',
@@ -1009,9 +1009,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	cityexpresspluscancun: {
-		name: 'City Express Plus Cancun',
+		name: 'City Express Plus Cancún',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '10:10',
 		xcaret: '8:20',
@@ -1027,7 +1027,7 @@ const hotelList = {
 	clubmed: {
 		name: 'Club Med',
 		sb805: 35,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:35',
 		xcaret: '6:35',
@@ -1043,7 +1043,7 @@ const hotelList = {
 	clubregina: {
 		name: 'Club Regina',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -1059,7 +1059,7 @@ const hotelList = {
 	colibribeach: {
 		name: 'Colibri Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1075,7 +1075,7 @@ const hotelList = {
 	colonialcancún: {
 		name: 'Colonial Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1091,7 +1091,7 @@ const hotelList = {
 	comfortinn: {
 		name: 'Comfort Inn',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:20',
 		xavage: '9:55',
 		xcaret: '7:30',
@@ -1123,7 +1123,7 @@ const hotelList = {
 	coralmar: {
 		name: 'Coral Mar',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -1139,7 +1139,7 @@ const hotelList = {
 	courtyardbymarriot: {
 		name: 'Courtyard by Marriot',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -1155,7 +1155,7 @@ const hotelList = {
 	crownparadiseclub: {
 		name: 'Crown Paradise Club',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -1171,7 +1171,7 @@ const hotelList = {
 	cyan: {
 		name: 'Cyan',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -1187,7 +1187,7 @@ const hotelList = {
 	desirerivieramayapearlresort: {
 		name: 'Desire Riviera Maya Pearl Resort',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:35',
 		xcaret: '7:50',
@@ -1203,7 +1203,7 @@ const hotelList = {
 	desirerivieraresort: {
 		name: 'Desire Riviera Resort',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:35',
 		xcaret: '7:50',
@@ -1217,9 +1217,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	dosplayasfarandacancun: {
-		name: 'Dos Playas Faranda Cancun',
+		name: 'Dos Playas Faranda Cancún',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -1235,7 +1235,7 @@ const hotelList = {
 	dreamsaventuras: {
 		name: 'Dreams Aventuras',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:15',
 		xcaret: '7:30',
@@ -1251,7 +1251,7 @@ const hotelList = {
 	dreamsjade: {
 		name: 'Dreams Jade',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:55',
 		xavage: '9:35',
 		xcaret: '8:10',
@@ -1267,7 +1267,7 @@ const hotelList = {
 	dreamsnatura: {
 		name: 'Dreams Natura',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '10:00',
 		xcaret: '7:15',
@@ -1283,7 +1283,7 @@ const hotelList = {
 	dreamsplayamujeres: {
 		name: 'Dreams Playa Mujeres',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -1297,9 +1297,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu24,
 	},
 	dreamsrivieracancun: {
-		name: 'Dreams Riviera Cancun',
+		name: 'Dreams Riviera Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:50',
 		xcaret: '7:45',
@@ -1315,7 +1315,7 @@ const hotelList = {
 	dreamssands: {
 		name: 'Dreams Sands',
 		sb805: 999,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:50',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -1331,7 +1331,7 @@ const hotelList = {
 	dreamssapphire: {
 		name: 'Dreams Sapphire',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:45',
 		xcaret: '7:35',
@@ -1347,7 +1347,7 @@ const hotelList = {
 	dreamsvista: {
 		name: 'Dreams Vista',
 		sb805: 35,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:00',
 		xavage: '6:35',
 		xcaret: '6:35',
@@ -1363,7 +1363,7 @@ const hotelList = {
 	eldoradocasitasroyale: {
 		name: 'El Dorado Casitas Royale',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: 999,
 		xcaret: 999,
@@ -1379,7 +1379,7 @@ const hotelList = {
 	eldoradomaroma: {
 		name: 'El Dorado Maroma',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: '9:25',
 		xcaret: '7:10',
@@ -1395,7 +1395,7 @@ const hotelList = {
 	eldoradoroyale: {
 		name: 'El Dorado Royale',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '9:35',
 		xcaret: '7:25',
@@ -1411,7 +1411,7 @@ const hotelList = {
 	eldoradoseasidesuites: {
 		name: 'El Dorado Seaside Suites',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:15',
 		xcaret: '6:45',
@@ -1427,7 +1427,7 @@ const hotelList = {
 	elreydelcaribe: {
 		name: 'El Rey del Caribe',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1443,7 +1443,7 @@ const hotelList = {
 	elcid: {
 		name: 'El Cid',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:55',
 		xavage: '9:30',
 		xcaret: '8:10',
@@ -1459,7 +1459,7 @@ const hotelList = {
 	emporio: {
 		name: 'Emporio',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -1475,7 +1475,7 @@ const hotelList = {
 	enigmatichotel: {
 		name: 'Enigmatic Hotel',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1491,7 +1491,7 @@ const hotelList = {
 	esenciamistica: {
 		name: 'Esencia Mistica',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '5:20',
 		xavage: 999,
 		xcaret: 999,
@@ -1507,7 +1507,7 @@ const hotelList = {
 	etereoaubergeresortscollection: {
 		name: 'Etereo Auberge Resorts Collection',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: 999,
 		xcaret: 999,
@@ -1523,7 +1523,7 @@ const hotelList = {
 	excellenceplayamujeres: {
 		name: 'Excellence Playa Mujeres',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -1539,7 +1539,7 @@ const hotelList = {
 	excellenceriviera: {
 		name: 'Excellence Riviera',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:55',
 		xcaret: '7:55',
@@ -1555,7 +1555,7 @@ const hotelList = {
 	fairmontmayakoba: {
 		name: 'Fairmont Mayakoba',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -1571,7 +1571,7 @@ const hotelList = {
 	fiestaamericanacondesa: {
 		name: 'Fiesta Americana Condesa',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -1587,7 +1587,7 @@ const hotelList = {
 	fiestaamericanagrandcoralbeach: {
 		name: 'Fiesta Americana Grand Coral Beach',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -1601,9 +1601,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu3,
 	},
 	fiestaamericanavillascancun: {
-		name: 'Fiesta Americana Villas Cancun',
+		name: 'Fiesta Americana Villas Cancún',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -1617,9 +1617,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu17,
 	},
 	fiestainncancunlasamericas: {
-		name: 'Fiesta Inn Cancun Las Americas',
+		name: 'Fiesta Inn Cancún Las Americas',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1635,7 +1635,7 @@ const hotelList = {
 	fiestainnplayadelcarmen: {
 		name: 'Fiesta Inn Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1651,7 +1651,7 @@ const hotelList = {
 	finestplayamujeres: {
 		name: 'Finest Playa Mujeres',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -1667,7 +1667,7 @@ const hotelList = {
 	fivesbeach: {
 		name: 'Fives Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:45',
 		xcaret: '7:15',
@@ -1683,7 +1683,7 @@ const hotelList = {
 	fivesdowntown: {
 		name: 'Fives Downtown',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1699,7 +1699,7 @@ const hotelList = {
 	fivesoceanfront: {
 		name: 'Fives Oceanfront',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:50',
 		xcaret: '7:55',
@@ -1715,7 +1715,7 @@ const hotelList = {
 	flamingo: {
 		name: 'Flamingo',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -1731,7 +1731,7 @@ const hotelList = {
 	fourpoints: {
 		name: 'Four Points',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -1747,7 +1747,7 @@ const hotelList = {
 	garzablanca: {
 		name: 'Garza Blanca',
 		sb805: 40,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -1763,7 +1763,7 @@ const hotelList = {
 	generationsrivieramaya: {
 		name: 'Generations Riviera Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '9:30',
 		xcaret: '7:15',
@@ -1779,7 +1779,7 @@ const hotelList = {
 	goldenparnasus: {
 		name: 'Golden Parnasus',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -1795,7 +1795,7 @@ const hotelList = {
 	grcaribe: {
 		name: 'GR Caribe',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -1811,7 +1811,7 @@ const hotelList = {
 	grsolaris: {
 		name: 'GR Solaris',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -1827,7 +1827,7 @@ const hotelList = {
 	grandbaihaprincipeakumal: {
 		name: 'Grand Bahia Principe Akumal',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -1843,7 +1843,7 @@ const hotelList = {
 	grandbaihaprincipecoba: {
 		name: 'Grand Bahia Principe Coba',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -1859,7 +1859,7 @@ const hotelList = {
 	grandbaihaprincipesiankan: {
 		name: 'Grand Bahia Principe Sian Kaan',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -1875,7 +1875,7 @@ const hotelList = {
 	grandbaihaprincipetulum: {
 		name: 'Grand Bahia Principe Tulum',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -1891,7 +1891,7 @@ const hotelList = {
 	grandcityhotel: {
 		name: 'Grand City Hotel',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -1907,7 +1907,7 @@ const hotelList = {
 	grandhyattplayadelcarmen: {
 		name: 'Grand Hyatt Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: '7:45',
 		xcaret: '9:30',
@@ -1921,9 +1921,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	grandoasiscancun: {
-		name: 'Grand Oasis Cancun',
+		name: 'Grand Oasis Cancún',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -1937,9 +1937,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu4,
 	},
 	grandresidencesrivieracancun: {
-		name: 'Grand Residences Riviera Cancun',
+		name: 'Grand Residences Riviera Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:40',
 		xcaret: '8:15',
@@ -1955,7 +1955,7 @@ const hotelList = {
 	grandoasispalm: {
 		name: 'Grand Oasis Palm',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -1971,7 +1971,7 @@ const hotelList = {
 	grandpalladiumcolonial: {
 		name: 'Grand Palladium Colonial',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '8:05',
 		xcaret: '8:05',
@@ -1987,7 +1987,7 @@ const hotelList = {
 	grandpalladiumcostamujeres: {
 		name: 'Grand Palladium Costa Mujeres',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -1997,13 +1997,13 @@ const hotelList = {
 		xoximilco: '18:00',
 		xplor: '7:00',
 		xplorFuego: '14:30',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu20,
 	},
 	grandpalladiumkantenah: {
 		name: 'Grand Palladium Kantenah',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -2019,7 +2019,7 @@ const hotelList = {
 	grandpalladiumwhitesand: {
 		name: 'Grand Palladium White Sand',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '7:55',
 		xcaret: '7:55',
@@ -2035,7 +2035,7 @@ const hotelList = {
 	grandparkroyal: {
 		name: 'Grand Park Royal',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -2051,7 +2051,7 @@ const hotelList = {
 	grandresidences: {
 		name: 'Grand Residences',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:55',
 		xavage: '9:40',
 		xcaret: '8:15',
@@ -2067,7 +2067,7 @@ const hotelList = {
 	grandrivieraprincess: {
 		name: 'Grand Riviera Princess',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:55',
 		xcaret: '7:35',
@@ -2083,7 +2083,7 @@ const hotelList = {
 	grandsirenis: {
 		name: 'Grand Sirenis',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '7:15',
 		xcaret: '7:40',
@@ -2099,7 +2099,7 @@ const hotelList = {
 	grandsunsetprincess: {
 		name: 'Grand Sunset Princess',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: null,
 		xavage: '8:55',
 		xcaret: '7:40',
@@ -2115,7 +2115,7 @@ const hotelList = {
 	grandvelas: {
 		name: 'Grand Velas',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:10',
 		xcaret: '7:00',
@@ -2131,7 +2131,7 @@ const hotelList = {
 	green16poktapok: {
 		name: 'Green 16 Pok Ta Pok',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: 999,
 		xcaret: 999,
@@ -2147,7 +2147,7 @@ const hotelList = {
 	haciendadonaisabel: {
 		name: 'Hacienda Dona Isabel',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -2163,7 +2163,7 @@ const hotelList = {
 	haciendamorelos: {
 		name: 'Hacienda Morelos',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:00',
 		xavage: '9:45',
 		xcaret: '8:20',
@@ -2179,7 +2179,7 @@ const hotelList = {
 	haciendatresrios: {
 		name: 'Hacienda Tres Rios',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: '9:15',
 		xcaret: '7:30',
@@ -2195,7 +2195,7 @@ const hotelList = {
 	haciendavistareal: {
 		name: 'Hacienda Vista Real',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -2209,9 +2209,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	hardrockcancun: {
-		name: 'Hard Rock Cancun',
+		name: 'Hard Rock Cancún',
 		sb805: 35,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '7:15',
 		xcaret: '7:15',
@@ -2227,7 +2227,7 @@ const hotelList = {
 	hardrockrivieramayahacienda: {
 		name: 'Hard Rock Riviera Maya Hacienda',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:40',
 		xcaret: '7:50',
@@ -2243,7 +2243,7 @@ const hotelList = {
 	hardrockrivieramayaheaven: {
 		name: 'Hard Rock Riviera Maya Heaven',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:40',
 		xcaret: '7:50',
@@ -2257,9 +2257,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	havenrivieracancun: {
-		name: 'Haven Riviera Cancun',
+		name: 'Haven Riviera Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:20',
 		xavage: '9:45',
 		xcaret: '7:40',
@@ -2275,7 +2275,7 @@ const hotelList = {
 	hiddenbeach: {
 		name: 'Hidden Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: 999,
 		xcaret: 999,
@@ -2291,7 +2291,7 @@ const hotelList = {
 	hideawayatroyalton: {
 		name: 'Hideaway at Royalton',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:20',
 		xavage: 999,
 		xcaret: 999,
@@ -2305,9 +2305,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	hiltoncancun: {
-		name: 'Hilton Cancun',
+		name: 'Hilton Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:20',
 		xavage: '9:25',
 		xcaret: '7:20',
@@ -2323,7 +2323,7 @@ const hotelList = {
 	hiltonplayadelcarmen: {
 		name: 'Hilton Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: '7:50',
 		xcaret: '9:25',
@@ -2339,7 +2339,7 @@ const hotelList = {
 	hiltontulumrivieramaya: {
 		name: 'Hilton Tulum Riviera Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '7:15',
 		xcaret: '6:50',
@@ -2355,7 +2355,7 @@ const hotelList = {
 	hmplayadelcarmen: {
 		name: 'HM Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2371,7 +2371,7 @@ const hotelList = {
 	holidayinnexpresssuitesplayadelcarmen: {
 		name: 'Holiday Inn Express Suites Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2387,7 +2387,7 @@ const hotelList = {
 	hotel52: {
 		name: 'Hotel 52',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2403,7 +2403,7 @@ const hotelList = {
 	hotelitodelmar: {
 		name: 'Hotelito del Mar',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2419,7 +2419,7 @@ const hotelList = {
 	hyattzilara: {
 		name: 'Hyatt Zilara',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -2433,9 +2433,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu8,
 	},
 	hyattzivacancun: {
-		name: 'Hyatt Ziva Cancun',
+		name: 'Hyatt Ziva Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -2451,7 +2451,7 @@ const hotelList = {
 	hyattzivariviera: {
 		name: 'Hyatt Ziva Riviera',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:50',
 		xcaret: '8:15',
@@ -2465,9 +2465,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	iberostarcancun: {
-		name: 'Iberostar Cancun',
+		name: 'Iberostar Cancún',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -2483,7 +2483,7 @@ const hotelList = {
 	iberostarplayaparaisobeach: {
 		name: 'Iberostar Playa Paraiso Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '8:55',
 		xcaret: '7:20',
@@ -2499,7 +2499,7 @@ const hotelList = {
 	iberostarplayaparaisogrand: {
 		name: 'Iberostar Playa Paraiso Grand',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '8:55',
 		xcaret: '7:20',
@@ -2515,7 +2515,7 @@ const hotelList = {
 	iberostarplayaparaisolindo: {
 		name: 'Iberostar Playa Paraiso Lindo',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '8:45',
 		xcaret: '7:10',
@@ -2531,7 +2531,7 @@ const hotelList = {
 	iberostarplayaparaisomar: {
 		name: 'Iberostar Playa Paraiso Mar',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '8:55',
 		xcaret: '7:25',
@@ -2547,7 +2547,7 @@ const hotelList = {
 	iberostarplayaparaisomaya: {
 		name: 'Iberostar Playa Paraiso Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '8:45',
 		xcaret: '7:00',
@@ -2563,7 +2563,7 @@ const hotelList = {
 	iberostarquetzal: {
 		name: 'Iberostar Quetzal',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: 999,
 		xcaret: 999,
@@ -2579,7 +2579,7 @@ const hotelList = {
 	iberostartucan: {
 		name: 'Iberostar Tucan',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:10',
 		xcaret: '9:00',
@@ -2593,9 +2593,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	ibiscancun: {
-		name: 'Ibis Cancun',
+		name: 'Ibis Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2611,7 +2611,7 @@ const hotelList = {
 	imperiallaguna: {
 		name: 'Imperial Laguna',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: 999,
 		xcaret: 999,
@@ -2627,7 +2627,7 @@ const hotelList = {
 	imperiallasperlas: {
 		name: 'Imperial Las Perlas',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -2643,7 +2643,7 @@ const hotelList = {
 	innfashion: {
 		name: 'Inn Fashion',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2659,7 +2659,7 @@ const hotelList = {
 	jwmarriot: {
 		name: 'JW Marriot',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -2675,7 +2675,7 @@ const hotelList = {
 	kabahboutiquehotel: {
 		name: 'Kabah Boutique Hotel',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: 999,
 		xcaret: 999,
@@ -2689,9 +2689,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu22,
 	},
 	kaviacancunhotel: {
-		name: 'Kavia Cancun Hotel',
+		name: 'Kavia Cancún Hotel',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2707,7 +2707,7 @@ const hotelList = {
 	kaviaplus: {
 		name: 'Kavia Plus',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2721,9 +2721,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu17,
 	},
 	krystalcancun: {
-		name: 'Krystal Cancun',
+		name: 'Krystal Cancún',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:35',
 		xcaret: '6:35',
@@ -2737,9 +2737,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu12,
 	},
 	krystalgrandcancun: {
-		name: 'Krystal Grand Cancun',
+		name: 'Krystal Grand Cancún',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -2755,7 +2755,7 @@ const hotelList = {
 	krystalurban: {
 		name: 'Krystal Urban',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -2771,7 +2771,7 @@ const hotelList = {
 	laamada: {
 		name: 'La Amada',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: 999,
 		xcaret: 999,
@@ -2787,7 +2787,7 @@ const hotelList = {
 	lapasionhotelboutique: {
 		name: 'La Pasion Hotel Boutique',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2801,9 +2801,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	laquintabywyndhamcancun: {
-		name: 'La Quinta by Wyndham Cancun',
+		name: 'La Quinta by Wyndham Cancún',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2819,7 +2819,7 @@ const hotelList = {
 	labnah: {
 		name: 'Labnah',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2835,7 +2835,7 @@ const hotelList = {
 	lascasitasakumal: {
 		name: 'Las Casitas Akumal',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -2851,7 +2851,7 @@ const hotelList = {
 	lasgolondrinas: {
 		name: 'Las Golondrinas',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2867,7 +2867,7 @@ const hotelList = {
 	leblanc: {
 		name: 'Le Blanc',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -2883,7 +2883,7 @@ const hotelList = {
 	lereve: {
 		name: 'Le Reve',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:00',
 		xcaret: '7:00',
@@ -2899,7 +2899,7 @@ const hotelList = {
 	liveaqua: {
 		name: 'Live Aqua',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -2913,9 +2913,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu8,
 	},
 	loscuatesdecancun: {
-		name: 'Los Cuates de Cancun',
+		name: 'Los Cuates de Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2931,7 +2931,7 @@ const hotelList = {
 	lositzaes: {
 		name: 'Los Itzaes',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2947,7 +2947,7 @@ const hotelList = {
 	lumabykavia: {
 		name: 'Luma by Kavia',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2963,7 +2963,7 @@ const hotelList = {
 	lunata: {
 		name: 'Lunata',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2979,7 +2979,7 @@ const hotelList = {
 	mahekalbeachresort: {
 		name: 'Mahekal Beach Resort',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -2995,7 +2995,7 @@ const hotelList = {
 	majesticelegance: {
 		name: 'Majestic Elegance',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:35',
 		xcaret: '6:35',
@@ -3005,13 +3005,13 @@ const hotelList = {
 		xoximilco: '18:10',
 		xplor: '6:35',
 		xplorFuego: '14:40',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu16,
 	},
 	mareazulbeachresortrivieramaya: {
 		name: 'Mareazul Beach Resort Riviera Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -3027,7 +3027,7 @@ const hotelList = {
 	margaritavilleislandreserve: {
 		name: 'Margaritaville Island Reserve',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:35',
 		xcaret: '7:45',
@@ -3041,9 +3041,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	marriottcancun: {
-		name: 'Marriott Cancun',
+		name: 'Marriott Cancún',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3059,7 +3059,7 @@ const hotelList = {
 	marvichotelboutique: {
 		name: 'Marvi Hotel Boutique',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3075,7 +3075,7 @@ const hotelList = {
 	mayacaribe: {
 		name: 'Maya Caribe',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: 999,
 		xcaret: 999,
@@ -3091,7 +3091,7 @@ const hotelList = {
 	mayanmonkey: {
 		name: 'Mayan Monkey',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3107,7 +3107,7 @@ const hotelList = {
 	melodymaker: {
 		name: 'Melody Maker',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -3121,9 +3121,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu8,
 	},
 	mexhotelescancuncentro: {
-		name: 'Mex Hotels Cancun Centro',
+		name: 'Mex Hotels Cancún Centro',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3137,9 +3137,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu17,
 	},
 	miacancun: {
-		name: 'Mia Cancun',
+		name: 'Mia Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: 999,
 		xcaret: 999,
@@ -3155,7 +3155,7 @@ const hotelList = {
 	moonpalacegrand: {
 		name: 'Moon Palace Grand',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '9:55',
 		xcaret: '7:45',
@@ -3171,7 +3171,7 @@ const hotelList = {
 	moonpalacenizuc: {
 		name: 'Moon Palace Nizuc',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '10:05',
 		xcaret: '8:05',
@@ -3187,7 +3187,7 @@ const hotelList = {
 	moonpalacesunrise: {
 		name: 'Moon Palace Sunrise',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '10:00',
 		xcaret: '7:55',
@@ -3203,7 +3203,7 @@ const hotelList = {
 	nickelodeon: {
 		name: 'Nickelodeon',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:30',
 		xavage: '9:20',
 		xcaret: '7:00',
@@ -3219,7 +3219,7 @@ const hotelList = {
 	nizucresortandspa: {
 		name: 'Nizuc Resort and Spa',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:30',
 		xcaret: '6:30',
@@ -3235,7 +3235,7 @@ const hotelList = {
 	nomadshotel: {
 		name: 'Nomads Hotel',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3251,7 +3251,7 @@ const hotelList = {
 	nowemerald: {
 		name: 'Now Emerald',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3265,9 +3265,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu3,
 	},
 	nyxcancun: {
-		name: 'NYX Cancun',
+		name: 'NYX Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3283,7 +3283,7 @@ const hotelList = {
 	occidentalatxcaretdestination: {
 		name: 'Occidental at Xcaret Destination',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:20',
 		xavage: '9:30',
 		xcaret: '9:30',
@@ -3297,9 +3297,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	occidentalcostacancun: {
-		name: 'Occidental Costa Cancun',
+		name: 'Occidental Costa Cancún',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -3315,7 +3315,7 @@ const hotelList = {
 	occidentaltucancun: {
 		name: 'Occidental Tucancun',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '7:15',
 		xcaret: '7:15',
@@ -3331,7 +3331,7 @@ const hotelList = {
 	oceancoralandturquesa: {
 		name: 'Ocean Coral and Turquesa',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:45',
 		xcaret: '7:25',
@@ -3347,7 +3347,7 @@ const hotelList = {
 	oceandream: {
 		name: 'Ocean Dream',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3363,7 +3363,7 @@ const hotelList = {
 	oceanhotelandspa: {
 		name: 'Ocean Hotel and Spa',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -3379,7 +3379,7 @@ const hotelList = {
 	oceanmayaroyale: {
 		name: 'Ocean Maya Royale',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: '8:55',
 		xcaret: '7:10',
@@ -3395,7 +3395,7 @@ const hotelList = {
 	oceanrivieraparadise: {
 		name: 'Ocean Riviera Paradise',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:50',
 		xcaret: '7:25',
@@ -3409,9 +3409,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	oceanviewcancunarenas: {
-		name: 'Ocean View Cancun Arenas',
+		name: 'Ocean View Cancún Arenas',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -3425,9 +3425,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu15,
 	},
 	ohcancuntheurbanoasis: {
-		name: 'Oh Cancun The Urban Oasis',
+		name: 'Oh Cancún The Urban Oasis',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3443,7 +3443,7 @@ const hotelList = {
 	oleo: {
 		name: 'Oleo',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -3459,7 +3459,7 @@ const hotelList = {
 	omni: {
 		name: 'Omni',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3473,9 +3473,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu13,
 	},
 	onecancun: {
-		name: 'One Cancun',
+		name: 'One Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3491,7 +3491,7 @@ const hotelList = {
 	oneplayadelcarmen: {
 		name: 'One Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3505,9 +3505,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	paradisuscancun: {
-		name: 'Paradisus Cancun',
+		name: 'Paradisus Cancún',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -3523,7 +3523,7 @@ const hotelList = {
 	paradisuslaesmeralda: {
 		name: 'Paradisus La Esmeralda',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -3539,7 +3539,7 @@ const hotelList = {
 	palmatplaya: {
 		name: 'Palma T Playa',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3555,7 +3555,7 @@ const hotelList = {
 	paradisuslaperla: {
 		name: 'Paradisus La Perla',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:15',
 		xcaret: '7:10',
@@ -3571,7 +3571,7 @@ const hotelList = {
 	paradisusplayadelcarmen: {
 		name: 'Paradisus Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: '8:25',
 		xcaret: '7:15',
@@ -3587,7 +3587,7 @@ const hotelList = {
 	paradisusplayamujeres: {
 		name: 'Paradisus Playa Mujeres',
 		sb805: 45,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: 999,
 		xcaret: 999,
@@ -3601,9 +3601,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu24,
 	},
 	paradorcancun: {
-		name: 'Parador Cancun',
+		name: 'Parador Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3617,9 +3617,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu17,
 	},
 	parkroyalcancun: {
-		name: 'Park Royal Cancun',
+		name: 'Park Royal Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -3635,7 +3635,7 @@ const hotelList = {
 	pavoreal: {
 		name: 'Pavo Real',
 		sb805: 30,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:30',
 		xavage: '7:15',
 		xcaret: '8:40',
@@ -3651,7 +3651,7 @@ const hotelList = {
 	planethollywood: {
 		name: 'Planet Hollywood',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -3661,13 +3661,13 @@ const hotelList = {
 		xoximilco: '18:20',
 		xplor: '6:45',
 		xplorFuego: '14:50',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu14,
 	},
 	playacarpalace: {
 		name: 'Playacar Palace',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '7:30',
 		xcaret: '9:30',
@@ -3683,7 +3683,7 @@ const hotelList = {
 	presidenteintercontinental: {
 		name: 'Presidente Intercontinental',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -3699,7 +3699,7 @@ const hotelList = {
 	puntaesmeraldahotel: {
 		name: 'Punta Esmeralda Hotel',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -3715,7 +3715,7 @@ const hotelList = {
 	realinn: {
 		name: 'Real Inn',
 		sb805: 0,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -3731,7 +3731,7 @@ const hotelList = {
 	reef28: {
 		name: 'Reef 28',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: '7:50',
 		xcaret: '9:50',
@@ -3747,7 +3747,7 @@ const hotelList = {
 	reefcocobeach: {
 		name: 'Reef Coco Beach',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:05',
 		xcaret: '7:00',
@@ -3763,7 +3763,7 @@ const hotelList = {
 	reefplayacar: {
 		name: 'Reef Playacar',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:35',
 		xcaret: '9:30',
@@ -3779,7 +3779,7 @@ const hotelList = {
 	reinaroja: {
 		name: 'Reina Roja',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -3795,7 +3795,7 @@ const hotelList = {
 	renaissance: {
 		name: 'Renaissance',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3809,9 +3809,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu15,
 	},
 	residenceinncancun: {
-		name: 'Residence Inn Cancun',
+		name: 'Residence Inn Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: 999,
 		xcaret: 999,
@@ -3827,7 +3827,7 @@ const hotelList = {
 	residenceinnplayadelcarmen: {
 		name: 'Residence Inn Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:30',
 		xavage: '7:15',
 		xcaret: '9:20',
@@ -3843,7 +3843,7 @@ const hotelList = {
 	ritzcarlton: {
 		name: 'Ritz Carlton',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3857,9 +3857,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu11,
 	},
 	riucancun: {
-		name: 'Riu Cancun',
+		name: 'Riu Cancún',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -3875,7 +3875,7 @@ const hotelList = {
 	riucaribe: {
 		name: 'Riu Caribe',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -3891,7 +3891,7 @@ const hotelList = {
 	riudunamar: {
 		name: 'Riu Dunamar',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -3901,13 +3901,13 @@ const hotelList = {
 		xoximilco: '18:20',
 		xplor: '6:55',
 		xplorFuego: '14:50',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu9,
 	},
 	riulupita: {
 		name: 'Riu Lupita',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:40',
 		xcaret: '9:40',
@@ -3923,7 +3923,7 @@ const hotelList = {
 	riulatino: {
 		name: 'Riu Latino',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:00',
 		xavage: '6:30',
 		xcaret: '6:30',
@@ -3933,13 +3933,13 @@ const hotelList = {
 		xoximilco: '17:55',
 		xplor: '6:30',
 		xplorFuego: '14:25',
-		location: 'cun',
+		location: 'cm',
 		mpnPickup: mpnCol.pu16,
 	},
 	riupalacecostamujeres: {
 		name: 'Riu Palace Costa Mujeres',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -3949,13 +3949,13 @@ const hotelList = {
 		xoximilco: '18:20',
 		xplor: '6:50',
 		xplorFuego: '14:50',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu9,
 	},
 	riupalacelasamericas: {
 		name: 'Riu Palace Las Americas',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -3971,7 +3971,7 @@ const hotelList = {
 	riupalacemexico: {
 		name: 'Riu Palace Mexico',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:20',
 		xcaret: '9:10',
@@ -3987,7 +3987,7 @@ const hotelList = {
 	riupalacepeninsula: {
 		name: 'Riu Palace Peninsula',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -4003,7 +4003,7 @@ const hotelList = {
 	riupalacerivieramaya: {
 		name: 'Riu Palace Riviera Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:25',
 		xcaret: '9:25',
@@ -4019,7 +4019,7 @@ const hotelList = {
 	riuplayacar: {
 		name: 'Riu Playacar',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:30',
 		xcaret: '9:15',
@@ -4035,7 +4035,7 @@ const hotelList = {
 	riutequila: {
 		name: 'Riu Tequila',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:40',
 		xcaret: '9:40',
@@ -4051,7 +4051,7 @@ const hotelList = {
 	riuyucatan: {
 		name: 'Riu Yucatan',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:20',
 		xcaret: '9:10',
@@ -4067,7 +4067,7 @@ const hotelList = {
 	rivieracaribemaya: {
 		name: 'Riviera Caribe Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4083,7 +4083,7 @@ const hotelList = {
 	rivieramayasuites: {
 		name: 'Riviera Maya Suites',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4099,7 +4099,7 @@ const hotelList = {
 	rosewoodmayakoba: {
 		name: 'Rosewood Mayakoba',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:20',
 		xcaret: '7:05',
@@ -4113,9 +4113,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	royalcancun: {
-		name: 'Royal Cancun',
+		name: 'Royal Cancún',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -4131,7 +4131,7 @@ const hotelList = {
 	royalhaciendas: {
 		name: 'Royal Haciendas',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '7:20',
 		xcaret: '7:20',
@@ -4147,7 +4147,7 @@ const hotelList = {
 	royalhideaway: {
 		name: 'Royal Hideaway',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: 999,
 		xcaret: 999,
@@ -4163,7 +4163,7 @@ const hotelList = {
 	royalislander: {
 		name: 'Royal Islander',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -4179,7 +4179,7 @@ const hotelList = {
 	royalsands: {
 		name: 'Royal Sands',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -4195,7 +4195,7 @@ const hotelList = {
 	royalsolaris: {
 		name: 'Royal Solaris',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -4211,7 +4211,7 @@ const hotelList = {
 	royaluno: {
 		name: 'Royal Uno',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:20',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -4227,7 +4227,7 @@ const hotelList = {
 	royaltonchic: {
 		name: 'Royalton Chic',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -4241,9 +4241,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu13,
 	},
 	royaltonrivieracancun: {
-		name: 'Royalton Riviera Cancun',
+		name: 'Royalton Riviera Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:20',
 		xavage: '10:15',
 		xcaret: '7:35',
@@ -4259,7 +4259,7 @@ const hotelList = {
 	royaltonsplash: {
 		name: 'Royalton Splash',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: '10:10',
 		xcaret: '7:25',
@@ -4275,7 +4275,7 @@ const hotelList = {
 	salvia: {
 		name: 'Salvia',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4289,9 +4289,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu13,
 	},
 	sandoscancun: {
-		name: 'Sandos Cancun',
+		name: 'Sandos Cancún',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -4307,7 +4307,7 @@ const hotelList = {
 	sandoscaracol: {
 		name: 'Sandos Caracol',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '8:40',
 		xcaret: '7:25',
@@ -4323,7 +4323,7 @@ const hotelList = {
 	sandosplayacar: {
 		name: 'Sandos Playacar',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:35',
 		xavage: '8:10',
 		xcaret: '9:00',
@@ -4339,7 +4339,7 @@ const hotelList = {
 	seadust: {
 		name: 'Seadust',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:25',
 		xavage: '6:55',
 		xcaret: '6:55',
@@ -4355,7 +4355,7 @@ const hotelList = {
 	secretsakumal: {
 		name: 'Secrets Akumal',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '7:10',
 		xcaret: '7:20',
@@ -4371,7 +4371,7 @@ const hotelList = {
 	secretscapri: {
 		name: 'Secrets Capri',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:45',
 		xavage: '8:45',
 		xcaret: '7:00',
@@ -4387,7 +4387,7 @@ const hotelList = {
 	secretsmaroma: {
 		name: 'Secrets Maroma',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:15',
 		xavage: '9:35',
 		xcaret: '7:20',
@@ -4403,7 +4403,7 @@ const hotelList = {
 	secretsmoxche: {
 		name: 'Secrets Playa Mujeres',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '8:35',
 		xcaret: '7:25',
@@ -4419,7 +4419,7 @@ const hotelList = {
 	secretsplayablanca: {
 		name: 'Secrets Playa Blanca',
 		sb805: 55,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -4429,13 +4429,13 @@ const hotelList = {
 		xoximilco: '18:20',
 		xplor: '6:50',
 		xplorFuego: '14:50',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu9,
 	},
 	secretsplayamujeres: {
 		name: 'Secrets Playa Mujeres',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -4449,9 +4449,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu26,
 	},
 	secretsrivieracancun: {
-		name: 'Secrets Riviera Cancun',
+		name: 'Secrets Riviera Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -4467,7 +4467,7 @@ const hotelList = {
 	secretsthevine: {
 		name: 'Secrets The Vine',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '6:45',
 		xcaret: '6:45',
@@ -4481,9 +4481,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu7,
 	},
 	selinacancundowntown: {
-		name: 'Selina Cancun Downtown',
+		name: 'Selina Cancún Downtown',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4497,9 +4497,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu17,
 	},
 	selinacancunlagoon: {
-		name: 'Selina Cancun Lagoon',
+		name: 'Selina Cancún Lagoon',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4515,7 +4515,7 @@ const hotelList = {
 	selinaplayadelcarmen: {
 		name: 'Selina Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4531,7 +4531,7 @@ const hotelList = {
 	sensesrivieramayabyartisan: {
 		name: 'Senses Riviera Maya by Artisan',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: 999,
 		xcaret: 999,
@@ -4547,7 +4547,7 @@ const hotelList = {
 	sensira: {
 		name: 'Sensira',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:35',
 		xcaret: '7:40',
@@ -4563,7 +4563,7 @@ const hotelList = {
 	sevenboutiqueapartments: {
 		name: 'Seven Boutique Apartments',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: 999,
 		xcaret: 999,
@@ -4579,7 +4579,7 @@ const hotelList = {
 	smartbyoasis: {
 		name: 'Smart by Oasis',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -4595,7 +4595,7 @@ const hotelList = {
 	solymar: {
 		name: 'Solymar',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -4611,7 +4611,7 @@ const hotelList = {
 	sotavento: {
 		name: 'Sotavento',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: 999,
 		xcaret: 999,
@@ -4627,7 +4627,7 @@ const hotelList = {
 	suitesbrisas: {
 		name: 'Suites Brisas',
 		sb805: 25,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:10',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -4643,7 +4643,7 @@ const hotelList = {
 	suitesgaby: {
 		name: 'Suites Gaby',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4657,9 +4657,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu26,
 	},
 	suitesmaleconcancun: {
-		name: 'Suites Malecon Cancun',
+		name: 'Suites Malecon Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4675,7 +4675,7 @@ const hotelList = {
 	sunpalace: {
 		name: 'Sun Palace',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -4691,7 +4691,7 @@ const hotelList = {
 	sunscapeakumal: {
 		name: 'Sunscape Akumal',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: '7:40',
 		xcaret: '7:00',
@@ -4707,7 +4707,7 @@ const hotelList = {
 	sunsetmarinaresort: {
 		name: 'Sunset Marina Resort',
 		sb805: 10,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:35',
 		xcaret: '6:35',
@@ -4723,7 +4723,7 @@ const hotelList = {
 	sunsetroyalbeach: {
 		name: 'Sunset Royal Beach',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -4739,7 +4739,7 @@ const hotelList = {
 	temptation: {
 		name: 'Temptation',
 		sb805: 5,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -4755,7 +4755,7 @@ const hotelList = {
 	terracaribe: {
 		name: 'Terra Caribe',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:00',
 		xavage: 999,
 		xcaret: 999,
@@ -4771,7 +4771,7 @@ const hotelList = {
 	terrasehotelplayadelcarmen: {
 		name: 'Terrase Hotel Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4787,7 +4787,7 @@ const hotelList = {
 	trscoral: {
 		name: 'TRS Coral',
 		sb805: 50,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:55',
 		xavage: '7:00',
 		xcaret: '7:00',
@@ -4797,13 +4797,13 @@ const hotelList = {
 		xoximilco: '18:00',
 		xplor: '7:00',
 		xplorFuego: '14:30',
-		location: 'pm',
+		location: 'cm',
 		mpnPickup: mpnCol.pu20,
 	},
 	trsyucatan: {
 		name: 'TRS Yucatan',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:10',
 		xavage: 999,
 		xcaret: 999,
@@ -4819,7 +4819,7 @@ const hotelList = {
 	tukan: {
 		name: 'Tukan',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4835,7 +4835,7 @@ const hotelList = {
 	unico2087: {
 		name: 'Unico 2087',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: '7:35',
 		xcaret: '8:15',
@@ -4851,7 +4851,7 @@ const hotelList = {
 	valentinimperial: {
 		name: 'Valentin Imperial',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '9:10',
 		xcaret: '7:50',
@@ -4867,7 +4867,7 @@ const hotelList = {
 	ventusatmarinaelcid: {
 		name: 'Ventus at Marina El Cid',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:55',
 		xavage: '9:25',
 		xcaret: '8:05',
@@ -4883,7 +4883,7 @@ const hotelList = {
 	viceroyrivieramaya: {
 		name: 'Viceroy Riviera Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: 999,
 		xcaret: 999,
@@ -4899,7 +4899,7 @@ const hotelList = {
 	vidanta: {
 		name: 'Vidanta',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:30',
 		xavage: '7:35',
 		xcaret: '7:35',
@@ -4912,10 +4912,10 @@ const hotelList = {
 		location: 'maya',
 		mpnPickup: mpnCol.pu,
 	},
-	villasdelpalmar: {
-		name: 'Villas del Palmar',
+	villadelpalmar: {
+		name: 'Villa del Palmar',
 		sb805: 40,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '7:10',
 		xavage: '7:05',
 		xcaret: '7:05',
@@ -4931,7 +4931,7 @@ const hotelList = {
 	vivawyndhamazteca: {
 		name: 'Viva Wyndham Azteca',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:25',
 		xcaret: '9:25',
@@ -4947,7 +4947,7 @@ const hotelList = {
 	vivawyndhammaya: {
 		name: 'Viva Wyndham Maya',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:35',
 		xavage: '8:25',
 		xcaret: '9:25',
@@ -4961,9 +4961,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	waldorfastoriacancun: {
-		name: 'Waldorf Astoria Cancun',
+		name: 'Waldorf Astoria Cancún',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:20',
 		xavage: '7:10',
 		xcaret: '7:10',
@@ -4979,7 +4979,7 @@ const hotelList = {
 	weplaya: {
 		name: 'We Playa',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: 999,
 		xcaret: 999,
@@ -4995,7 +4995,7 @@ const hotelList = {
 	westinlagunamar: {
 		name: 'Westin Lagunamar',
 		sb805: 20,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:35',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -5009,9 +5009,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu8,
 	},
 	westinresortandspacancun: {
-		name: 'Westin Resort and Spa Cancun',
+		name: 'Westin Resort and Spa Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:15',
 		xavage: '6:40',
 		xcaret: '6:40',
@@ -5025,9 +5025,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu1,
 	},
 	wyndhamalltracancun: {
-		name: 'Wyndham Alltra Cancun',
+		name: 'Wyndham Alltra Cancún',
 		sb805: 15,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:40',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -5043,7 +5043,7 @@ const hotelList = {
 	wyndhamaltraplayadelcarmen: {
 		name: 'Wyndham Alltra Playa del Carmen',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '5:45',
 		xavage: '7:45',
 		xcaret: '9:20',
@@ -5057,9 +5057,9 @@ const hotelList = {
 		mpnPickup: mpnCol.pu,
 	},
 	wyndhamgardencancun: {
-		name: 'Wyndham Garden Cancun',
+		name: 'Wyndham Garden Cancún',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: '6:50',
 		xcaret: '6:50',
@@ -5072,10 +5072,26 @@ const hotelList = {
 		location: 'cun',
 		mpnPickup: mpnCol.pu26,
 	},
+	wyndhamgrandcancun: {
+		name: 'Wyndham Grand Cancún',
+		sb805: 25,
+		whaleSharkTransportFee: 15,
+		whaleShark: '6:25',
+		xavage: '7:00',
+		xcaret: '7:00',
+		xelha: '7:00',
+		xenses: '7:00',
+		xichen: '7:00',
+		xoximilco: '18:45',
+		xplor: '7:00',
+		xplorFuego: '14:50',
+		location: 'cun',
+		mpnPickup: mpnCol.pu4,
+	},
 	xbalamque: {
 		name: 'Xbalamque',
 		sb805: 30,
-		whaleSharkTransportFee: 10,
+		whaleSharkTransportFee: 15,
 		whaleShark: '6:45',
 		xavage: 999,
 		xcaret: 999,
@@ -5091,7 +5107,7 @@ const hotelList = {
 	xcaretarte: {
 		name: 'Xcaret Arte',
 		sb805: 999,
-		whaleSharkTransportFee: 25,
+		whaleSharkTransportFee: 35,
 		whaleShark: '5:20',
 		xavage: 999,
 		xcaret: 999,
@@ -5107,7 +5123,7 @@ const hotelList = {
 	zoetryparaisodelabonita: {
 		name: 'Zoetry Paraiso de la Bonita',
 		sb805: 999,
-		whaleSharkTransportFee: 20,
+		whaleSharkTransportFee: 25,
 		whaleShark: '6:05',
 		xavage: '9:30',
 		xcaret: '7:35',
