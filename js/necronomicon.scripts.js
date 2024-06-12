@@ -8,26 +8,27 @@ const populateEmailScripts = () => {
 			cenoteDiver: {
 				cenote1: 'Cenotes',
 				cenote2: '- 2 Tanks - Daily',
-				cenote3: 'Pick up at 7:15',
-				cenote4: '2 diver minimum',
-				cenote5: `Deposit: $${cenotePricing.chacMool.deposit} - $${cenotePricing.dosOjos.deposit} pp (depending on the cenote)`,
-				cenote6: `The Mexican state of Quintana Roo is home to the 5 largest underwater cave systems in the world and is somewhat of a mecca for cave and cavern diving. Each cenote 
+				cenote3: 'Pick up at',
+				cenote4: '7:30',
+				cenote5: '2 diver minimum',
+				cenote6: `Deposit: $${cenotePricing.chacMool.deposit} - $${cenotePricing.dosOjos.deposit} pp (depending on the cenote)`,
+				cenote7: `The Mexican state of Quintana Roo is home to the 5 largest underwater cave systems in the world and is somewhat of a mecca for cave and cavern diving. Each cenote 
 					really does have its own little reason why it's magical but Chac Mool seems to be the one our clients really enjoy the most. I believe the reason behind this is that it 
 					has a little bit of everything with the first dive being a combo of cavern and mangrove and the second being a full penetration with speleothems (stalagmites & 
 					stalactites), fossils, beautiful beams of light, large rooms, tight rooms and even a room with an air pocket where you can surface whilst still underground. Please note 
 					however that a limited number of guides are allowed to dive here so booking in advance is essential.`,
-				cenote7: `This being said, if you have another cenote you would like to visit, you need only let me know and I will get back to you with the details. For instance, Dos Ojos is 
+				cenote8: `This being said, if you have another cenote you would like to visit, you need only let me know and I will get back to you with the details. For instance, Dos Ojos is 
 					another very popular site as it has been featured in pretty much all Hollywood and IMAX cave diving movies and is a really easy dive for those who struggle with 
 					equalising. Both entrances at this cenote are also home to hundreds of little bats which swoop over your head as you begin your own Indiana Jones adventure into the 
 					Mayan Underworld.`,
-				cenote8: 'Below is a list of our most popular cenotes with their prices per diver:',
-				cenote9: `Angelita: ${cenotePricing.angelita.depth} - (2 tanks) - U$${cenoteTable.rows[3].cells[7].textContent} (Cash: U$${cenoteTable.rows[3].cells[3].textContent})`,
-				cenote10: `Actun Ha (aka: Carwash): ${cenotePricing.actunHa.depth} - (2 tanks) - U$${cenoteTable.rows[2].cells[7].textContent} (Cash: U$${cenoteTable.rows[2].cells[3].textContent})`,
-				cenote11: `Chac Mool: ${cenotePricing.chacMool.depth} - (2 tanks) - U$${cenoteTable.rows[5].cells[7].textContent} (Cash: U$${cenoteTable.rows[5].cells[3].textContent})`,
-				cenote12: `Dos Ojos: ${cenotePricing.dosOjos.depth} - (2 tanks) - U$${cenoteTable.rows[6].cells[7].textContent} (Cash: U$${cenoteTable.rows[6].cells[3].textContent})`,
-				cenote13: `Tajma Ha: (aka: Taj Mahal) ${cenotePricing.tajmaHa.depth} - (2 tanks) - U$${cenoteTable.rows[12].cells[7].textContent} (Cash: U$${cenoteTable.rows[12].cells[3].textContent})`,
-				cenote14: `Zapote: (Aka: Hell's Bells) ${cenotePricing.zapote.depth} - (2 tanks) - U$${cenoteTable.rows[13].cells[7].textContent} (Cash: U$${cenoteTable.rows[13].cells[3].textContent})`,
-				cenote15: 'Again, if there is another cenote which catches your interest, please let me know and I will get back to you with the pricing and schedule.',
+				cenote9: 'Below is a list of our most popular cenotes with their prices per diver:',
+				cenote10: `Angelita: ${cenotePricing.angelita.depth} - (2 tanks) - U$${cenoteTable.rows[3].cells[7].textContent} (Cash: U$${cenoteTable.rows[3].cells[3].textContent})`,
+				cenote11: `Actun Ha (aka: Carwash): ${cenotePricing.actunHa.depth} - (2 tanks) - U$${cenoteTable.rows[2].cells[7].textContent} (Cash: U$${cenoteTable.rows[2].cells[3].textContent})`,
+				cenote12: `Chac Mool: ${cenotePricing.chacMool.depth} - (2 tanks) - U$${cenoteTable.rows[5].cells[7].textContent} (Cash: U$${cenoteTable.rows[5].cells[3].textContent})`,
+				cenote13: `Dos Ojos: ${cenotePricing.dosOjos.depth} - (2 tanks) - U$${cenoteTable.rows[6].cells[7].textContent} (Cash: U$${cenoteTable.rows[6].cells[3].textContent})`,
+				cenote14: `Tajma Ha: (aka: Taj Mahal) ${cenotePricing.tajmaHa.depth} - (2 tanks) - U$${cenoteTable.rows[12].cells[7].textContent} (Cash: U$${cenoteTable.rows[12].cells[3].textContent})`,
+				cenote15: `Zapote: (Aka: Hell's Bells) ${cenotePricing.zapote.depth} - (2 tanks) - U$${cenoteTable.rows[13].cells[7].textContent} (Cash: U$${cenoteTable.rows[13].cells[3].textContent})`,
+				cenote16: 'Again, if there is another cenote which catches your interest, please let me know and I will get back to you with the pricing and schedule.',
 			},
 			certifiedDiver: {
 				cert1: 'Your dive options at this time of year are as follows:',
@@ -84,22 +85,23 @@ const populateEmailScripts = () => {
 				cozumel2: '- 2 Tanks - Daily',
 				cozumel3: 'Morning dive, pick up at',
 				cozumel4: '6:15',
-				cozumel5: `Deposit: $${oceanTable.rows[4].cells[2].textContent} pp`,
-				cozumel6: `There is obviously a bit of travelling involved so we are recommending that we begin the tour with a pick up from your hotel at 6:30 so that we can get to the dive 
+				cozumel5: '2 diver minimum',
+				cozumel6: `Deposit: $${oceanTable.rows[4].cells[2].textContent} pp`,
+				cozumel7: `There is obviously a bit of travelling involved so we are recommending that we begin the tour with a pick up from your hotel at 6:30 so that we can get to the dive 
 					boat by 8. In order to save time, it would also be ideal if we could get your fin (shoe) and wetsuit sizes beforehand so that your guide can pick up the gear on route 
 					to your hotel. You can find our wetsuit size chart`,
-				cozumel7: `here`,
-				cozumel8: '.',
-				cozumel9: `While diving in Cancún you will find things are very relaxed as your dive guide will set your gear up for you, help with don your equipment and do pretty much 
+				cozumel8: `here`,
+				cozumel9: '.',
+				cozumel10: `While diving in Cancún you will find things are very relaxed as your dive guide will set your gear up for you, help with donning your equipment and do pretty much 
 					everything slowly so that everyone is relaxed when we hit the water. The Cozumel tour however is a little more structured as we have a very specific time slot, set by the 
 					national park, which we need to adhere to. With this in mind, we ask that our divers who feel competent in setting up their own gear help us by doing so before the boat 
 					launches. That being said, we will, of course, help you if you aren't yet comfortable putting their equipment together and do a quick double check on those who are.`,
-				cozumel10: `As for the dives themselves, Cozumel has more than 30 so our captain will take into account the weather conditions and discuss the best options with your dive guide. If 
+				cozumel11: `As for the dives themselves, Cozumel has more than 30 so our captain will take into account the weather conditions and discuss the best options with your dive guide. If 
 					you have a particular site you would like to visit, please let us know when we pick you up so that your guide can discuss the possibility of visiting the site with our 
 					captain. Regardless of which sites you visit, we'll typically have more than 100ft / 30m of viz for each dive. Our first will be a deep dive of at least 78ft / 24m 
 					(though we won't push you to reach that depth if you aren't comfortable as there is plenty to see at the 52ft / 16m mark). To keep with scuba diving standards and to 
 					reduce surface interval times, our second dive will have a max depth of 40ft / 12m.`,
-				cozumel11: `The list price for this tour is U$${oceanTable.rows[4].cells[7].textContent} per person but if you would like to take advantage of the Cthulhu Divers cash discount 
+				cozumel12: `The list price for this tour is U$${oceanTable.rows[4].cells[7].textContent} per person but if you would like to take advantage of the Cthulhu Divers cash discount 
 					the price comes down to U$${oceanTable.rows[4].cells[3].textContent} per person.`,
 			},
 			opening: {
@@ -124,7 +126,7 @@ const populateEmailScripts = () => {
 					and find them ourselves which gives us quite an edge over our competition in locating them.`,
 				whaleS7: `The tour also includes a short visit to Playa Norte on the island of Isla Mujeres which is consistently voted as one of the top beaches in the world last year on TripAdvisor. Here 
 					you will also be given the option to do a quick snorkel at Mia Reef or simply laze on the boat or the white sandy beach. The price of this tour is 
-					U$${snorkelTable.rows[4].cells[3].textContent} (cash: U$${snorkelTable.rows[4].cells[7].textContent}) plus a further U$${snorkelPricing.whaleShark.dockFee} national park fee which needs to be paid in cash upon arrival at the dock to a park representative.`,
+					U$${snorkelTable.rows[4].cells[7].textContent} (cash: U$${snorkelTable.rows[4].cells[3].textContent}) plus a further U$${snorkelPricing.whaleShark.dockFee} national park fee which needs to be paid in cash upon arrival at the dock to a park representative.`,
 			},
 		};
 	}
@@ -219,28 +221,31 @@ const giveScript = () => {
 			producedScript.innerHTML +
 			`
             <p><strong><a href="https://cthulhudivers.com/cancun-cozumel" target="_blank">${emailScripts.cozumel.cozumel1}</a></strong> <em><span class="whatsapp-underscore"></span>${emailScripts.cozumel.cozumel2}<span class="whatsapp-underscore"></span><br />
-            <span class="whatsapp-underscore"></span>${emailScripts.cozumel.cozumel3} <span id="snippet-client-cozumel-time">${emailScripts.cozumel.cozumel4}<span class="whatsapp-underscore"></span><br />
-			<span class="whatsapp-underscore"></span>${emailScripts.cozumel.cozumel5}<span class="whatsapp-underscore"></span></em></p>
-            <p>${emailScripts.cozumel.cozumel6} <a href="https://cthulhudivers.com/cancun-cozumel#wetsuitSelection" target="_blank">${emailScripts.cozumel.cozumel7}</a>${emailScripts.cozumel.cozumel8}</p>
-            <p>${emailScripts.cozumel.cozumel9}</p>
+            <span class="whatsapp-underscore"></span>${emailScripts.cozumel.cozumel3} <span id="snippet-client-cenote-time">${emailScripts.cozumel.cozumel4}<span class="whatsapp-underscore"></span><br />
+            <span class="whatsapp-underscore"></span>${emailScripts.cozumel.cozumel5}<span class="whatsapp-underscore"></span><br />
+            <span class="whatsapp-underscore"></span>${emailScripts.cozumel.cozumel6}<span class="whatsapp-underscore"></span>
+			</em></p>
+            <p>${emailScripts.cozumel.cozumel7} <a href="https://cthulhudivers.com/cancun-cozumel#wetsuitSelection" target="_blank">${emailScripts.cozumel.cozumel8}</a>${emailScripts.cozumel.cozumel9}</p>
             <p>${emailScripts.cozumel.cozumel10}</p>
             <p>${emailScripts.cozumel.cozumel11}</p>
+            <p>${emailScripts.cozumel.cozumel12}</p>
+
             <p><strong><a href="https://cthulhudivers.com/cancun-cenote-cavern-diving" target="_blank">${emailScripts.cenoteDiver.cenote1}</a></strong> <em><span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote2}<span class="whatsapp-underscore"></span><br />
-            <span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote3}<span class="whatsapp-underscore"></span><br />
-            <span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote4}<span class="whatsapp-underscore"></span><br />
-            <span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote5}<span class="whatsapp-underscore"></span>
+            <span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote3} <span id="snippet-client-cozumel-time">${emailScripts.cenoteDiver.cenote4}<span class="whatsapp-underscore"></span><br />
+            <span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote5}<span class="whatsapp-underscore"></span><br />
+            <span class="whatsapp-underscore"></span>${emailScripts.cenoteDiver.cenote6}<span class="whatsapp-underscore"></span>
 			</em></p>
-            <p>${emailScripts.cenoteDiver.cenote6}</p>
             <p>${emailScripts.cenoteDiver.cenote7}</p>
             <p>${emailScripts.cenoteDiver.cenote8}</p>
-            <p>${emailScripts.cenoteDiver.cenote9}<br />
-            ${emailScripts.cenoteDiver.cenote10}<br />
+            <p>${emailScripts.cenoteDiver.cenote9}</p>
+            <p>${emailScripts.cenoteDiver.cenote10}<br />
             ${emailScripts.cenoteDiver.cenote11}<br />
             ${emailScripts.cenoteDiver.cenote12}<br />
             ${emailScripts.cenoteDiver.cenote13}<br />
-            ${emailScripts.cenoteDiver.cenote14}<br />            
+            ${emailScripts.cenoteDiver.cenote14}<br />
+            ${emailScripts.cenoteDiver.cenote15}<br />            
             </p>
-            <p>${emailScripts.cenoteDiver.cenote15}</p>
+            <p>${emailScripts.cenoteDiver.cenote16}</p>
             `;
 	}
 
@@ -276,7 +281,7 @@ const giveScript = () => {
 
 	outputScript.appendChild(producedScript);
 	newClientBtn.addEventListener('click', function () {
-		necroHotel.value = '0';
+		locations.value = '0';
 		necroMenuBtns.forEach((btn) => {
 			btn.classList.remove('active');
 		});
@@ -312,11 +317,11 @@ const copyClientName = () => {
 const copyClientHotel = () => {
 	resetValues();
 
-	if (necroHotel.value == 'notApplicable') {
+	if (locations.value == 'notApplicable') {
 		client.hotel = 'Not Applicable';
 	} else {
-		client.hotel = hotelList[necroHotel.value].name;
-		client.hotelKey = necroHotel.value;
+		client.hotel = hotelList[locations.value].name;
+		client.hotelKey = locations.value;
 	}
 	knownClientHotel.textContent = client.hotel;
 };
@@ -433,7 +438,7 @@ const copyToClipboard = () => {
 // Question event listeners
 const questionListeners = () => {
 	submitClientName.addEventListener('click', copyClientName);
-	necroHotel.addEventListener('change', copyClientHotel);
+	locations.addEventListener('change', copyClientHotel);
 	clientPax.addEventListener('change', copyClientPax);
 	clientArrivalDate.addEventListener('change', copyClientArrivalDate);
 	clientDepartureDate.addEventListener('change', copyClientDepartureDate);

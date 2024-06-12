@@ -936,6 +936,7 @@ input[type='checkbox'] {
 }
 #sbMenu h4 {
 	background-color: #00aace;
+	text-shadow: 2px 2px 3px #000;
 	text-align: center;
 	width: 300px;
 	margin: 0 0 0 -14px;
@@ -1102,65 +1103,6 @@ input[type='checkbox'] {
 }
 #na ul li:first-child {
 	text-decoration: none;
-}
-
-/* 8.4 Main - Cards
-======================================================*/
-.card {
-	background-color: #181818;
-	border-color: #fff;
-	max-width: 270px;
-	margin-bottom: 15px !important;
-}
-.card:hover {
-	background-color: #111;
-	border-color: #00aace;
-}
-.card:hover > .card-title {
-	color: #00aace;
-}
-.card-body {
-	background-color: transparent;
-	border-top: 1px solid #fff;
-}
-.card-title {
-	margin-bottom: 0;
-}
-.card h3 {
-	color: #fff;
-	text-align: left;
-}
-.card ul {
-	text-align: left;
-	margin: 0;
-	padding: 0;
-}
-.card li {
-	margin: 10px 0px;
-}
-.card li span:first-child {
-	color: #00aace;
-}
-.card button {
-	background-color: #00aace;
-	padding: 10px;
-	border: 1px solid #fff;
-	border-radius: 5px;
-	width: 90%;
-}
-.card button:hover {
-	background-color: #002831;
-}
-.card-title {
-	margin-bottom: 15px;
-}
-.card-text {
-	padding-bottom: 15px !important;
-}
-.card-text li {
-	line-height: 16px;
-	/* background-color: aquamarine; */
-	margin-top: 0px !important;
 }
 
 /* 9.0 Footer
@@ -1408,11 +1350,6 @@ footer a:hover {
 	.summaryHeading {
 		text-align: center;
 		margin-left: 0;
-	}
-}
-@media screen and (max-width: 700px) {
-	.card {
-		max-width: 100%;
 	}
 }
 @media screen and (max-width: 600px) {

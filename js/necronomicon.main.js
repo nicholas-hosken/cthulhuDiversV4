@@ -10,19 +10,34 @@ const knownClientMessageType = document.querySelector('#known-client-message-typ
 const knownClientName = document.querySelector('#known-client-name');
 const knownClientPax = document.querySelector('#known-client-pax');
 const knownInfoData = document.querySelectorAll('#known-info span');
-const necroHotel = document.querySelector('#necro-hotel');
 const necroMenu = document.querySelector('#necro-menu');
 const necroMenuBtns = document.querySelectorAll('#necro-menu button');
+const necroTour = document.querySelector('#necro-tour');
 const newClientBtn = document.querySelector('#new-client-btn');
 const outputScript = document.querySelector('#ouput-script div');
 const outputScriptBtns = document.querySelectorAll('#ouput-script button');
 const overview = document.querySelector('#overview');
 const overviewTables = document.querySelectorAll('#overview table');
-const overviewTableBodyRows = document.querySelectorAll(`#overview tbody tr`);
 const prep = document.querySelector('#prep');
 const questions = document.querySelectorAll(`.questions`);
 const scripts = document.querySelector('#scripts');
+const specifics = document.querySelector('#specifics');
 const submitClientName = document.querySelector('#submit-client-name');
+const tourBreakdown = document.querySelector('#tour-breakdown');
+const tourBreakdownName = tourBreakdown.querySelector('h3');
+const tourCardCosts = document.querySelector('#tour-card-costs');
+const tourCardCostsTotal = document.querySelector('#tour-card-costs-total');
+const tourCardProfit = document.querySelector('#tour-card-profit');
+const tourCardProfitTotal = document.querySelector('#tour-card-profit-total');
+const tourCashCosts = document.querySelector('#tour-cash-costs');
+const tourCashCostsTotal = document.querySelector('#tour-cash-costs-total');
+const tourCashProfit = document.querySelector('#tour-cash-profit');
+const tourCashProfitTotal = document.querySelector('#tour-cash-profit-total');
+
+const tourExtras = document.querySelector('#tour-extras');
+const tourPrep = document.querySelector('#tour-prep');
+const tourRequirements = document.querySelector('#tour-requirements');
+const tourTransport = document.querySelector('#tour-transport');
 
 let clientName = document.querySelector('#client-name');
 let clientPax = document.querySelector('#client-pax');
@@ -31,6 +46,7 @@ const producedScript = document.createElement('div');
 
 const hideInfo = () => {
 	scripts.style.display = 'none';
+	specifics.style.display = 'none';
 	overview.style.display = 'none';
 	prep.style.display = 'none';
 };
@@ -46,6 +62,9 @@ const showRelevantInfo = () => {
 		switch (necroMenuActiveBtn[0].textContent) {
 			case 'Email Scripts':
 				scripts.style.display = 'block';
+				break;
+			case 'Tour Specifics':
+				specifics.style.display = 'block';
 				break;
 			case 'Pricing Overview':
 				overview.style.display = 'block';
@@ -65,12 +84,14 @@ const populateHotelOptions = () => {
 		const option = document.createElement('option');
 		option.value = key;
 		option.innerHTML = hotelList[key].name;
-		necroHotel.appendChild(option);
+		locations.appendChild(option);
 	}
 };
 populateHotelOptions();
 
 const rowHighlight = () => {
+	const overviewTableBodyRows = document.querySelectorAll(`#overview tbody tr`);
+
 	overviewTableBodyRows.forEach((row) => {
 		row.addEventListener('click', (event) => {
 			overviewTableBodyRows.forEach((row) => {
@@ -81,19 +102,20 @@ const rowHighlight = () => {
 	});
 };
 
-// Display .info on #necro-hotel change
+// Display .info on #locations change
 const overviewHotelChange = () => {
-	necroHotel.addEventListener('change', (event) => {
-		if (necroHotel.value !== '0') {
+	locations.addEventListener('change', (event) => {
+		if (locations.value !== '0') {
 			overviewTables.forEach((div) => {
 				div.style.visibility = 'visible';
 			});
-			populateOceanTable();
+			// populateOceanTable();
 			populateCoursesTable();
-			populateCenoteTable();
-			populateSnorkelTable();
-			populateEmailScripts();
-			rowHighlight();
+			// populateCenoteTable();
+			// populateSnorkelTable();
+			// populateNonDivingTable();
+			// populateEmailScripts();
+			// rowHighlight();
 
 			necroMenu.style.display = 'flex';
 		}

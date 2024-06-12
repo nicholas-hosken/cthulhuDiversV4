@@ -226,7 +226,7 @@
 						<!-- InstanceBeginEditable name="Content" -->
 						<form onsubmit="return false">
 							<div class="mb-3">
-								<select class="form-select" id="necro-hotel">
+								<select class="form-select" name="locations" id="locations">
 									<option value="0">Select Hotel</option>
 									<option value="notApplicable">Not Applicable</option>
 								</select>
@@ -340,6 +340,43 @@
 							</div>
 						</div>
 
+						<div class="info" id="specifics">
+							<form onsubmit="return false">
+								<div class="mb-3">
+									<select class="form-select" id="necro-tour">
+										<option value="NA">Select Tour</option>
+									</select>
+								</div>
+								<div id="tour-breakdown">
+									<h3></h3>
+									<div class="row">
+										<div class="col-md-6" id="tour-transport"></div>
+										<div class="col-md-6" id="tour-requirements"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-6" id="tour-card-costs"></div>
+										<div class="col-md-6" id="tour-card-profit"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-6" id="tour-card-costs-total"></div>
+										<div class="col-md-6" id="tour-card-profit-total"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-6" id="tour-cash-costs"></div>
+										<div class="col-md-6" id="tour-cash-profit"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-6" id="tour-cash-costs-total"></div>
+										<div class="col-md-6" id="tour-cash-profit-total"></div>
+									</div>
+									<div class="row">
+										<div class="col-md-6" id="tour-extras"></div>
+										<div class="col-md-6" id="tour-prep"></div>
+									</div>
+								</div>
+							</form>
+						</div>
+
 						<div class="info" id="overview">
 							<table id="oceanTable">
 								<thead>
@@ -372,6 +409,15 @@
 								<thead>
 									<tr>
 										<th colspan="11">Snorkeling</th>
+									</tr>
+								</thead>
+								<tbody></tbody>
+							</table>
+							<br />
+							<table id="nonDivingTable">
+								<thead>
+									<tr>
+										<th colspan="11">Non-Diving Table</th>
 									</tr>
 								</thead>
 								<tbody></tbody>
@@ -527,6 +573,7 @@
 		<script src="../js/pricing.math.js" defer></script>
 		<script src="../js/sizing.js" defer></script>
 		<script src="../js/necronomicon.main.js" defer></script>
+		<script src="../js/necronomicon.specifics.js" defer></script>
 		<script src="../js/necronomicon.overview.js" defer></script>
 		<script src="../js/necronomicon.scripts.js" defer></script>
 		<!-- InstanceEndEditable -->

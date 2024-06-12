@@ -4,7 +4,8 @@
 #sidebar {
 	display: none;
 }
-#necro-hotel,
+#locations,
+#necro-tour,
 #q0 .input-group,
 .questions select {
 	width: 80%;
@@ -148,4 +149,58 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+/* Tour Specifics 
+======================================================*/
+
+#tour-breakdown {
+	border: 1px solid #00aace;
+	margin: 0px auto 20px;
+	width: 80%;
+	min-height: 200px;
+	display: none;
+}
+#tour-breakdown h3,
+#tour-breakdown h4 {
+	background-color: #00aace;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+#tour-breakdown h5 {
+	text-decoration: underline;
+	text-decoration-color: #00aace;
+}
+#tour-breakdown p {
+	line-height: 20px;
+}
+#tour-breakdown .row {
+	width: 100%;
+	margin: auto;
+}
+
+#tour-breakdown span {
+	color: #00aace;
+}
+#tour-cash-costs-total p,
+#tour-cash-profit-total p,
+#tour-card-costs-total p,
+#tour-card-profit-total p {
+	border-top: 1px dashed #fff;
+	padding-top: 12px;
+	color: red;
+}
+#tour-cash-profit-total p,
+#tour-card-profit-total p {
+	color: greenyellow;
+}
+
+#tour-breakdown .prep-notes {
+	border: 1px solid #fff;
+	background-color: #1f2e32;
+	width: 100%;
+	margin: auto;
+	padding: 10px;
+	line-height: 25px;
 }

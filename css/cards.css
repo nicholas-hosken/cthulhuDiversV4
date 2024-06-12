@@ -1,0 +1,80 @@
+.cardsMenu {
+	width: 100%;
+	margin: 0 auto 30px;
+	padding: 0;
+}
+.cardsMenu h2,
+.cardsMenu h3 {
+	text-align: center !important;
+}
+.card {
+	background-color: #181818;
+	border-color: #fff;
+	max-width: 260px;
+	margin: 15px 8px !important;
+}
+/* #oceanCards .card {
+	width: 210px;
+	background-color: red;
+} */
+.card:hover {
+	background-color: #111;
+	border-color: #00aace;
+}
+.card:hover > .card-title {
+	color: #00aace;
+}
+
+.card-body {
+	background-color: transparent;
+	border-top: 1px solid #fff;
+}
+.card-title {
+	margin-bottom: 0;
+}
+.card h3 {
+	color: #fff;
+	text-align: left;
+}
+.card ul {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+.card li {
+	margin: 10px 0px;
+	text-align: center;
+}
+.card li span:first-child {
+	color: #00aace;
+}
+.card button {
+	background-color: #00aace;
+	padding: 10px;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 0 auto;
+}
+.card button:hover {
+	background-color: #002831;
+}
+.card-title {
+	margin-bottom: 15px;
+}
+.card-text {
+	padding-bottom: 15px !important;
+}
+.card-text li {
+	line-height: 16px;
+	margin-top: 0px !important;
+}
+@media screen and (max-width: 700px) {
+	.card {
+		max-width: 100%;
+		margin: 15px 0 !important;
+	}
+}
