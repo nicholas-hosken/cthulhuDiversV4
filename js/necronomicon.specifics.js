@@ -1,207 +1,154 @@
 let selectedTour;
 let tourData = {};
 
+const createParagraph = (text = '') => {
+	const p = document.createElement('p');
+	if (text) p.innerHTML = text;
+	return p;
+};
+
 const displayTourDataNecro = (tourData) => {
 	tourBreakdownName.textContent = tourData.name;
 
 	// Transport - Day 1
 	const day1 = tourTransport.querySelectorAll('.d-flex')[0].querySelectorAll('div')[0];
-	const pPickUpD1 = document.createElement('p');
-	const pArrivalD1 = document.createElement('p');
-	const pDepartureD1 = document.createElement('p');
-	const pDropOffD1 = document.createElement('p');
+	const pickUpD1P = createParagraph(`<span>Pick Up:</span> Not Available`);
+	const arrivalD1P = createParagraph(`<span>Arrival:</span> ${tourData.arrivalD1}`);
+	const departureD1P = createParagraph(`<span>Departure:</span> ${tourData.departureD1}`);
+	const dropOffD1P = createParagraph(`<span>Pick Up:</span> Not Available`);
 
 	if (hotelList[locations.value].sb805 !== 999) {
-		pPickUpD1.innerHTML = `<span>Pick Up:</span> ${tourData.pickUpD1}`;
-		pDropOffD1.innerHTML = `<span>Drop Off:</span> ${tourData.dropOffD1}`;
-	} else {
-		pPickUpD1.innerHTML = `<span>Pick Up:</span> Not Available`;
-		pDropOffD1.innerHTML = `<span>Pick Up:</span> Not Available`;
+		pickUpD1P.innerHTML = `<span>Pick Up:</span> ${tourData.pickUpD1}`;
+		dropOffD1P.innerHTML = `<span>Drop Off:</span> ${tourData.dropOffD1}`;
 	}
-	pArrivalD1.innerHTML = `<span>Arrival:</span> ${tourData.arrivalD1}`;
-	pDepartureD1.innerHTML = `<span>Departure:</span> ${tourData.departureD1}`;
 
-	day1.appendChild(pPickUpD1);
-	day1.appendChild(pArrivalD1);
-	day1.appendChild(pDepartureD1);
-	day1.appendChild(pDropOffD1);
+	day1.appendChild(pickUpD1P);
+	day1.appendChild(arrivalD1P);
+	day1.appendChild(departureD1P);
+	day1.appendChild(dropOffD1P);
 
 	// Transport - Day 2
 	const day2 = tourTransport.querySelectorAll('.d-flex')[0].querySelectorAll('div')[1];
 
-	if (tourData.pickUpD2 != undefined) {
-		const pPickUpD2 = document.createElement('p');
-		const pArrivalD2 = document.createElement('p');
-		const pDepartureD2 = document.createElement('p');
-		const pDropOffD2 = document.createElement('p');
+	if (tourData.pickUpD2 !== undefined) {
+		const pickUpD2P = createParagraph(`<span>Pick Up:</span> Not Available`);
+		const arrivalD2P = createParagraph(`<span>Arrival:</span> ${tourData.arrivalD2}`);
+		const departureD2P = createParagraph(`<span>Departure:</span> ${tourData.departureD2}`);
+		const dropOffD2P = createParagraph(`<span>Pick Up:</span> Not Available`);
 
 		if (hotelList[locations.value].sb805 !== 999) {
-			pPickUpD2.innerHTML = `<span>Pick Up:</span> ${tourData.pickUpD2}`;
-			pDropOffD2.innerHTML = `<span>Drop Off:</span> ${tourData.dropOffD2}`;
-		} else {
-			pPickUpD2.innerHTML = `<span>Pick Up:</span> Not Available`;
-			pDropOffD2.innerHTML = `<span>Pick Up:</span> Not Available`;
+			pickUpD2P.innerHTML = `<span>Pick Up:</span> ${tourData.pickUpD2}`;
+			dropOffD2P.innerHTML = `<span>Drop Off:</span> ${tourData.dropOffD2}`;
 		}
 
-		pArrivalD2.innerHTML = `<span>Arrival:</span> ${tourData.arrivalD2}`;
-		pDepartureD2.innerHTML = `<span>Departure:</span> ${tourData.departureD2}`;
-
-		day2.appendChild(pPickUpD2);
-		day2.appendChild(pArrivalD2);
-		day2.appendChild(pDepartureD2);
-		day2.appendChild(pDropOffD2);
+		day2.appendChild(pickUpD2P);
+		day2.appendChild(arrivalD2P);
+		day2.appendChild(departureD2P);
+		day2.appendChild(dropOffD2P);
 	}
 
 	// Client Requirements
-	const pDays = document.createElement('p');
-	const pDeposit = document.createElement('p');
-	const pMinAge = document.createElement('p');
-	const pMinClients = document.createElement('p');
-	const pCertLvl = document.createElement('p');
+	const daysP = createParagraph(`<span>Days:</span> ${tourData.days}`);
+	const depositP = createParagraph(`<span>Deposit:</span> U$${tourData.deposit}`);
+	const minAgeP = createParagraph(`<span>Min Age:</span> ${tourData.minAge}`);
+	const minClientsP = createParagraph(`<span>Min # of Clients:</span> ${tourData.minClients}`);
+	const minCertLvlP = createParagraph(`<span>Min Cert Lvl:</span> ${tourData.minCertLvl}`);
 
-	pDays.innerHTML = `<span>Days:</span> ${tourData.days}`;
-	pDeposit.innerHTML = `<span>Deposit:</span> U$${tourData.deposit}`;
-	pMinAge.innerHTML = `<span>Min Age:</span> ${tourData.minAge}`;
-	pMinClients.innerHTML = `<span>Min # of Clients:</span> ${tourData.minClients}`;
-	pCertLvl.innerHTML = `<span>Min Cert Lvl:</span> ${tourData.certLvl}`;
-
-	tourRequirements.appendChild(pDays);
-	tourRequirements.appendChild(pDeposit);
-	tourRequirements.appendChild(pMinAge);
-	tourRequirements.appendChild(pMinClients);
-	tourRequirements.appendChild(pCertLvl);
+	tourRequirements.appendChild(daysP);
+	tourRequirements.appendChild(depositP);
+	tourRequirements.appendChild(minAgeP);
+	tourRequirements.appendChild(minClientsP);
+	tourRequirements.appendChild(minCertLvlP);
 
 	// Cash Costs
-	const pBoatCash = document.createElement('p');
-	const pShuttleCash = document.createElement('p');
-	const pGuideCash = document.createElement('p');
-	const pELearningCash = document.createElement('p');
-	const pEntranceFeeCash = document.createElement('p');
-	const pFoodCash = document.createElement('p');
-	const pTanksDiverCostCash = document.createElement('p');
-	const pTanksGuideCostCash = document.createElement('p');
-	const pSubTotal = document.createElement('p');
-	const pPayPalFeeUSDCash = document.createElement('p');
-	const pTaxCash = document.createElement('p');
+	const boatCashP = createParagraph(`<span>Boat:</span> ${tourData.boat}mxn <em>(U$${tourData.boatUSD})</em>`);
+	const shuttleCashP = createParagraph(`<span>Shuttle:</span> ${tourData.shuttle}mxn <em>(U$${convertToUSD(tourData.shuttle, 2)})</em>`);
+	const guideCashP = createParagraph(`<span>Guide:</span> ${tourData.guide}mxn <em>(U$${tourData.guideUSD})</em>`);
+	const eLearningCashP = createParagraph(`<span>eLearning:</span> U$${tourData.elearning}`);
+	const entranceFeeCashP = createParagraph(`<span>Entrance Fee:</span> ${tourData.entranceFee}mxn <em>(U$${convertToUSD(tourData.entranceFee, 2)})</em>`);
+	const foodCashP = createParagraph(`<span>Food:</span> ${tourData.food}mxn <em>(U$${tourData.foodUSD})</em>`);
+	const tanksDiverCostCashP = createParagraph(`<span>Diver Tanks:</span> ${tourData.tanksDiverCost}mxn <em>(U$${tourData.tanksDiverCostUSD})</em>`);
+	const tanksGuideCostCashP = createParagraph(`<span>Guide Tanks:</span> ${tourData.tanksGuideCost}mxn <em>(U$${tourData.tanksGuideCostUSD})</em>`);
+	const parkingCashP = createParagraph(`<span>Parking:</span> ${tourData.parking}mxn (U$${convertToUSD(tourData.parking, 2)})`);
+	const subTotalP = createParagraph(`<span style="color: #555">Sub-total: U$${tourData.subTotal.toFixed(2)}</span>`);
+	const payPalFeeUSDCashP = createParagraph(`<span>PP Fees:</span> U$${tourData.cashPayPalFeeUSD}`);
+	const taxCashP = createParagraph(`<span>Tax:</span> U$${tourData.cashTax.toFixed(2)}`);
 
-	pBoatCash.innerHTML = `<span>Boat:</span> ${tourData.boat}mxn <em>(U$${tourData.boatUSD})</em>`;
-	pShuttleCash.innerHTML = `<span>Shuttle:</span> ${tourData.shuttle}mxn <em>(U$${convertToUSD(tourData.shuttle, 2)})</em>`;
-	pGuideCash.innerHTML = `<span>Guide:</span> ${tourData.guide}mxn <em>(U$${tourData.guideUSD})</em>`;
-	pELearningCash.innerHTML = `<span>eLearning:</span> U$${tourData.elearning}`;
-	pEntranceFeeCash.innerHTML = `<span>Entrance Fee:</span> ${tourData.entranceFee}mxn <em>(U$${convertToUSD(tourData.entranceFee, 2)})</em>`;
-	pFoodCash.innerHTML = `<span>Food:</span> ${tourData.food}mxn <em>(U$${tourData.foodUSD})</em>`;
-	pTanksDiverCostCash.innerHTML = `<span>Diver Tanks:</span> ${tourData.tanksDiverCost}mxn <em>(U$${tourData.tanksDiverCostUSD})</em>`;
-	pTanksGuideCostCash.innerHTML = `<span>Guide Tanks:</span> ${tourData.tanksGuideCost}mxn <em>(U$${tourData.tanksGuideCostUSD})</em>`;
-	pSubTotal.innerHTML = `<span style="color: #555">Sub-total: U$${tourData.subTotal.toFixed(2)}</span>`;
-	pPayPalFeeUSDCash.innerHTML = `<span>PP Fees:</span> U$${tourData.cashPayPalFeeUSD}`;
-	pTaxCash.innerHTML = `<span>Tax:</span> U$${tourData.cashTax.toFixed(2)}`;
-
-	tourCashCosts.appendChild(pBoatCash);
-	tourCashCosts.appendChild(pShuttleCash);
-	tourCashCosts.appendChild(pGuideCash);
-	tourCashCosts.appendChild(pELearningCash);
-	tourCashCosts.appendChild(pEntranceFeeCash);
-	tourCashCosts.appendChild(pFoodCash);
-	tourCashCosts.appendChild(pTanksDiverCostCash);
-	tourCashCosts.appendChild(pTanksGuideCostCash);
-	tourCashCosts.appendChild(pSubTotal);
-	tourCashCosts.appendChild(pPayPalFeeUSDCash);
-	tourCashCosts.appendChild(pTaxCash);
-
-	if (tourData.parking !== undefined) {
-		const insertParkingCost = (parentElement, position) => {
-			const pParking = document.createElement('p');
-			const parkingCostMXN = `${tourData.parking}mxn`;
-			const parkingCostUSD = `U$${convertToUSD(tourData.parking, 2)}`;
-			pParking.innerHTML = `<span>Parking:</span> ${parkingCostMXN} (${parkingCostUSD})`;
-			parentElement.insertBefore(pParking, parentElement.children[position]);
-		};
-
-		insertParkingCost(tourCashCosts, 4);
-		insertParkingCost(tourCardCosts, 4);
-	}
+	tourCashCosts.appendChild(boatCashP);
+	tourCashCosts.appendChild(shuttleCashP);
+	tourCashCosts.appendChild(guideCashP);
+	tourCashCosts.appendChild(eLearningCashP);
+	tourCashCosts.appendChild(entranceFeeCashP);
+	tourCashCosts.appendChild(foodCashP);
+	tourCashCosts.appendChild(tanksDiverCostCashP);
+	tourCashCosts.appendChild(tanksGuideCostCashP);
+	tourCashCosts.appendChild(parkingCashP);
+	tourCashCosts.appendChild(subTotalP);
+	tourCashCosts.appendChild(payPalFeeUSDCashP);
+	tourCashCosts.appendChild(taxCashP);
 
 	// Cash Profit
-	const pProfitPercent = document.createElement('p');
-	const pPriceCash = document.createElement('p');
-
-	pProfitPercent.innerHTML = `<span>Min profit on sub-total:</span> ${tourData.profitPercent}%`;
-	pPriceCash.innerHTML = `<span>Cash Price:</span> U$${tourData.cashPrice}`;
-
-	tourCashProfit.appendChild(pProfitPercent);
-	tourCashProfit.appendChild(pPriceCash);
+	const profitPercentP = createParagraph(`<span>Min profit on sub-total:</span> ${tourData.profitPercent}%`);
+	const priceCashP = createParagraph(`<span>Cash Price:</span> U$${tourData.cashPrice}`);
+	tourCashProfit.appendChild(profitPercentP);
+	tourCashProfit.appendChild(priceCashP);
 
 	// Card Costs
-	const pBoatCard = document.createElement('p');
-	const pShuttleCard = document.createElement('p');
-	const pGuideCard = document.createElement('p');
-	const pELearningCard = document.createElement('p');
-	const pEntranceFeeCard = document.createElement('p');
-	const pFoodCard = document.createElement('p');
-	const pTanksDiverCostCard = document.createElement('p');
-	const pTanksGuideCostCard = document.createElement('p');
-	const pPayPalFeeUSDCard = document.createElement('p');
-	const pTaxCard = document.createElement('p');
+	const boatCardP = createParagraph(`${boatCashP.innerHTML}`);
+	const shuttleCardP = createParagraph(`${shuttleCashP.innerHTML}`);
+	const guideCardP = createParagraph(`${guideCashP.innerHTML}`);
+	const eLearningCardP = createParagraph(`${eLearningCashP.innerHTML}`);
+	const entranceFeeCardP = createParagraph(`${entranceFeeCashP.innerHTML}`);
+	const foodCardP = createParagraph(`${foodCashP.innerHTML}`);
+	const tanksDiverCostCardP = createParagraph(`${tanksDiverCostCashP.innerHTML}`);
+	const tanksGuideCostCardP = createParagraph(`${tanksGuideCostCashP.innerHTML}`);
+	const parkingCardP = createParagraph(`${parkingCashP.innerHTML}`);
+	const payPalFeeUSDCardP = createParagraph(`<span>PP Fees:</span> U$${tourData.cardPayPalFeeUSD}`);
+	const taxCardP = createParagraph(`<span>Tax:</span> U$${tourData.cardTax.toFixed(2)}`);
 
-	pBoatCard.innerHTML = pBoatCash.innerHTML;
-	pShuttleCard.innerHTML = pShuttleCash.innerHTML;
-	pGuideCard.innerHTML = pGuideCash.innerHTML;
-	pELearningCard.innerHTML = pELearningCash.innerHTML;
-	pEntranceFeeCard.innerHTML = pEntranceFeeCash.innerHTML;
-	pFoodCard.innerHTML = pFoodCash.innerHTML;
-	pTanksDiverCostCard.innerHTML = pTanksDiverCostCash.innerHTML;
-	pTanksGuideCostCard.innerHTML = pTanksGuideCostCash.innerHTML;
-	pPayPalFeeUSDCard.innerHTML = `<span>PP Fees:</span> U$${tourData.cardPayPalFeeUSD}`;
-	pTaxCard.innerHTML = `<span>Tax:</span> U$${tourData.cardTax.toFixed(2)}`;
-
-	tourCardCosts.appendChild(pBoatCard);
-	tourCardCosts.appendChild(pShuttleCard);
-	tourCardCosts.appendChild(pGuideCard);
-	tourCardCosts.appendChild(pELearningCard);
-	tourCardCosts.appendChild(pEntranceFeeCard);
-	tourCardCosts.appendChild(pFoodCard);
-	tourCardCosts.appendChild(pTanksDiverCostCard);
-	tourCardCosts.appendChild(pTanksGuideCostCard);
-	tourCardCosts.appendChild(pPayPalFeeUSDCard);
-	tourCardCosts.appendChild(pTaxCard);
+	tourCardCosts.appendChild(boatCardP);
+	tourCardCosts.appendChild(shuttleCardP);
+	tourCardCosts.appendChild(guideCardP);
+	tourCardCosts.appendChild(eLearningCardP);
+	tourCardCosts.appendChild(entranceFeeCardP);
+	tourCardCosts.appendChild(foodCardP);
+	tourCardCosts.appendChild(tanksDiverCostCardP);
+	tourCardCosts.appendChild(tanksGuideCostCardP);
+	tourCardCosts.appendChild(payPalFeeUSDCardP);
+	tourCardCosts.appendChild(taxCardP);
 
 	// Card Profit
-	const pCardPrice = document.createElement('p');
-	pCardPrice.innerHTML = `<span>Card Price:</span> U$${tourData.cardPrice}`;
-	tourCardProfit.appendChild(pCardPrice);
+	const priceCardP = createParagraph(`<span>Card Price:</span> U$${tourData.cardPrice}`);
+	tourCardProfit.appendChild(priceCardP);
 
 	// Extras
-	const pPhotos = document.createElement('p');
-	pPhotos.innerHTML = `<span>Photos:</span> U$${tourData.photos}`;
-	tourExtras.appendChild(pPhotos);
+	const photosP = createParagraph(`<span>Photos:</span> U$${tourData.photos}`);
+	tourExtras.appendChild(photosP);
 
 	// Nitrox
 	if (tourData.nitroxCostMXN !== 0) {
 		if (tourData.name !== 'PADI Enriched Air Diver') {
-			const pNitroxCost = document.createElement('p');
-			pNitroxCost.innerHTML = `<span>Nitrox:</span> U$${roundUp(tourData.nitroxCostUSD)}`;
-			tourExtras.appendChild(pNitroxCost);
+			const nitroxCostP = createParagraph(`<span>Nitrox:</span> U$${roundUp(tourData.nitroxCostUSD)}`);
+			tourExtras.appendChild(nitroxCostP);
 		} else {
-			const pNitroxCard = document.createElement('p');
-			const pNitroxCash = document.createElement('p');
-
-			pNitroxCash.innerHTML = `<span>Nitrox:</span> ${tourData.nitroxCostMXN}mxn <em>(U$${tourData.nitroxCostUSD})</em>`;
-			pNitroxCard.innerHTML = pNitroxCash.innerHTML;
-
-			tourCashCosts.insertBefore(pNitroxCash, tourCashCosts.children[4]);
-			tourCardCosts.insertBefore(pNitroxCard, tourCardCosts.children[4]);
+			const nitroxCardP = createParagraph(`<span>Nitrox:</span> ${tourData.nitroxCostMXN}mxn <em>(U$${tourData.nitroxCostUSD})</em>`);
+			const nitroxCashP = createParagraph(`<span>Nitrox:</span> ${tourData.nitroxCostMXN}mxn <em>(U$${tourData.nitroxCostUSD})</em>`);
+			tourCashCosts.insertBefore(nitroxCashP, tourCashCosts.children[4]);
+			tourCardCosts.insertBefore(nitroxCardP, tourCardCosts.children[4]);
 		}
 	}
 
 	// Hide items with a cost of 0
 	const options = {
-		boat: { card: pBoatCard, cash: pBoatCash },
-		elearning: { card: pELearningCard, cash: pELearningCash },
-		entranceFee: { card: pEntranceFeeCard, cash: pEntranceFeeCash },
-		food: { card: pFoodCard, cash: pFoodCash },
-		shuttle: { card: pShuttleCard, cash: pShuttleCash },
-		tanksDiverCost: { card: pTanksDiverCostCard, cash: pTanksDiverCostCash },
-		tanksGuideCost: { card: pTanksGuideCostCard, cash: pTanksGuideCostCash },
+		boat: { card: boatCardP, cash: boatCashP },
+		elearning: { card: eLearningCardP, cash: eLearningCashP },
+		entranceFee: { card: entranceFeeCardP, cash: entranceFeeCashP },
+		food: { card: foodCardP, cash: foodCashP },
+		guide: { card: guideCardP, cash: guideCashP },
+		parking: { card: parkingCardP, cash: parkingCashP },
+		shuttle: { card: shuttleCardP, cash: shuttleCashP },
+		tanksDiverCost: { card: tanksDiverCostCardP, cash: tanksDiverCostCashP },
+		tanksGuideCost: { card: tanksGuideCostCardP, cash: tanksGuideCostCashP },
 	};
 
 	Object.entries(tourData).forEach(([key, value]) => {
@@ -213,7 +160,7 @@ const displayTourDataNecro = (tourData) => {
 
 	// Total Costs and Profits
 	function createAndAppendCostProfitInfo(parentElement, label, value) {
-		const pElement = document.createElement('p');
+		const pElement = createParagraph();
 		const spanElement = document.createElement('span');
 		spanElement.textContent = label;
 		pElement.appendChild(spanElement);
@@ -228,7 +175,7 @@ const displayTourDataNecro = (tourData) => {
 
 	// Prep
 	for (let i = 0; i < tourData.prep.length; i++) {
-		const pPrep = document.createElement('p');
+		const pPrep = createParagraph();
 		pPrep.innerHTML = tourData.prep[i];
 		tourPrep.appendChild(pPrep);
 	}
@@ -244,7 +191,7 @@ const getTourInfo = (list, tour) => {
 		days: list[tour].days,
 		deposit: getDeposit(list, tour),
 		dropOffD1: getDropOff(list, tour, 1),
-		certLvl: list[tour].certLvl,
+		minCertLvl: list[tour].minCertLvl,
 		elearning: list[tour].elearning,
 		entranceFee: list[tour].entranceFee,
 		food: list[tour].food,
@@ -252,8 +199,6 @@ const getTourInfo = (list, tour) => {
 		minAge: list[tour].minAge,
 		minClients: list[tour].minClients,
 		nitroxAllowed: list[tour].nitroxAllowed,
-		nitroxCostMXN: getNitroxCost(list, tour).nitroxMXN,
-		nitroxCostUSD: getNitroxCost(list, tour).nitroxUSD,
 		parking: list[tour].parking,
 		photosAllowed: list[tour].photosAllowed,
 		profitPercent: list[tour].profitPercent,
@@ -275,7 +220,14 @@ const getTourInfo = (list, tour) => {
 	if (tourData.nitroxAllowed === false) {
 		tourData.nitroxCostMXN = 0;
 		tourData.nitroxCostUSD = 0;
+	} else {
+		tourData.nitroxCostMXN = getNitroxCost(list, tour).nitroxMXN;
+		tourData.nitroxCostUSD = getNitroxCost(list, tour).nitroxUSD;
 	}
+
+	// if (tourData.parking === undefined) {
+	// 	tourData.parking = 0;
+	// }
 
 	tourData.subTotal = getCashSubTotal(list, tour);
 	tourData.cashPrice = roundUp(tourData.subTotal * list[tour].profitPercent);
@@ -299,11 +251,27 @@ const getTourInfo = (list, tour) => {
 		tourData.pickUpD2 = getPickUp(list, tour, 2);
 		tourData.dropOffD2 = getDropOff(list, tour, 2);
 	}
-
 	displayTourDataNecro(tourData);
 };
 
 const populateNecroTours = () => {
+	function createOptionElement(text) {
+		const option = document.createElement('option');
+		option.value = 'NA';
+		option.innerHTML = `--- ${text} ---`;
+		option.style.fontWeight = 'bold';
+		option.style.backgroundColor = '#ddd';
+		return option;
+	}
+
+	const oceanDives = createOptionElement('Ocean Dives');
+	const padiCourses = createOptionElement('Courses');
+	const cenoteDives = createOptionElement('Cenote Dives');
+	const snorkeling = createOptionElement('Snorkeling');
+
+	const cenoteOptions = [];
+
+	necroTour.appendChild(oceanDives);
 	for (const key in cthulhuTours.certifiedTours) {
 		if (key === 'certified') {
 			continue;
@@ -313,20 +281,31 @@ const populateNecroTours = () => {
 		option.innerHTML = cthulhuTours.certifiedTours[key].name;
 		necroTour.appendChild(option);
 	}
+	necroTour.appendChild(padiCourses);
 	for (const key in cthulhuTours.courses) {
 		const option = document.createElement('option');
 		option.value = key;
 		option.innerHTML = cthulhuTours.courses[key].name;
 		necroTour.appendChild(option);
 	}
+	necroTour.appendChild(cenoteDives);
 	for (const key in cthulhuTours.cenotes) {
 		const option = document.createElement('option');
 		option.value = key;
 		if (cthulhuTours.cenotes[key].aka === 'Little Angel' || cthulhuTours.cenotes[key].aka === 'Two Eyes' || cthulhuTours.cenotes[key].aka === 'Jaguar' || cthulhuTours.cenotes[key].aka === 'The Blue Abyss' || cthulhuTours.cenotes[key].aka === 'Taj Mahal') {
-			option.innerHTML = cthulhuTours.cenotes[key].name;
+			option.innerHTML = `${cthulhuTours.cenotes[key].name} (${cthulhuTours.cenotes[key].aka})`;
 		} else {
-			option.innerHTML = cthulhuTours.cenotes[key].aka;
+			option.innerHTML = `${cthulhuTours.cenotes[key].aka} (${cthulhuTours.cenotes[key].name})`;
 		}
+		cenoteOptions.push(option);
+	}
+	cenoteOptions.sort((a, b) => a.innerHTML.localeCompare(b.innerHTML));
+	cenoteOptions.forEach((option) => necroTour.appendChild(option));
+	necroTour.appendChild(snorkeling);
+	for (const key in cthulhuTours.snorkeling) {
+		const option = document.createElement('option');
+		option.value = key;
+		option.innerHTML = cthulhuTours.snorkeling[key].name;
 		necroTour.appendChild(option);
 	}
 };
@@ -360,7 +339,7 @@ necroTour.addEventListener('change', function () {
 
 	tourBreakdown.style.display = selectedTour !== 'NA' ? 'block' : 'none';
 	if (selectedTour !== 'NA') {
-		let tourType = [cthulhuTours.courses, cthulhuTours.certifiedTours, cthulhuTours.cenotes];
+		let tourType = [cthulhuTours.courses, cthulhuTours.certifiedTours, cthulhuTours.cenotes, cthulhuTours.snorkeling];
 		tourType.forEach((type) => {
 			if (type[selectedTour] !== undefined) {
 				getTourInfo(type, selectedTour);

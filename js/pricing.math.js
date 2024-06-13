@@ -185,7 +185,7 @@ const getCashSubTotal = (pricelist, activity) => {
 
 // Calculate the deposit amount
 const activityGroups = {
-	boatActivities: ['dsd', 'refresher', 'referral', 'musa', 'manchones', 'mesoamerican', 'wreck', 'bullShark', 'cozumel', 'nightDiving'],
+	boatActivities: ['dsd', 'refresher', 'referral', 'musa', 'manchones', 'mesoamerican', 'wreck', 'bullShark', 'cozumel', 'nightDiving', 'musaSnorkel'],
 	eLearningActivities: ['scubaDiver', 'ow', 'aow', 'ppb', 'nitrox'],
 	shuttleActivities: ['actunHa', 'angelita', 'calavera', 'chacMool', 'dosOjos', 'dreamgate', 'elPit', 'maravilla', 'ponderosa', 'sucActun', 'tajmaHa', 'zapote'],
 };
@@ -236,7 +236,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/scuba-musa.webp',
-			certLvl: 'Scuba Diver',
 			days: 1,
 			elearning: 0,
 			entranceFee: 0,
@@ -244,8 +243,10 @@ const cthulhuTours = {
 			guide: 300,
 			maxDepth: '27ft / 9m',
 			minAge: 10,
+			minCertLvl: 'Scuba Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
 			shuttle: 0,
@@ -263,7 +264,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/scuba-manchones.webp',
-			certLvl: 'Scuba Diver',
 			days: 1,
 			elearning: 0,
 			entranceFee: 0,
@@ -271,8 +271,10 @@ const cthulhuTours = {
 			guide: 300,
 			maxDepth: '27ft / 9m',
 			minAge: 10,
+			minCertLvl: 'Scuba Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
 			shuttle: 0,
@@ -290,7 +292,6 @@ const cthulhuTours = {
 			available: 'Mon, Wed, Fri, Sun',
 			boat: 1350,
 			cardImg: '../img/cards/scuba-mesoamerican.webp',
-			certLvl: 'Scuba Diver',
 			days: 1,
 			deposit: 1350,
 			elearning: 0,
@@ -299,8 +300,10 @@ const cthulhuTours = {
 			guide: 300,
 			maxDepth: '55ft / 17m',
 			minAge: 12,
+			minCertLvl: 'Scuba Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
 			shuttle: 0,
@@ -318,7 +321,6 @@ const cthulhuTours = {
 			available: 'Tue, Thu, Sat',
 			boat: 1350,
 			cardImg: '../img/cards/scuba-wreck.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			deposit: 1350,
 			elearning: 0,
@@ -327,8 +329,10 @@ const cthulhuTours = {
 			guide: 300,
 			maxDepth: '84ft / 26m',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
 			shuttle: 0,
@@ -346,7 +350,6 @@ const cthulhuTours = {
 			available: 'Daily (Nov - Feb)',
 			boat: 1540,
 			cardImg: '../img/cards/scuba-bull-shark.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			deposit: 1540,
 			elearning: 0,
@@ -356,6 +359,7 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-bull-shark-diving',
 			maxDepth: '80ft / 24m',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
 			nitroxAllowed: true,
 			parking: 50,
@@ -376,7 +380,6 @@ const cthulhuTours = {
 			arrivalD2: '12:20',
 			departureD2: '16:45',
 			boat: 1350,
-			certLvl: 'Scuba Diver',
 			days: 1,
 			deposit: 1350,
 			elearning: 0,
@@ -384,8 +387,10 @@ const cthulhuTours = {
 			food: 0,
 			guide: 300,
 			minAge: 10,
+			minCertLvl: 'Scuba Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
 			shuttle: 0,
@@ -403,7 +408,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 2000,
 			cardImg: '../img/cards/scuba-cozumel.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			deposit: 2000,
 			elearning: 0,
@@ -413,6 +417,7 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-cozumel',
 			maxDepth: '130ft / 40m',
 			minAge: 10,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
 			nitroxAllowed: true,
 			parking: 50,
@@ -433,7 +438,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 1350,
 			cardImg: '../img/cards/scuba-night-dive.webp',
-			certLvl: 'Scuba Diver',
 			days: 1,
 			deposit: 1350,
 			elearning: 0,
@@ -443,8 +447,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-night-diving',
 			maxDepth: '84ft / 26m',
 			minAge: 12,
+			minCertLvl: 'Scuba Diver',
 			minClients: 3,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.55,
 			shuttle: 0,
@@ -464,7 +470,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-dsd.webp',
-			certLvl: 'None',
 			days: 1,
 			elearning: 0,
 			entranceFee: 0,
@@ -473,8 +478,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-padi-discover-scuba-diving-dsd',
 			maxDepth: '27ft / 9m',
 			minAge: 10,
+			minCertLvl: 'None',
 			minClients: 1,
 			nitroxAllowed: false,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.62,
 			shuttle: 0,
@@ -492,7 +499,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-refresher.webp',
-			certLvl: 'Scuba Diver',
 			days: 1,
 			elearning: 0,
 			entranceFee: 0,
@@ -501,8 +507,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-padi-refresher',
 			maxDepth: '27ft / 9m',
 			minAge: 10,
+			minCertLvl: 'Scuba Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.62,
 			shuttle: 0,
@@ -520,7 +528,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-scuba-diver.webp',
-			certLvl: 'None',
 			days: 1,
 			elearning: 183.55,
 			entranceFee: 0,
@@ -529,8 +536,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-padi-scuba-diver',
 			maxDepth: '40ft / 12m',
 			minAge: 10,
+			minCertLvl: 'None',
 			minClients: 1,
 			nitroxAllowed: false,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.44,
 			shuttle: 0,
@@ -550,7 +559,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-ow.webp',
-			certLvl: 'None',
 			days: 2,
 			elearning: 183.55,
 			entranceFee: 0,
@@ -559,8 +567,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-padi-open-water-scuba-diver',
 			maxDepth: '60ft / 18m',
 			minAge: 10,
+			minCertLvl: 'None',
 			minClients: 1,
 			nitroxAllowed: false,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
 			shuttle: 0,
@@ -580,7 +590,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-referral.webp',
-			certLvl: 'None',
 			days: 2,
 			elearning: 0,
 			entranceFee: 0,
@@ -589,8 +598,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-padi-referral',
 			maxDepth: '60ft / 18m',
 			minAge: 10,
+			minCertLvl: 'None',
 			minClients: 1,
 			nitroxAllowed: false,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
 			shuttle: 0,
@@ -610,7 +621,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-aow.webp',
-			certLvl: 'Open Water Diver',
 			days: 2,
 			elearning: 173.1,
 			entranceFee: 0,
@@ -619,8 +629,10 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/cancun-padi-advanced-open-water',
 			maxDepth: '130ft / 40m',
 			minAge: 12,
+			minCertLvl: 'Open Water Diver',
 			minClients: 1,
 			nitroxAllowed: false,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
 			shuttle: 0,
@@ -638,7 +650,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-buoyancy.webp',
-			certLvl: 'Scuba Diver',
 			days: 1,
 			elearning: 122.65,
 			entranceFee: 0,
@@ -646,8 +657,10 @@ const cthulhuTours = {
 			guide: 1000,
 			maxDepth: '40ft / 12m',
 			minAge: 10,
+			minCertLvl: 'Scuba Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
 			shuttle: 0,
@@ -665,7 +678,6 @@ const cthulhuTours = {
 			available: 'Daily',
 			boat: 1350,
 			cardImg: '../img/cards/course-nitrox.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			elearning: 152.8,
 			entranceFee: 0,
@@ -673,8 +685,10 @@ const cthulhuTours = {
 			guide: 660,
 			maxDepth: '84ft / 26m',
 			minAge: 10,
+			minCertLvl: 'Open Water Diver',
 			minClients: 1,
 			nitroxAllowed: true,
+			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
 			shuttle: 0,
@@ -702,7 +716,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-car-wash.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '60ft / 18m',
 			elearning: 0,
@@ -711,6 +724,7 @@ const cthulhuTours = {
 			href: 'https://cthulhudivers.com/dive-sites/cenote-car-wash',
 			minAge: 15,
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 3200,
@@ -741,7 +755,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-angelita.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '130ft / 40m',
 			elearning: 0,
@@ -749,7 +762,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: 'https://cthulhudivers.com/dive-sites/cenote-angelita',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 3200,
@@ -780,7 +795,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-calavera.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '50ft / 15m',
 			elearning: 0,
@@ -788,7 +802,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: 'https://cthulhudivers.com/dive-sites/cenote-calavera-temple-of-doom',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2900,
@@ -819,7 +835,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-chac-mool.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '40ft / 12m',
 			elearning: 0,
@@ -827,7 +842,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: 'https://cthulhudivers.com/dive-sites/cenote-chac-mool',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2500,
@@ -859,7 +876,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-dos-ojos.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '45ft / 14m',
 			elearning: 0,
@@ -867,7 +883,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: 'https://cthulhudivers.com/dive-sites/cenote-dos-ojos',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 3200,
@@ -898,7 +916,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-dreamgate.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '30ft / 9m',
 			elearning: 0,
@@ -906,7 +923,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: '',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2900,
@@ -937,7 +956,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-el-pit.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '130ft / 40m',
 			elearning: 0,
@@ -945,7 +963,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: '',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 3200,
@@ -976,7 +996,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-maravilla.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '130ft / 40ft',
 			elearning: 0,
@@ -984,7 +1003,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: '',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2500,
@@ -1015,7 +1036,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-ponderosa.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '60ft / 18m',
 			elearning: 0,
@@ -1023,7 +1043,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: '',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2500,
@@ -1054,7 +1076,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-pet-cemetery.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '23ft / 7m',
 			elearning: 0,
@@ -1062,7 +1083,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: '',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 3200,
@@ -1093,7 +1116,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-tajma-ha.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '50ft / 15m',
 			elearning: 0,
@@ -1101,7 +1123,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: 'https://cthulhudivers.com/dive-sites/cenote-tajma-ha',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2500,
@@ -1133,7 +1157,6 @@ const cthulhuTours = {
 			available: 'Upon Request',
 			boat: 0,
 			cardImg: '../img/cards/cenote-zapote.webp',
-			certLvl: 'Open Water Diver',
 			days: 1,
 			depth: '130ft / 40m',
 			elearning: 0,
@@ -1141,7 +1164,9 @@ const cthulhuTours = {
 			guide: 750,
 			href: '',
 			minAge: 15,
+			minCertLvl: 'Open Water Diver',
 			minClients: 2,
+			parking: 0,
 			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 2500,
@@ -1165,133 +1190,279 @@ const cthulhuTours = {
 			},
 		},
 	},
+	snorkeling: {
+		musaSnorkel: {
+			name: 'Musa & Reef',
+			arrivalD1: '12:20',
+			departureD1: '16:45',
+			available: 'Daily',
+			boat: 1350,
+			boatDpt: '13:00',
+			cardAlt: 'musa snorkeling tour',
+			cardImg: '../img/cards/snorkel-musa.webp',
+			days: 1,
+			food: 0,
+			guide: 0,
+			elearning: 0,
+			entranceFee: 0,
+			href: 'https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour',
+			minAge: 6,
+			minCertLvl: 'None',
+			minClients: 1,
+			parking: 0,
+			photosAllowed: false,
+			profitPercent: 1.3,
+			shuttle: 0,
+			tanks: 0,
+			tanks: 0,
+			tanksDiverCost: 0,
+			tanksGuideCost: 0,
+			get prep() {
+				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`];
+			},
+		},
+		turtleSnorkel: {
+			name: 'Turtle 5-in-1',
+			departureD1: '10:00',
+			available: 'Daily',
+			boat: 45,
+			boatDpt: '7:30',
+			cardAlt: '5-1 snorkeling tour',
+			cardImg: '../img/cards/snorkel-turtle.webp',
+			days: 1,
+			elearning: 0,
+			entranceFee: 0,
+			food: 0,
+			groupSize: 10,
+			guide: 0,
+			href: 'https://cthulhudivers.com/non-diving/turtle-snorkel-tour-5-in-1',
+			minAge: 6,
+			minCertLvl: 'None',
+			minClients: 1,
+			parking: 0,
+			photosAllowed: false,
+			profitPercent: 1.6,
+			shuttle: 0,
+			tanks: 0,
+			tanksDiverCost: 0,
+			tanksGuideCost: 0,
+			get info() {
+				populateLocations('mpnPickup');
+				const tourPickUpD1 = document.querySelector('#turtleSnorkelPickUpD1');
+				const tourPickUpD2 = document.querySelector('#turtleSnorkelPickUpD2');
+				const tourPickUpD3 = document.querySelector('#turtleSnorkelPickUpD3');
+				const tourPickUpD4 = document.querySelector('#turtleSnorkelPickUpD4');
+				const tourPickUpD5 = document.querySelector('#turtleSnorkelPickUpD5');
+				const tourGroupSize = document.querySelector('#turtleSnorkelGroupSize');
+				const tourMinAge = document.querySelector('#turtleSnorkelMinAge');
+				const mpnPickup = hotelList[locations.options[locations.selectedIndex].value].mpnPickup;
+				const tourCard = document.querySelector('#turtleSnorkelCard');
+				const tourDeposit = document.querySelector('#turtleSnorkelDeposit');
+
+				tourPickUpD1.textContent = mpnPickup[0];
+				tourPickUpD2.textContent = mpnPickup[1];
+				tourPickUpD3.textContent = mpnPickup[2];
+				tourPickUpD4.textContent = mpnPickup[3];
+				tourPickUpD5.textContent = mpnPickup[4];
+				tourGroupSize.textContent = this.groupSize;
+				tourMinAge.textContent = this.minAge;
+				tourCard.textContent = roundUp(this.boat * this.profitPercent);
+				tourDeposit.textContent = this.boat;
+			},
+			get cost() {
+				return this.boat;
+			},
+			get deposit() {
+				return roundUp(this.boat);
+			},
+			shuttle: (hotel) => {
+				return 0;
+			},
+		},
+		whaleShark: {
+			name: 'Whale Sharks',
+			boatDpt: '7:45',
+			departureD1: '13:15',
+			available: 'Daily (May - Sept)',
+			boat: 120,
+			cardAlt: 'Whale shark snorkeling',
+			cardImg: '../img/cards/snorkel-whale-shark.webp',
+			days: 1,
+			deposit: 110,
+			dockFee: 20,
+			elearning: 0,
+			entranceFee: 0,
+			food: 0,
+			guide: 0,
+			href: 'https://cthulhudivers.com/cancun-whale-shark-snorkeling',
+			listPrice: 170,
+			minAge: 5,
+			minCertLvl: 'None',
+			minClients: 1,
+			parking: 0,
+			photosAllowed: false,
+			profitPercent: 1.45,
+			tanks: 0,
+			tanksDiverCost: 0,
+			tanksGuideCost: 0,
+			get info() {
+				populateLocations('whaleShark');
+				const tourPickUp = document.querySelector('#whaleSharkPickUp');
+				const tourDropOff = document.querySelector('#whaleSharkDropOff');
+				const tourCash = document.querySelector('#whaleSharkCash');
+				const tourCard = document.querySelector('#whaleSharkCard');
+				const tourDeposit = document.querySelector('#whaleSharkDeposit');
+				const tourDockFee = document.querySelector('#whaleSharkDockFee');
+				const selectedHotel = locations.options[locations.selectedIndex].value;
+
+				let pickUp = hotelList[selectedHotel].whaleShark;
+				let boatDep = convertTime(snorkelPricing.whaleShark.boatDpt);
+				let boatRet = convertTime(snorkelPricing.whaleShark.departureD1);
+				let dropOff;
+
+				tourPickUp.textContent = pickUp;
+				pickUp = convertTime(pickUp);
+				dropOff = revertTime(boatRet + boatDep - pickUp);
+				tourDropOff.textContent = dropOff;
+
+				let cash = snorkelPricing.whaleShark.listPrice + hotelList[selectedHotel].whaleSharkTransportFee;
+				tourCash.textContent = cash;
+				tourCard.textContent = roundUp(cash * 1.16);
+				tourDeposit.textContent = snorkelPricing.whaleShark.deposit;
+				tourDockFee.textContent = snorkelPricing.whaleShark.dockFee;
+			},
+			shuttle: (hotel) => {
+				return hotelList[hotel].whaleSharkTransportFee;
+			},
+		},
+	},
 };
 
-const snorkelPricing = {
-	musaSnorkel: {
-		name: 'Musa & Reef',
-		arrivalD1: '12:20',
-		departureD1: '16:45',
-		available: 'Daily',
-		boat: 1350,
-		boatDpt: '13:00',
-		cardAlt: 'musa snorkeling tour',
-		cardImg: '../img/cards/snorkel-musa.webp',
-		days: 1,
-		guide: 0,
-		href: 'https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour',
-		minAge: 6,
-		photosAllowed: false,
-		profitPercent: 1.3,
-		get cost() {
-			return convertToUSD(this.guide + this.boat, 2);
-		},
-		get info() {
-			quotePrice(snorkelPricing, 'musaSnorkel', this.cost, this.profitPercent);
-			scubaSpecifics('musaSnorkel', this.arrivalD1, this.departureD1, this.arrivalD2, this.departureD2);
-		},
-		get deposit() {
-			return roundUp(convertToUSD(this.boat, 2));
-		},
-		shuttle: (hotel) => {
-			return 0;
-		},
-	},
-	turtleSnorkel: {
-		name: 'Turtle 5-in-1',
-		departureD1: '10:00',
-		available: 'Daily',
-		boat: 45,
-		boatDpt: '7:30',
-		cardAlt: '5-1 snorkeling tour',
-		cardImg: '../img/cards/snorkel-turtle.webp',
-		days: 1,
-		groupSize: 10,
-		href: 'https://cthulhudivers.com/non-diving/turtle-snorkel-tour-5-in-1',
-		minAge: 6,
-		photosAllowed: false,
-		profitPercent: 1.6,
-		get info() {
-			populateLocations('mpnPickup');
-			const tourPickUpD1 = document.querySelector('#turtleSnorkelPickUpD1');
-			const tourPickUpD2 = document.querySelector('#turtleSnorkelPickUpD2');
-			const tourPickUpD3 = document.querySelector('#turtleSnorkelPickUpD3');
-			const tourPickUpD4 = document.querySelector('#turtleSnorkelPickUpD4');
-			const tourPickUpD5 = document.querySelector('#turtleSnorkelPickUpD5');
-			const tourGroupSize = document.querySelector('#turtleSnorkelGroupSize');
-			const tourMinAge = document.querySelector('#turtleSnorkelMinAge');
-			const mpnPickup = hotelList[locations.options[locations.selectedIndex].value].mpnPickup;
-			const tourCard = document.querySelector('#turtleSnorkelCard');
-			const tourDeposit = document.querySelector('#turtleSnorkelDeposit');
+// const snorkelPricing = {
+// 	musaSnorkel: {
+// 		name: 'Musa & Reef',
+// 		arrivalD1: '12:20',
+// 		departureD1: '16:45',
+// 		available: 'Daily',
+// 		boat: 1350,
+// 		boatDpt: '13:00',
+// 		cardAlt: 'musa snorkeling tour',
+// 		cardImg: '../img/cards/snorkel-musa.webp',
+// 		days: 1,
+// 		guide: 0,
+// 		href: 'https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour',
+// 		minAge: 6,
+// 		photosAllowed: false,
+// 		profitPercent: 1.3,
+// 		get cost() {
+// 			return convertToUSD(this.guide + this.boat, 2);
+// 		},
+// 		get info() {
+// 			quotePrice(snorkelPricing, 'musaSnorkel', this.cost, this.profitPercent);
+// 			scubaSpecifics('musaSnorkel', this.arrivalD1, this.departureD1, this.arrivalD2, this.departureD2);
+// 		},
+// 		get deposit() {
+// 			return roundUp(convertToUSD(this.boat, 2));
+// 		},
+// 		shuttle: (hotel) => {
+// 			return 0;
+// 		},
+// 	},
+// 	turtleSnorkel: {
+// 		name: 'Turtle 5-in-1',
+// 		departureD1: '10:00',
+// 		available: 'Daily',
+// 		boat: 45,
+// 		boatDpt: '7:30',
+// 		cardAlt: '5-1 snorkeling tour',
+// 		cardImg: '../img/cards/snorkel-turtle.webp',
+// 		days: 1,
+// 		groupSize: 10,
+// 		href: 'https://cthulhudivers.com/non-diving/turtle-snorkel-tour-5-in-1',
+// 		minAge: 6,
+// 		photosAllowed: false,
+// 		profitPercent: 1.6,
+// 		get info() {
+// 			populateLocations('mpnPickup');
+// 			const tourPickUpD1 = document.querySelector('#turtleSnorkelPickUpD1');
+// 			const tourPickUpD2 = document.querySelector('#turtleSnorkelPickUpD2');
+// 			const tourPickUpD3 = document.querySelector('#turtleSnorkelPickUpD3');
+// 			const tourPickUpD4 = document.querySelector('#turtleSnorkelPickUpD4');
+// 			const tourPickUpD5 = document.querySelector('#turtleSnorkelPickUpD5');
+// 			const tourGroupSize = document.querySelector('#turtleSnorkelGroupSize');
+// 			const tourMinAge = document.querySelector('#turtleSnorkelMinAge');
+// 			const mpnPickup = hotelList[locations.options[locations.selectedIndex].value].mpnPickup;
+// 			const tourCard = document.querySelector('#turtleSnorkelCard');
+// 			const tourDeposit = document.querySelector('#turtleSnorkelDeposit');
 
-			tourPickUpD1.textContent = mpnPickup[0];
-			tourPickUpD2.textContent = mpnPickup[1];
-			tourPickUpD3.textContent = mpnPickup[2];
-			tourPickUpD4.textContent = mpnPickup[3];
-			tourPickUpD5.textContent = mpnPickup[4];
-			tourGroupSize.textContent = this.groupSize;
-			tourMinAge.textContent = this.minAge;
-			tourCard.textContent = roundUp(this.boat * this.profitPercent);
-			tourDeposit.textContent = this.boat;
-		},
-		get cost() {
-			return this.boat;
-		},
-		get deposit() {
-			return roundUp(this.boat);
-		},
-		shuttle: (hotel) => {
-			return 0;
-		},
-	},
-	whaleShark: {
-		name: 'Whale Sharks',
-		boatDpt: '7:45',
-		departureD1: '13:15',
-		available: 'Daily (May - Sept)',
-		boat: 120,
-		cardAlt: 'Whale shark snorkeling',
-		cardImg: '../img/cards/snorkel-whale-shark.webp',
-		days: 1,
-		deposit: 110,
-		dockFee: 20,
-		guide: 0,
-		href: 'https://cthulhudivers.com/cancun-whale-shark-snorkeling',
-		listPrice: 170,
-		minAge: 5,
-		photosAllowed: false,
-		profitPercent: 1.45,
-		get info() {
-			populateLocations('whaleShark');
-			const tourPickUp = document.querySelector('#whaleSharkPickUp');
-			const tourDropOff = document.querySelector('#whaleSharkDropOff');
-			const tourCash = document.querySelector('#whaleSharkCash');
-			const tourCard = document.querySelector('#whaleSharkCard');
-			const tourDeposit = document.querySelector('#whaleSharkDeposit');
-			const tourDockFee = document.querySelector('#whaleSharkDockFee');
-			const selectedHotel = locations.options[locations.selectedIndex].value;
+// 			tourPickUpD1.textContent = mpnPickup[0];
+// 			tourPickUpD2.textContent = mpnPickup[1];
+// 			tourPickUpD3.textContent = mpnPickup[2];
+// 			tourPickUpD4.textContent = mpnPickup[3];
+// 			tourPickUpD5.textContent = mpnPickup[4];
+// 			tourGroupSize.textContent = this.groupSize;
+// 			tourMinAge.textContent = this.minAge;
+// 			tourCard.textContent = roundUp(this.boat * this.profitPercent);
+// 			tourDeposit.textContent = this.boat;
+// 		},
+// 		get cost() {
+// 			return this.boat;
+// 		},
+// 		get deposit() {
+// 			return roundUp(this.boat);
+// 		},
+// 		shuttle: (hotel) => {
+// 			return 0;
+// 		},
+// 	},
+// 	whaleShark: {
+// 		name: 'Whale Sharks',
+// 		boatDpt: '7:45',
+// 		departureD1: '13:15',
+// 		available: 'Daily (May - Sept)',
+// 		boat: 120,
+// 		cardAlt: 'Whale shark snorkeling',
+// 		cardImg: '../img/cards/snorkel-whale-shark.webp',
+// 		days: 1,
+// 		deposit: 110,
+// 		dockFee: 20,
+// 		guide: 0,
+// 		href: 'https://cthulhudivers.com/cancun-whale-shark-snorkeling',
+// 		listPrice: 170,
+// 		minAge: 5,
+// 		photosAllowed: false,
+// 		profitPercent: 1.45,
+// 		get info() {
+// 			populateLocations('whaleShark');
+// 			const tourPickUp = document.querySelector('#whaleSharkPickUp');
+// 			const tourDropOff = document.querySelector('#whaleSharkDropOff');
+// 			const tourCash = document.querySelector('#whaleSharkCash');
+// 			const tourCard = document.querySelector('#whaleSharkCard');
+// 			const tourDeposit = document.querySelector('#whaleSharkDeposit');
+// 			const tourDockFee = document.querySelector('#whaleSharkDockFee');
+// 			const selectedHotel = locations.options[locations.selectedIndex].value;
 
-			let pickUp = hotelList[selectedHotel].whaleShark;
-			let boatDep = convertTime(snorkelPricing.whaleShark.boatDpt);
-			let boatRet = convertTime(snorkelPricing.whaleShark.departureD1);
-			let dropOff;
+// 			let pickUp = hotelList[selectedHotel].whaleShark;
+// 			let boatDep = convertTime(snorkelPricing.whaleShark.boatDpt);
+// 			let boatRet = convertTime(snorkelPricing.whaleShark.departureD1);
+// 			let dropOff;
 
-			tourPickUp.textContent = pickUp;
-			pickUp = convertTime(pickUp);
-			dropOff = revertTime(boatRet + boatDep - pickUp);
-			tourDropOff.textContent = dropOff;
+// 			tourPickUp.textContent = pickUp;
+// 			pickUp = convertTime(pickUp);
+// 			dropOff = revertTime(boatRet + boatDep - pickUp);
+// 			tourDropOff.textContent = dropOff;
 
-			let cash = snorkelPricing.whaleShark.listPrice + hotelList[selectedHotel].whaleSharkTransportFee;
-			tourCash.textContent = cash;
-			tourCard.textContent = roundUp(cash * 1.16);
-			tourDeposit.textContent = snorkelPricing.whaleShark.deposit;
-			tourDockFee.textContent = snorkelPricing.whaleShark.dockFee;
-		},
-		shuttle: (hotel) => {
-			return hotelList[hotel].whaleSharkTransportFee;
-		},
-	},
-};
+// 			let cash = snorkelPricing.whaleShark.listPrice + hotelList[selectedHotel].whaleSharkTransportFee;
+// 			tourCash.textContent = cash;
+// 			tourCard.textContent = roundUp(cash * 1.16);
+// 			tourDeposit.textContent = snorkelPricing.whaleShark.deposit;
+// 			tourDockFee.textContent = snorkelPricing.whaleShark.dockFee;
+// 		},
+// 		shuttle: (hotel) => {
+// 			return hotelList[hotel].whaleSharkTransportFee;
+// 		},
+// 	},
+// };
 
 const nonDivingPricing = {
 	chichenItzaAdults: {
