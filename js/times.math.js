@@ -5148,3 +5148,44 @@ const revertTime = (time) => {
 	const minutes = (time % 60).toString().padStart(2, '0');
 	return `${hours}:${minutes}`;
 };
+
+function calculateTransportTime(time, hotel, operation, destination) {
+	// console.log('time', time);
+	// console.log('hotel', hotel);
+	// console.log('operation', operation);
+	// console.log('destination', destination);
+	const baseTime = convertTime(time);
+	let timeOffset = '';
+	let adjustedTime;
+
+	if (destination === 'Real Inn') {
+		timeOffset = hotelList[hotel].sb805;
+	} else if (destination === 'Playa Pelicanos') {
+		if (hotelList[hotel].location === 'cun') {
+			timeOffset = 90;
+		} else if (hotelList[hotel].location === 'pdc') {
+			timeOffset = 20;
+		} else if (hotelList[hotel].location === 'maya') {
+			timeOffset = 35;
+		} else if (hotelList[hotel].location === 'pm' || hotelList[hotel].location === 'cm') {
+			timeOffset = 100;
+		}
+	} else if (destination === 'Cenote') {
+		if (hotelList[hotel].location === 'cun') {
+			timeOffset = 90;
+		} else if (hotelList[hotel].location === 'pdc') {
+			timeOffset = 45;
+		} else if (hotelList[hotel].location === 'maya') {
+			timeOffset = 55;
+		} else if (hotelList[hotel].location === 'pm' || hotelList[hotel].location === 'cm') {
+			timeOffset = 120;
+		}
+	}
+
+	if (operation === 'pickup') {
+		adjustedTime = baseTime - timeOffset;
+	} else if (operation === 'dropoff') {
+		adjustedTime = baseTime + timeOffset;
+	}
+	return revertTime(adjustedTime);
+}

@@ -21,100 +21,20 @@ const populateLocations = (site) => {
 	}
 };
 
-const convertToUSD = (value, fixed) => {
-	return Number((value / exchangeRate).toFixed(fixed));
+const convertToMEX = (value, fixed) => {
+	return Number((value * exchangeRate).toFixed(fixed));
 };
 
-const scubaSpecifics = (site, arrivalD1, departureD1, arrivalD2, departureD2, minAge, maxDepth) => {
-	const tourPickUp = document.querySelector(`#${site}PickUp`);
-	const tourDropOff = document.querySelector(`#${site}DropOff`);
-	const tourPickUpD2 = document.querySelector(`#${site}PickUpD2`);
-	const tourDropOffD2 = document.querySelector(`#${site}DropOffD2`);
-	const tourMinAge = document.querySelector(`#${site}MinAge`);
-	const tourDepth = document.querySelector(`#${site}Depth`);
-
-	if (locations != null) {
-		let arr = convertTime(arrivalD1);
-		let dep = convertTime(departureD1);
-		let arrD2 = arrivalD2 !== undefined ? convertTime(arrivalD2) : null;
-		let depD2 = departureD2 !== undefined ? convertTime(departureD2) : null;
-
-		const travelTimes = {
-			aow: 'sb805',
-			certified: 'sb805',
-			dsd: 'sb805',
-			musaSnorkel: 'sb805',
-			nightDiving: 'sb805',
-			ow: 'sb805',
-			referral: 'sb805',
-			refresher: 'sb805',
-			scubaDiver: 'sb805',
-		};
-
-		populateLocations(travelTimes[site] || 'location');
-		const selectedHotel = locations.options[locations.selectedIndex].value;
-		let travelTime = hotelList[selectedHotel][travelTimes[site] || 'location'];
-		if (cenotePricing[site]?.shuttle) {
-			if (travelTime === 'pdc') {
-				travelTime = 30;
-			} else {
-				travelTime = 90;
-			}
-		}
-
-		if (site === 'bullShark' || site === 'cozumel') {
-			let area = hotelList[selectedHotel].location;
-			if (area === 'cun') {
-				travelTime = 90;
-			} else if (area === 'pm' || area === 'cm') {
-				travelTime = 105;
-			} else {
-				travelTime = 35;
-			}
-		}
-
-		if (tourPickUp) tourPickUp.textContent = revertTime(arr - travelTime);
-		if (tourDropOff) tourDropOff.textContent = revertTime(dep + travelTime);
-		if (tourPickUpD2) tourPickUpD2.textContent = revertTime(arrD2 - travelTime);
-		if (tourDropOffD2) tourDropOffD2.textContent = revertTime(depD2 + travelTime);
-	}
-	if (tourMinAge) tourMinAge.textContent = minAge;
-	if (tourDepth) tourDepth.textContent = maxDepth;
+const convertToUSD = (value, fixed) => {
+	return Number((value / exchangeRate).toFixed(fixed));
 };
 
 const roundUp = (x) => {
 	return Math.ceil(x / 5) * 5;
 };
 
-const round2Dec = (x) => {
-	return Math.round(x * 100) / 100;
-};
-
-const quotePrice = (pricelist, site, cost) => {
-	let tourCash = document.querySelector(`#${site}Cash`);
-	let quoteCash = roundUp(cost * pricelist[site].profitPercent);
-
-	tourCash.innerHTML = quoteCash;
-
-	let tourCard = document.querySelector(`#${site}Card`);
-	let quoteCard = roundUp(quoteCash * 1.16);
-	tourCard.innerHTML = quoteCard;
-	pricelist[site].cardPrice = quoteCard;
-
-	let tourDeposit = document.querySelector(`#${site}Deposit`);
-	if (tourDeposit !== null) {
-		tourDeposit.innerHTML = roundUp(convertToUSD(pricelist[site].deposit, 2));
-	}
-
-	let tourPhotos = document.querySelector(`#${site}Photos`);
-	if (tourPhotos !== null) {
-		tourPhotos.innerHTML = pricelist.extras.photos * pricelist[site].days;
-	}
-
-	let tourEanx32 = document.querySelector(`#${site}EANx32`);
-	if (tourEanx32 != null && pricelist[site].eanx32tanks !== 0) {
-		tourEanx32.innerHTML = `${roundUp(convertToUSD(pricelist.extras.eanx32, 2) * pricelist[site].days * (pricelist[site].tanks * 2))}`;
-	}
+const roundTo2ndDecimal = (x) => {
+	return Number(x.toFixed(2));
 };
 
 // Calculate PayPal fees for invoicing
@@ -123,103 +43,38 @@ const palPalFees = (amountUSD) => {
 	let paypalInvoiceFeeRate = 0.05; // 5%
 	let paypalFixedInvoiceFeeUSD = 0.49; // $0.49
 
-	// Calculate PayPal fees for invoicing
-	let paypalInvoiceFeeUSD = amountUSD * paypalInvoiceFeeRate + paypalFixedInvoiceFeeUSD;
+	return amountUSD * paypalInvoiceFeeRate + paypalFixedInvoiceFeeUSD;
 
-	// Calculate total amount after PayPal fees in USD
-	let amountAfterPayPalFeesUSD = amountUSD - paypalInvoiceFeeUSD;
+	// // Calculate PayPal fees for invoicing
+	// let paypalInvoiceFeeUSD = amountUSD * paypalInvoiceFeeRate + paypalFixedInvoiceFeeUSD;
 
-	// Convert total amount after PayPal fees to MXN
-	let amountAfterPayPalFeesMXN = amountAfterPayPalFeesUSD * exchangeRate;
+	// // Calculate total amount after PayPal fees in USD
+	// let amountAfterPayPalFeesUSD = amountUSD - paypalInvoiceFeeUSD;
 
-	return {
-		paypalInvoiceFeeUSD: paypalInvoiceFeeUSD,
-		amountAfterPayPalFeesUSD: amountAfterPayPalFeesUSD,
-		amountAfterPayPalFeesMXN: amountAfterPayPalFeesMXN,
-	};
+	// // Convert total amount after PayPal fees to MXN
+	// let amountAfterPayPalFeesMXN = amountAfterPayPalFeesUSD * exchangeRate;
+
+	// return {
+	// 	paypalInvoiceFeeUSD: paypalInvoiceFeeUSD,
+	// 	amountAfterPayPalFeesUSD: amountAfterPayPalFeesUSD,
+	// 	amountAfterPayPalFeesMXN: amountAfterPayPalFeesMXN,
+	// };
 };
 
 // Calculate cost of nitrox tanks
 const getNitroxCost = (pricelist, activity) => {
 	let nitroxMXN;
+	let nitroxCalc = cthulhuTours[pricelist][activity].bookingRequirements.days * 2 * cthulhuTours.common.eanx32;
 	if (activity === 'refresher' || activity === 'ppb') {
-		nitroxMXN = (pricelist[activity].tanks - 1) * pricelist[activity].days * 2 * cthulhuTours.extras.eanx32;
+		nitroxMXN = nitroxCalc * (cthulhuTours[pricelist][activity].tanks - 1);
 	} else {
-		nitroxMXN = pricelist[activity].tanks * pricelist[activity].days * 2 * cthulhuTours.extras.eanx32;
+		nitroxMXN = nitroxCalc * cthulhuTours[pricelist][activity].tanks;
 	}
-	return { nitroxMXN: nitroxMXN, nitroxUSD: convertToUSD(nitroxMXN, 2) };
+	return roundUp(nitroxMXN / exchangeRate);
 };
 
-// Calculate sub-total of the cash costs before PayPal fees and taxes
-const getCashSubTotal = (pricelist, activity) => {
-	let i = convertToUSD(pricelist[activity].boat * pricelist[activity].days, 2) + convertToUSD(pricelist[activity].guide, 2) + pricelist[activity].elearning;
-	if (activity === 'nitrox') {
-		i += Number(getNitroxCost(pricelist, activity).nitroxUSD);
-		i = Number(i.toFixed(2));
-	} else if (activity === 'cozumel' || activity === 'bullShark') {
-		i += convertToUSD(pricelist[activity].parking, 2);
-	} else if (
-		activity === 'actunHa' ||
-		activity === 'angelita' ||
-		activity === 'calavera' ||
-		activity === 'chacMool' ||
-		activity === 'dosOjos' ||
-		activity === 'dreamgate' ||
-		activity === 'elPit' ||
-		activity === 'maravilla' ||
-		activity === 'ponderosa' ||
-		activity === 'sucActun' ||
-		activity === 'tajmaHa' ||
-		activity === 'zapote'
-	) {
-		i +=
-			convertToUSD(pricelist[activity].shuttle / 2, 2) +
-			convertToUSD(pricelist[activity].entranceFee, 2) +
-			convertToUSD(pricelist[activity].food, 2) +
-			convertToUSD(pricelist[activity].tanks * pricelist[activity].tanksDiverCost, 2) +
-			convertToUSD(pricelist[activity].tanksGuideCost / pricelist[activity].minClients, 2) +
-			pricelist[activity].elearning;
-	}
-	return i;
-};
-
-// Calculate the deposit amount
-const activityGroups = {
-	boatActivities: ['dsd', 'refresher', 'referral', 'musa', 'manchones', 'mesoamerican', 'wreck', 'bullShark', 'cozumel', 'nightDiving', 'musaSnorkel'],
-	eLearningActivities: ['scubaDiver', 'ow', 'aow', 'ppb', 'nitrox'],
-	shuttleActivities: ['actunHa', 'angelita', 'calavera', 'chacMool', 'dosOjos', 'dreamgate', 'elPit', 'maravilla', 'ponderosa', 'sucActun', 'tajmaHa', 'zapote'],
-};
-
-const getDeposit = (pricelist, activity) => {
-	if (activityGroups.boatActivities.includes(activity)) {
-		return roundUp(convertToUSD(pricelist[activity].boat, 2));
-	} else if (activityGroups.eLearningActivities.includes(activity)) {
-		return roundUp(pricelist[activity].elearning);
-	} else if (activityGroups.shuttleActivities.includes(activity)) {
-		return roundUp(convertToUSD(pricelist[activity].shuttle / pricelist[activity].minClients, 2));
-	}
-};
-
-// Calculate the PayPal fees and taxes for given dollar amount
-const getPayPal = (amountUSD) => {
-	return {
-		invoiceFee: palPalFees(amountUSD).paypalInvoiceFeeUSD,
-		taxes: Number((amountUSD * 0.16).toFixed(2)),
-	};
-};
-
-const getPickUp = (pricelist, activity, day) => {
-	const arrivalTimeKey = `arrivalD${day}`;
-	return revertTime(convertTime(pricelist[activity][arrivalTimeKey]) - hotelList[locations.value].sb805);
-};
-
-const getDropOff = (pricelist, activity, day) => {
-	const departureTimeKey = `departureD${day}`;
-	return revertTime(convertTime(pricelist[activity][departureTimeKey]) + hotelList[locations.value].sb805);
-};
-
-const getPrep = (pricelist, activity) => {
-	const prepItems = pricelist[activity].prep;
+const getPrep = (pricelist, tour) => {
+	const prepItems = pricelist[tour].prep;
 	prepItems.forEach((item) => {
 		const paragraph = document.createElement('p');
 		paragraph.innerHTML = item;
@@ -227,521 +82,804 @@ const getPrep = (pricelist, activity) => {
 	});
 };
 
+const getCosts = (pricelist, tour) => {
+	const costs = cthulhuTours[pricelist][tour].costs;
+
+	Object.entries(costs).forEach(([key, value]) => {
+		const capatilizeFirstLetter = key.charAt(0).toUpperCase() + key.slice(1);
+		let valueUSD = convertToUSD(value, 2).toFixed(2);
+		let paragraph = createParagraph(`<span>${capatilizeFirstLetter}:</span> U$${valueUSD} <em>(${value}mxn)</em>`);
+		if (key === 'elearning') {
+			paragraph = createParagraph(`<span>${capatilizeFirstLetter}:</span> U$${valueUSD}`);
+		}
+		tourCashCosts.appendChild(paragraph);
+		tourCardCosts.appendChild(paragraph.cloneNode(true));
+	});
+};
+
+const getInvoicing = (pricelist, selectedTour, costs, profitPercent, tourData) => {
+	// Get sub-total costs
+	let subTotalUSD = 0;
+	const tourCosts = Object.values(costs);
+	tourCosts.forEach((cost) => {
+		cost = convertToUSD(cost, 2);
+		subTotalUSD += cost;
+	});
+
+	// Names
+	tourData.name = cthulhuTours[pricelist][selectedTour].name;
+	tourData.aka = cthulhuTours[pricelist][selectedTour].aka;
+	// Transport
+	tourData.arrivalDay1 = cthulhuTours[pricelist][selectedTour].transport.arrivalDay1;
+	tourData.departureDay1 = cthulhuTours[pricelist][selectedTour].transport.departureDay1;
+	tourData.pickUpDay1 = cthulhuTours[pricelist][selectedTour].transport.pickUpDay1;
+	tourData.dropOffDay1 = cthulhuTours[pricelist][selectedTour].transport.dropOffDay1;
+	tourData.arrivalDay2 = cthulhuTours[pricelist][selectedTour].transport.arrivalDay2;
+	tourData.departureDay2 = cthulhuTours[pricelist][selectedTour].transport.departureDay2;
+	tourData.pickUpDay2 = cthulhuTours[pricelist][selectedTour].transport.pickUpDay2;
+	tourData.dropOffDay2 = cthulhuTours[pricelist][selectedTour].transport.dropOffDay2;
+	// Booking Info
+	tourData.available = cthulhuTours[pricelist][selectedTour].bookingRequirements.available;
+	tourData.days = cthulhuTours[pricelist][selectedTour].bookingRequirements.days;
+	tourData.deposit = cthulhuTours[pricelist][selectedTour].bookingRequirements.deposit;
+	tourData.maxDepth = cthulhuTours[pricelist][selectedTour].bookingRequirements.maxDepth;
+	tourData.minAge = cthulhuTours[pricelist][selectedTour].bookingRequirements.minAge;
+	tourData.minCertLvl = cthulhuTours[pricelist][selectedTour].bookingRequirements.minCertLvl;
+	tourData.minClients = cthulhuTours[pricelist][selectedTour].bookingRequirements.minClients;
+	// Costs
+	tourData.boat = cthulhuTours[pricelist][selectedTour].costs.boat;
+	tourData.elearning = cthulhuTours[pricelist][selectedTour].costs.elearning;
+	tourData.entranceFee = cthulhuTours[pricelist][selectedTour].costs.entranceFee;
+	tourData.food = cthulhuTours[pricelist][selectedTour].costs.food;
+	tourData.guide = cthulhuTours[pricelist][selectedTour].costs.guide;
+	tourData.parking = cthulhuTours[pricelist][selectedTour].costs.parking;
+	tourData.shuttle = cthulhuTours[pricelist][selectedTour].costs.shuttle;
+	tourData.tanksDiverCost = cthulhuTours[pricelist][selectedTour].costs.tanksDiverCost;
+	tourData.tanksGuideCost = cthulhuTours[pricelist][selectedTour].costs.tanksGuideCost;
+	// Cash Sub-total, Profit, PayPal Fees & Taxes
+	tourData.subTotalUSD = roundTo2ndDecimal(subTotalUSD);
+	tourData.profitPercent = profitPercent;
+	tourData.cashPrice = roundUp(subTotalUSD * tourData.profitPercent);
+	tourData.cashPayPalFeeUSD = palPalFees(tourData.deposit);
+	tourData.cashTax = tourData.deposit * 0.16;
+	tourData.cashCostsTotal = roundTo2ndDecimal(tourData.subTotalUSD + tourData.cashPayPalFeeUSD + tourData.cashTax);
+	tourData.cashProfitTotal = roundTo2ndDecimal(tourData.cashPrice - tourData.cashCostsTotal);
+	// Card Sub-total, Profit, PayPal Fees & Taxes
+	tourData.cardPrice = roundUp(tourData.cashPrice * 1.16);
+	tourData.cardPayPalFeeUSD = palPalFees(tourData.cardPrice);
+	tourData.cardTax = roundTo2ndDecimal(tourData.cashPrice * 0.16);
+	tourData.cardCostsTotal = roundTo2ndDecimal(tourData.subTotalUSD + tourData.cardPayPalFeeUSD + tourData.cardTax);
+	tourData.cardProfitTotal = roundTo2ndDecimal(tourData.cardPrice - tourData.cardCostsTotal);
+	// Extras
+	tourData.nitroxUSD = getNitroxCost(pricelist, selectedTour);
+	tourData.photos = cthulhuTours.common.photos;
+	// Prep
+	tourData.prep = cthulhuTours[pricelist][selectedTour].prep;
+};
+
 const cthulhuTours = {
+	common: {
+		cenote: {
+			food: 200,
+			tanksClient: 80,
+			tanksGuide: 250,
+		},
+		eanx32: 150,
+		photos: 25,
+		soloBuceo: {
+			costBoatMXN: 1350,
+			get costBoatUSD() {
+				return convertToUSD(this.costBoatMXN, 2);
+			},
+		},
+	},
 	certifiedTours: {
 		musa: {
 			name: 'Musa & Reef',
-			arrivalD1: '12:20',
-			departureD1: '16:45',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '27ft / 9m',
+				minAge: 10,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-musa.webp',
-			days: 1,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 300,
-			maxDepth: '27ft / 9m',
-			minAge: 10,
-			minCertLvl: 'Scuba Diver',
-			minClients: 1,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 300,
+			},
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '12:20',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10651`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10651`];
 			},
 		},
 		manchones: {
 			name: 'Manchones Reefs',
-			arrivalD1: '12:20',
-			departureD1: '16:45',
 			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '27ft / 9m',
+				minAge: 10,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-manchones.webp',
-			days: 1,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 300,
-			maxDepth: '27ft / 9m',
-			minAge: 10,
-			minCertLvl: 'Scuba Diver',
-			minClients: 1,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 300,
+			},
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '12:20',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10651`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10651`];
 			},
 		},
 		mesoamerican: {
 			name: 'Mesoamerican Reefs',
-			arrivalD1: '12:20',
-			departureD1: '16:45',
-			available: 'Mon, Wed, Fri, Sun',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Mon, Wed, Fri, Sun',
+				days: 1,
+				maxDepth: '55ft / 17m',
+				minAge: 12,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-mesoamerican.webp',
-			days: 1,
-			deposit: 1350,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 300,
-			maxDepth: '55ft / 17m',
-			minAge: 12,
-			minCertLvl: 'Scuba Diver',
-			minClients: 1,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 300,
+			},
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '8:05',
+				departureDay1: '12:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10651`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10651`];
 			},
 		},
 		wreck: {
 			name: 'Wreck & Reef',
-			arrivalD1: '8:05',
-			departureD1: '12:30',
-			available: 'Tue, Thu, Sat',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Tue, Thu, Sat',
+				days: 1,
+				maxDepth: '84ft / 26m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-wreck.webp',
-			days: 1,
-			deposit: 1350,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 300,
-			maxDepth: '84ft / 26m',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 1,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 300,
+			},
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '8:05',
+				departureDay1: '12:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10651`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10651`];
 			},
 		},
 		bullShark: {
 			name: 'Bull Shark',
-			arrivalD1: '13:00',
-			departureD1: '17:00',
-			available: 'Daily (Nov - Feb)',
-			boat: 1540,
+			bookingRequirements: {
+				available: 'Daily (Nov - Feb)',
+				days: 1,
+				maxDepth: '84ft / 26m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-bull-shark.webp',
-			days: 1,
-			deposit: 1540,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 400,
+			costs: {
+				boat: 1800,
+				guide: 500,
+				parking: 50,
+			},
 			href: 'https://cthulhudivers.com/cancun-bull-shark-diving',
-			maxDepth: '80ft / 24m',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
 			nitroxAllowed: true,
-			parking: 50,
-			photosAllowed: false,
 			profitPercent: 1.96,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '13:00',
+				departureDay1: '17:00',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Playa Pelicanos');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Playa Pelicanos');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat + this.parking}mxn`, `<span>Doc:</span> 10651`, `<span>Equipment:</span> Mask, BCD, Regulator, Full Wetsuit, Fins`, `<div class="prep-notes"><h5>Notes:</h5> 50mxn needs to be in change for parking meter.</div>`];
+				return [
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat + tourData.parking}mxn`,
+					`<span>Doc:</span> 10651`,
+					`<span>Equipment:</span> Mask, BCD, Regulator, Full Wetsuit, Fins`,
+					`<div class="prep-notes"><h5>Notes:</h5> 50mxn needs to be in change for parking meter.</div>`,
+				];
 			},
 		},
 		certified: {
 			name: 'Certified Divers',
-			arrivalD1: '8:05',
-			departureD1: '12:30',
-			arrivalD2: '12:20',
-			departureD2: '16:45',
-			boat: 1350,
-			days: 1,
-			deposit: 1350,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 300,
-			minAge: 10,
-			minCertLvl: 'Scuba Diver',
-			minClients: 1,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '84ft / 26m',
+				minAge: 10,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 300,
+			},
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.55,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '8:05',
+				departureDay1: '12:30',
+				arrivalDay2: '12:20',
+				departureDay2: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10651`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10651`];
 			},
 		},
 		cozumel: {
 			name: 'Cozumel',
-			arrivalD1: '8:00',
-			departureD1: '13:00',
-			available: 'Upon Request',
-			boat: 2000,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '130ft / 40m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-cozumel.webp',
-			days: 1,
-			deposit: 2000,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 400,
+			costs: {
+				boat: 2000,
+				guide: 500,
+				parking: 50,
+			},
 			href: 'https://cthulhudivers.com/cancun-cozumel',
-			maxDepth: '130ft / 40m',
-			minAge: 10,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
 			nitroxAllowed: true,
-			parking: 50,
 			photosAllowed: true,
 			profitPercent: 1.5,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '8:00',
+				departureDay1: '13:00',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Playa Pelicanos');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Playa Pelicanos');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat + this.parking}mxn`, `<span>Doc:</span> 10651`, `<span>Equipment:</span> Mask, BCD, Regulator, Wetsuit, Fins`, `<div class="prep-notes"><h5>Notes:</h5> 50mxn needs to be in change for parking meter.</div>`];
+				return [
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat + tourData.parking}mxn`,
+					`<span>Doc:</span> 10651`,
+					`<span>Equipment:</span> Mask, BCD, Regulator, Wetsuit, Fins`,
+					`<div class="prep-notes"><h5>Notes:</h5> 50mxn needs to be in change for parking meter.</div>`,
+				];
 			},
 		},
 		nightDiving: {
 			name: 'Night Diving',
-			arrivalD1: '17:30',
-			departureD1: '21:30',
-			available: 'Upon Request',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '84ft / 26m',
+				minAge: 12,
+				minCertLvl: 'Scuba Diver',
+				minClients: 3,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/scuba-night-dive.webp',
-			days: 1,
-			deposit: 1350,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 300,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 300,
+			},
 			href: 'https://cthulhudivers.com/cancun-night-diving',
-			maxDepth: '84ft / 26m',
-			minAge: 12,
-			minCertLvl: 'Scuba Diver',
-			minClients: 3,
 			nitroxAllowed: true,
-			parking: 0,
-			photosAllowed: false,
 			profitPercent: 1.55,
-			shuttle: 0,
 			tanks: 1,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '17:30',
+				departureDay1: '21:00',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10651`, `<span>Equipment:</span> Torch`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10651`];
 			},
 		},
 	},
 	courses: {
 		dsd: {
 			name: 'Discover Scuba Diving',
-			arrivalD1: '10:00',
-			departureD1: '16:45',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '27ft / 9m',
+				minAge: 10,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/course-dsd.webp',
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 500,
+			},
 			days: 1,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 500,
 			href: 'https://cthulhudivers.com/cancun-padi-discover-scuba-diving-dsd',
-			maxDepth: '27ft / 9m',
-			minAge: 10,
-			minCertLvl: 'None',
-			minClients: 1,
-			nitroxAllowed: false,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.62,
-			shuttle: 0,
 			tanks: 3,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '10:00',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10648`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10648`];
 			},
 		},
 		refresher: {
 			name: 'PADI Scuba Refresher',
-			arrivalD1: '10:00',
-			departureD1: '16:45',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '27ft / 9m',
+				minAge: 10,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/course-refresher.webp',
-			days: 1,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 500,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				guide: 500,
+			},
 			href: 'https://cthulhudivers.com/cancun-padi-refresher',
-			maxDepth: '27ft / 9m',
-			minAge: 10,
-			minCertLvl: 'Scuba Diver',
-			minClients: 1,
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.62,
-			shuttle: 0,
 			tanks: 3,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '10:00',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10648`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10648`];
 			},
 		},
 		scubaDiver: {
 			name: 'PADI Scuba Diver',
-			arrivalD1: '8:15',
-			departureD1: '16:45',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '40ft / 12m',
+				minAge: 10,
+				minCertLvl: 'None',
+				minClients: 1,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.courses.scubaDiver.costs.elearning, 2));
+				},
+			},
 			cardImg: '../img/cards/course-scuba-diver.webp',
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				elearning: convertToMEX(183.55, 2),
+				guide: 1000,
+			},
 			days: 1,
-			elearning: 183.55,
-			entranceFee: 0,
-			food: 0,
-			guide: 1000,
 			href: 'https://cthulhudivers.com/cancun-padi-scuba-diver',
-			maxDepth: '40ft / 12m',
-			minAge: 10,
-			minCertLvl: 'None',
-			minClients: 1,
-			nitroxAllowed: false,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.44,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '8:15',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Docs:</span> 10056, 10060, 10072, 10346`, `<span>Equipment:</span> Compass, SMB`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Docs:</span> 10056, 10060, 10072, 10346`, `<span>Equipment:</span> Compass, SMB`];
 			},
 		},
 		ow: {
 			name: 'PADI Open Water',
-			arrivalD1: '8:15',
-			departureD1: '16:45',
-			arrivalD2: '8:15',
-			departureD2: '12:30',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 2,
+				maxDepth: '60ft / 18m',
+				minAge: 10,
+				minCertLvl: 'None',
+				minClients: 1,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.courses.ow.costs.elearning, 2));
+				},
+			},
 			cardImg: '../img/cards/course-ow.webp',
-			days: 2,
-			elearning: 183.55,
-			entranceFee: 0,
-			food: 0,
-			guide: 2000,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN * 2;
+				},
+				elearning: convertToMEX(183.55, 2),
+				guide: 2000,
+			},
 			href: 'https://cthulhudivers.com/cancun-padi-open-water-scuba-diver',
-			maxDepth: '60ft / 18m',
-			minAge: 10,
-			minCertLvl: 'None',
-			minClients: 1,
-			nitroxAllowed: false,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 0,
 			tanks: 5,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '8:15',
+				departureDay1: '16:45',
+				arrivalDay2: '8:15',
+				departureDay2: '12:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+				get pickUpDay2() {
+					return calculateTransportTime(this.arrivalDay2, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay2() {
+					return calculateTransportTime(this.departureDay2, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat * 2}mxn`, `<span>Docs:</span> 10056, 10060, 10072, 10346`, `<span>Equipment:</span> Compass, SMB`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat * 2}mxn`, `<span>Docs:</span> 10056, 10060, 10072, 10346`, `<span>Equipment:</span> Compass, SMB`];
 			},
 		},
 		referral: {
 			name: 'PADI Referral Program',
-			arrivalD1: '12:20',
-			departureD1: '16:45',
-			arrivalD2: '8:15',
-			departureD2: '12:30',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 2,
+				maxDepth: '60ft / 18m',
+				minAge: 10,
+				minCertLvl: 'None',
+				minClients: 1,
+				get deposit() {
+					return roundUp(cthulhuTours.common.soloBuceo.costBoatUSD);
+				},
+			},
 			cardImg: '../img/cards/course-referral.webp',
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				elearning: convertToMEX(183.55),
+				guide: 2000,
+			},
 			days: 2,
-			elearning: 0,
-			entranceFee: 0,
-			food: 0,
-			guide: 2000,
 			href: 'https://cthulhudivers.com/cancun-padi-referral',
-			maxDepth: '60ft / 18m',
-			minAge: 10,
-			minCertLvl: 'None',
-			minClients: 1,
-			nitroxAllowed: false,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 0,
 			tanks: 4,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '12:20',
+				departureDay1: '16:45',
+				arrivalDay2: '8:15',
+				departureDay2: '12:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+				get pickUpDay2() {
+					return calculateTransportTime(this.arrivalDay2, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay2() {
+					return calculateTransportTime(this.departureDay2, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat * 2}mxn`, `<span>Docs:</span> 10056, 10060, 10072, 10346`, `<span>Equipment:</span> Compass, SMB`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat * 2}mxn`, `<span>Docs:</span> 10056, 10060, 10072, 10346`, `<span>Equipment:</span> Compass, SMB`];
 			},
 		},
 		aow: {
 			name: 'PADI Advanced OW',
-			arrivalD1: '12:20',
-			departureD1: '16:45',
-			arrivalD2: '8:15',
-			departureD2: '12:30',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 2,
+				maxDepth: '130ft / 40m',
+				minAge: 12,
+				minCertLvl: 'Open Water Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.courses.aow.costs.elearning));
+				},
+			},
 			cardImg: '../img/cards/course-aow.webp',
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				elearning: convertToMEX(173.1, 2),
+				guide: 1600,
+			},
 			days: 2,
-			elearning: 173.1,
-			entranceFee: 0,
-			food: 0,
-			guide: 1600,
 			href: 'https://cthulhudivers.com/cancun-padi-advanced-open-water',
-			maxDepth: '130ft / 40m',
-			minAge: 12,
-			minCertLvl: 'Open Water Diver',
-			minClients: 1,
-			nitroxAllowed: false,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 0,
 			tanks: 4,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '12:20',
+				departureDay1: '16:45',
+				arrivalDay2: '8:15',
+				departureDay2: '12:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+				get pickUpDay2() {
+					return calculateTransportTime(this.arrivalDay2, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay2() {
+					return calculateTransportTime(this.departureDay2, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat * 2}mxn`, `<span>Doc:</span> 10038, 10346`, `<span>Equipment:</span> Compass`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat * 2}mxn`, `<span>Doc:</span> 10038, 10346`, `<span>Equipment:</span> Compass`];
 			},
 		},
 		ppb: {
 			name: 'PADI Peak Performance',
-			arrivalD1: '10:15',
-			departureD1: '16:45',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '40ft / 12m',
+				minAge: 10,
+				minCertLvl: 'Scuba Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.courses.ppb.costs.elearning));
+				},
+			},
 			cardImg: '../img/cards/course-buoyancy.webp',
-			days: 1,
-			elearning: 122.65,
-			entranceFee: 0,
-			food: 0,
-			guide: 1000,
-			maxDepth: '40ft / 12m',
-			minAge: 10,
-			minCertLvl: 'Scuba Diver',
-			minClients: 1,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				elearning: convertToMEX(122.65, 2),
+				guide: 1000,
+			},
 			nitroxAllowed: true,
-			parking: 0,
 			photosAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 0,
 			tanks: 3,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '10:15',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash:</span> U$${convertToUSD(this.guide, 2)} & ${this.boat}mxn`, `<span>Doc:</span> 10038`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat}mxn`, `<span>Doc:</span> 10038`];
 			},
 		},
 		nitrox: {
 			name: 'PADI Enriched Air Diver',
-			arrivalD1: '10:15',
-			departureD1: '16:45',
-			available: 'Daily',
-			boat: 1350,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '84ft / 26m',
+				minAge: 10,
+				minCertLvl: 'Open Water Diver',
+				minClients: 1,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.courses.nitrox.costs.elearning));
+				},
+			},
 			cardImg: '../img/cards/course-nitrox.webp',
-			days: 1,
-			elearning: 152.8,
-			entranceFee: 0,
-			food: 0,
-			guide: 660,
-			maxDepth: '84ft / 26m',
-			minAge: 10,
-			minCertLvl: 'Open Water Diver',
-			minClients: 1,
-			nitroxAllowed: true,
-			parking: 0,
+			costs: {
+				get boat() {
+					return cthulhuTours.common.soloBuceo.costBoatMXN;
+				},
+				elearning: convertToMEX(152.8, 2),
+				guide: 660,
+				get nitrox() {
+					return cthulhuTours.common.eanx32 * 4;
+				},
+			},
 			photosAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 0,
 			tanks: 2,
-			tanksDiverCost: 0,
-			tanksGuideCost: 0,
+			transport: {
+				arrivalDay1: '10:15',
+				departureDay1: '16:45',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Real Inn');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Real Inn');
+				},
+			},
 			get prep() {
-				return [`<span>Cash::</span> U$${convertToUSD(this.guide, 2)} & ${this.boat + getNitroxCost(cthulhuTours.courses, 'nitrox').nitroxMXN}mxn`, `<span>Doc:</span> 10346, 10038`, `<span>Equipment:</span> Nitrox analyzer, Nitrox Tables`];
+				return [`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2)} & ${tourData.boat + cthulhuTours.common.eanx32 * 4}mxn`, `<span>Doc:</span> 10346, 10038`, `<span>Equipment:</span> Nitrox analyzer, Nitrox Tables`];
 			},
 		},
-	},
-	extras: {
-		cenoteDiverTanks: 80,
-		cenoteFood: 200,
-		cenoteGuideTanks: 250,
-		eanx32: 150,
-		photos: 25,
 	},
 	cenotes: {
 		actunHa: {
 			name: 'Actun Ha',
 			aka: 'Carwash',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '60ft / 18m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.actunHa.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-car-wash.webp',
-			days: 1,
-			depth: '60ft / 18m',
-			elearning: 0,
-			entranceFee: 250,
-			guide: 750,
+			costs: {
+				entranceFee: 250,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 3200 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: 'https://cthulhudivers.com/dive-sites/cenote-car-wash',
-			minAge: 15,
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 3200,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -750,38 +888,52 @@ const cthulhuTours = {
 		angelita: {
 			name: 'Angelita',
 			aka: 'Little Angel',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '130ft / 40m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.angelita.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-angelita.webp',
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 3200 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			days: 1,
-			depth: '130ft / 40m',
-			elearning: 0,
-			entranceFee: 400,
 			guide: 750,
 			href: 'https://cthulhudivers.com/dive-sites/cenote-angelita',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
+
 			profitPercent: 1.3,
-			shuttle: 3200,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -790,38 +942,49 @@ const cthulhuTours = {
 		calavera: {
 			name: 'Calavera',
 			aka: 'Temple of Doom',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '50ft / 15m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.calavera.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-calavera.webp',
-			days: 1,
-			depth: '50ft / 15m',
-			elearning: 0,
-			entranceFee: 400,
-			guide: 750,
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2900 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: 'https://cthulhudivers.com/dive-sites/cenote-calavera-temple-of-doom',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2900,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -830,38 +993,49 @@ const cthulhuTours = {
 		chacMool: {
 			name: 'Chac Mool',
 			aka: 'Jaguar',
-			arrivalD1: '9:00',
-			departureD1: '12:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '40ft / 12m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.chacMool.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-chac-mool.webp',
-			days: 1,
-			depth: '40ft / 12m',
-			elearning: 0,
-			entranceFee: 250,
-			guide: 750,
+			costs: {
+				entranceFee: 250,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2500 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: 'https://cthulhudivers.com/dive-sites/cenote-chac-mool',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2500,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 					`<div class="prep-notes"><h5>Notes:</h5> Vicente is the only cenote guide we have who can guide this cenote. Please check his availability before booking clients.</div>`,
@@ -871,78 +1045,101 @@ const cthulhuTours = {
 		dosOjos: {
 			name: 'Dos Ojos',
 			aka: 'Two Eyes',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '45ft / 14m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.dosOjos.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-dos-ojos.webp',
-			days: 1,
-			depth: '45ft / 14m',
-			elearning: 0,
-			entranceFee: 600,
-			guide: 750,
+			costs: {
+				entranceFee: 600,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 3200 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: 'https://cthulhudivers.com/dive-sites/cenote-dos-ojos',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
 			shuttle: 3200,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
 			},
 		},
 		dreamgate: {
-			name: 'Puerta de los sueños',
+			name: 'Puerta de los Sueños',
 			aka: 'Dreamgate',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '30ft / 9m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.dreamgate.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-dreamgate.webp',
-			days: 1,
-			depth: '30ft / 9m',
-			elearning: 0,
-			entranceFee: 400,
-			guide: 750,
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2900 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: '',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2900,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -951,38 +1148,49 @@ const cthulhuTours = {
 		elPit: {
 			name: 'El Pit',
 			aka: 'The Pit',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '130ft / 40m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.elPit.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-el-pit.webp',
-			days: 1,
-			depth: '130ft / 40m',
-			elearning: 0,
-			entranceFee: 600,
-			guide: 750,
+			costs: {
+				entranceFee: 600,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 3200 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: '',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 3200,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -991,38 +1199,49 @@ const cthulhuTours = {
 		maravilla: {
 			name: 'Maravilla',
 			aka: 'The Blue Abyss',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '130ft / 40ft',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.maravilla.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-maravilla.webp',
-			days: 1,
-			depth: '130ft / 40ft',
-			elearning: 0,
-			entranceFee: 400,
-			guide: 750,
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2500 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: '',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2500,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -1031,38 +1250,49 @@ const cthulhuTours = {
 		ponderosa: {
 			name: 'Ponderosa',
 			aka: 'Garden of Eden',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '60ft / 18m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.ponderosa.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-ponderosa.webp',
-			days: 1,
-			depth: '60ft / 18m',
-			elearning: 0,
-			entranceFee: 400,
-			guide: 750,
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2500 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: '',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2500,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -1071,38 +1301,49 @@ const cthulhuTours = {
 		sucActun: {
 			name: 'Suc Actun',
 			aka: 'Pet Cemetery',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '23ft / 7m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.sucActun.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-pet-cemetery.webp',
-			days: 1,
-			depth: '23ft / 7m',
-			elearning: 0,
-			entranceFee: 400,
-			guide: 750,
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 3200 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: '',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 3200,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -1111,38 +1352,49 @@ const cthulhuTours = {
 		tajmaHa: {
 			name: 'Tajma Ha',
 			aka: 'Taj Mahal',
-			arrivalD1: '9:00',
-			departureD1: '13:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '50ft / 15m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.tajmaHa.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-tajma-ha.webp',
-			days: 1,
-			depth: '50ft / 15m',
-			elearning: 0,
-			entranceFee: 300,
-			guide: 750,
+			costs: {
+				entranceFee: 300,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2500 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: 'https://cthulhudivers.com/dive-sites/cenote-tajma-ha',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2500,
 			tanks: 2,
-			transport: 'Included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 					`<div class="prep-notes"><h5>Notes:</h5> Due to construction at this site, visibility has been reduced significantly. Until further notice, please try to sell an alternative.</div>`,
@@ -1152,38 +1404,49 @@ const cthulhuTours = {
 		zapote: {
 			name: 'Zapote',
 			aka: 'Hells Bells',
-			arrivalD1: '9:00',
-			departureD1: '14:30',
-			available: 'Upon Request',
-			boat: 0,
+			bookingRequirements: {
+				available: 'Daily',
+				days: 1,
+				maxDepth: '130ft / 40m',
+				minAge: 15,
+				minCertLvl: 'Open Water Diver',
+				minClients: 2,
+				get deposit() {
+					return roundUp(convertToUSD(cthulhuTours.cenotes.zapote.costs.shuttle));
+				},
+			},
 			cardImg: '../img/cards/cenote-zapote.webp',
-			days: 1,
-			depth: '130ft / 40m',
-			elearning: 0,
-			entranceFee: 400,
-			guide: 750,
+			costs: {
+				entranceFee: 400,
+				get food() {
+					return cthulhuTours.common.cenote.food;
+				},
+				guide: 750,
+				shuttle: 2500 / 2,
+				get tanksDiverCost() {
+					return cthulhuTours.common.cenote.tanksClient * 2;
+				},
+				get tanksGuideCost() {
+					return cthulhuTours.common.cenote.tanksGuide;
+				},
+			},
 			href: '',
-			minAge: 15,
-			minCertLvl: 'Open Water Diver',
-			minClients: 2,
-			parking: 0,
-			photosAllowed: false,
+			nitroxAllowed: true,
 			profitPercent: 1.3,
-			shuttle: 2500,
 			tanks: 2,
-			transport: 'included',
-			get food() {
-				return cthulhuTours.extras.cenoteFood;
-			},
-			get tanksDiverCost() {
-				return cthulhuTours.extras.cenoteDiverTanks * this.tanks;
-			},
-			get tanksGuideCost() {
-				return cthulhuTours.extras.cenoteGuideTanks;
+			transport: {
+				arrivalDay1: '8:30',
+				departureDay1: '14:30',
+				get pickUpDay1() {
+					return calculateTransportTime(this.arrivalDay1, locations.value, 'pickup', 'Cenote');
+				},
+				get dropOffDay1() {
+					return calculateTransportTime(this.departureDay1, locations.value, 'dropoff', 'Cenote');
+				},
 			},
 			get prep() {
 				return [
-					`<span>Cash:</span> U$${convertToUSD(this.guide, 2).toFixed(0)} & ${this.entranceFee + this.food + this.tanksDiverCost * this.tanks + (this.tanksGuideCost + this.shuttle) / this.minClients}mxn`,
+					`<span>Cash:</span> U$${convertToUSD(tourData.guide, 2).toFixed(0)} & ${tourData.entranceFee + tourData.food + tourData.shuttle + tourData.tanksDiverCost + tourData.tanksGuideCost}mxn`,
 					`<span>Doc:</span> 10651`,
 					`<span>Equipment:</span> BCD, Fins, Full Wetsuit, Mask,  Regulator, Torch, Weights`,
 				];
@@ -1193,8 +1456,8 @@ const cthulhuTours = {
 	snorkeling: {
 		musaSnorkel: {
 			name: 'Musa & Reef',
-			arrivalD1: '12:20',
-			departureD1: '16:45',
+			arrivalDay1: '12:20',
+			departureDay1: '16:45',
 			available: 'Daily',
 			boat: 1350,
 			boatDpt: '13:00',
@@ -1210,7 +1473,6 @@ const cthulhuTours = {
 			minCertLvl: 'None',
 			minClients: 1,
 			parking: 0,
-			photosAllowed: false,
 			profitPercent: 1.3,
 			shuttle: 0,
 			tanks: 0,
@@ -1223,7 +1485,7 @@ const cthulhuTours = {
 		},
 		turtleSnorkel: {
 			name: 'Turtle 5-in-1',
-			departureD1: '10:00',
+			departureDay1: '10:00',
 			available: 'Daily',
 			boat: 45,
 			boatDpt: '7:30',
@@ -1240,7 +1502,6 @@ const cthulhuTours = {
 			minCertLvl: 'None',
 			minClients: 1,
 			parking: 0,
-			photosAllowed: false,
 			profitPercent: 1.6,
 			shuttle: 0,
 			tanks: 0,
@@ -1248,7 +1509,7 @@ const cthulhuTours = {
 			tanksGuideCost: 0,
 			get info() {
 				populateLocations('mpnPickup');
-				const tourPickUpD1 = document.querySelector('#turtleSnorkelPickUpD1');
+				const tourpickUpDay1 = document.querySelector('#turtleSnorkelpickUpDay1');
 				const tourPickUpD2 = document.querySelector('#turtleSnorkelPickUpD2');
 				const tourPickUpD3 = document.querySelector('#turtleSnorkelPickUpD3');
 				const tourPickUpD4 = document.querySelector('#turtleSnorkelPickUpD4');
@@ -1259,7 +1520,7 @@ const cthulhuTours = {
 				const tourCard = document.querySelector('#turtleSnorkelCard');
 				const tourDeposit = document.querySelector('#turtleSnorkelDeposit');
 
-				tourPickUpD1.textContent = mpnPickup[0];
+				tourpickUpDay1.textContent = mpnPickup[0];
 				tourPickUpD2.textContent = mpnPickup[1];
 				tourPickUpD3.textContent = mpnPickup[2];
 				tourPickUpD4.textContent = mpnPickup[3];
@@ -1282,7 +1543,7 @@ const cthulhuTours = {
 		whaleShark: {
 			name: 'Whale Sharks',
 			boatDpt: '7:45',
-			departureD1: '13:15',
+			departureDay1: '13:15',
 			available: 'Daily (May - Sept)',
 			boat: 120,
 			cardAlt: 'Whale shark snorkeling',
@@ -1300,7 +1561,6 @@ const cthulhuTours = {
 			minCertLvl: 'None',
 			minClients: 1,
 			parking: 0,
-			photosAllowed: false,
 			profitPercent: 1.45,
 			tanks: 0,
 			tanksDiverCost: 0,
@@ -1317,7 +1577,7 @@ const cthulhuTours = {
 
 				let pickUp = hotelList[selectedHotel].whaleShark;
 				let boatDep = convertTime(snorkelPricing.whaleShark.boatDpt);
-				let boatRet = convertTime(snorkelPricing.whaleShark.departureD1);
+				let boatRet = convertTime(snorkelPricing.whaleShark.departureDay1);
 				let dropOff;
 
 				tourPickUp.textContent = pickUp;
@@ -1341,8 +1601,8 @@ const cthulhuTours = {
 // const snorkelPricing = {
 // 	musaSnorkel: {
 // 		name: 'Musa & Reef',
-// 		arrivalD1: '12:20',
-// 		departureD1: '16:45',
+// 		arrivalDay1: '12:20',
+// 		departureDay1: '16:45',
 // 		available: 'Daily',
 // 		boat: 1350,
 // 		boatDpt: '13:00',
@@ -1352,14 +1612,13 @@ const cthulhuTours = {
 // 		guide: 0,
 // 		href: 'https://cthulhudivers.com/non-diving/cancuns-best-snorkeling-tour',
 // 		minAge: 6,
-// 		photosAllowed: false,
 // 		profitPercent: 1.3,
 // 		get cost() {
 // 			return convertToUSD(this.guide + this.boat, 2);
 // 		},
 // 		get info() {
 // 			quotePrice(snorkelPricing, 'musaSnorkel', this.cost, this.profitPercent);
-// 			scubaSpecifics('musaSnorkel', this.arrivalD1, this.departureD1, this.arrivalD2, this.departureD2);
+// 			scubaSpecifics('musaSnorkel', this.arrivalDay1, this.departureDay1, this.arrivalDay2, this.departureDay2);
 // 		},
 // 		get deposit() {
 // 			return roundUp(convertToUSD(this.boat, 2));
@@ -1370,7 +1629,7 @@ const cthulhuTours = {
 // 	},
 // 	turtleSnorkel: {
 // 		name: 'Turtle 5-in-1',
-// 		departureD1: '10:00',
+// 		departureDay1: '10:00',
 // 		available: 'Daily',
 // 		boat: 45,
 // 		boatDpt: '7:30',
@@ -1380,11 +1639,11 @@ const cthulhuTours = {
 // 		groupSize: 10,
 // 		href: 'https://cthulhudivers.com/non-diving/turtle-snorkel-tour-5-in-1',
 // 		minAge: 6,
-// 		photosAllowed: false,
+//
 // 		profitPercent: 1.6,
 // 		get info() {
 // 			populateLocations('mpnPickup');
-// 			const tourPickUpD1 = document.querySelector('#turtleSnorkelPickUpD1');
+// 			const tourpickUpDay1 = document.querySelector('#turtleSnorkelpickUpDay1');
 // 			const tourPickUpD2 = document.querySelector('#turtleSnorkelPickUpD2');
 // 			const tourPickUpD3 = document.querySelector('#turtleSnorkelPickUpD3');
 // 			const tourPickUpD4 = document.querySelector('#turtleSnorkelPickUpD4');
@@ -1395,7 +1654,7 @@ const cthulhuTours = {
 // 			const tourCard = document.querySelector('#turtleSnorkelCard');
 // 			const tourDeposit = document.querySelector('#turtleSnorkelDeposit');
 
-// 			tourPickUpD1.textContent = mpnPickup[0];
+// 			tourpickUpDay1.textContent = mpnPickup[0];
 // 			tourPickUpD2.textContent = mpnPickup[1];
 // 			tourPickUpD3.textContent = mpnPickup[2];
 // 			tourPickUpD4.textContent = mpnPickup[3];
@@ -1418,7 +1677,7 @@ const cthulhuTours = {
 // 	whaleShark: {
 // 		name: 'Whale Sharks',
 // 		boatDpt: '7:45',
-// 		departureD1: '13:15',
+// 		departureDay1: '13:15',
 // 		available: 'Daily (May - Sept)',
 // 		boat: 120,
 // 		cardAlt: 'Whale shark snorkeling',
@@ -1430,7 +1689,7 @@ const cthulhuTours = {
 // 		href: 'https://cthulhudivers.com/cancun-whale-shark-snorkeling',
 // 		listPrice: 170,
 // 		minAge: 5,
-// 		photosAllowed: false,
+//
 // 		profitPercent: 1.45,
 // 		get info() {
 // 			populateLocations('whaleShark');
@@ -1444,7 +1703,7 @@ const cthulhuTours = {
 
 // 			let pickUp = hotelList[selectedHotel].whaleShark;
 // 			let boatDep = convertTime(snorkelPricing.whaleShark.boatDpt);
-// 			let boatRet = convertTime(snorkelPricing.whaleShark.departureD1);
+// 			let boatRet = convertTime(snorkelPricing.whaleShark.departureDay1);
 // 			let dropOff;
 
 // 			tourPickUp.textContent = pickUp;
@@ -1464,545 +1723,545 @@ const cthulhuTours = {
 // 	},
 // };
 
-const nonDivingPricing = {
-	chichenItzaAdults: {
-		name: 'Chichen Itza - Adults',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-chichen-itza.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-cenote',
-		ticketCost: 0,
-		entranceFee: 125,
-		transportCost: 0,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('chichenItza');
-			const tourAdultCard = document.querySelector('#chichenItzaAdultCard');
-			tourAdultCard.textContent = roundUp(this.entranceFee);
-		},
-	},
-	chichenItzaKids: {
-		name: 'Chichen Itza - Kids',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-chichen-itza.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-cenote',
-		ticketCost: 0,
-		entranceFee: 105,
-		transportCost: 0,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('chichenItza');
-			const tourKidsCard = document.querySelector('#chichenItzaKidsCard');
-			tourKidsCard.textContent = roundUp(this.entranceFee);
-		},
-	},
-	chichenItzaEarlyAdults: {
-		name: 'Chichen Itza Early Bird - Adults',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-chichen-itza-early.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-early-bird',
-		ticketCost: 0,
-		entranceFee: 155,
-		transportCost: 0,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('chichenItzaEarly');
-			const tourEarlyAdultCard = document.querySelector('#chichenItzaEarlyAdultCard');
-			const tourEarlyKidsCard = document.querySelector('#chichenItzaEarlyKidsCard');
-			tourEarlyAdultCard.textContent = roundUp(this.ticketAdult);
-			tourEarlyKidsCard.textContent = roundUp(this.ticketKids);
-		},
-	},
-	chichenItzaEarlyKids: {
-		name: 'Chichen Itza Early Bird - Kids',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-chichen-itza-early.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-early-bird',
-		ticketCost: 0,
-		entranceFee: 135,
-		transportCost: 0,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('chichenItzaEarly');
-			const tourEarlyAdultCard = document.querySelector('#chichenItzaEarlyAdultCard');
-			const tourEarlyKidsCard = document.querySelector('#chichenItzaEarlyKidsCard');
-			tourEarlyAdultCard.textContent = roundUp(this.ticketAdult);
-			tourEarlyKidsCard.textContent = roundUp(this.ticketKids);
-		},
-	},
-	cancunaMataTransfers: {
-		name: 'Cancuna Matata Transfers',
-		cardImg: '../img/cards/non-diving-cancuna-mata-transfers.webp',
-		pricing: {
-			cun: {
-				cash3pax: 35,
-				cashReturn3pax: 65,
-				cash8pax: 55,
-				cashReturn8pax: 85,
-			},
-			cm: {
-				cash3pax: 75,
-				cashReturn3pax: 145,
-				cash8pax: 95,
-				cashReturn8pax: 165,
-			},
-			pm: {
-				cash3pax: 60,
-				cashReturn3pax: 115,
-				cash8pax: 80,
-				cashReturn8pax: 135,
-			},
-			puertoMorelos: {
-				cash3pax: 55,
-				cashReturn3pax: 105,
-				cash8pax: 75,
-				cashReturn8pax: 125,
-			},
-			pdc: {
-				cash3pax: 85,
-				cashReturn3pax: 155,
-				cash8pax: 105,
-				cashReturn8pax: 175,
-			},
-			maya: {
-				cash3pax: 100,
-				cashReturn3pax: 180,
-				cash8pax: 130,
-				cashReturn8pax: 200,
-			},
-			unknown: {
-				cash3pax: 0,
-				cashReturn3pax: 0,
-				cash8pax: 0,
-				cashReturn8pax: 0,
-			},
-		},
-		get info() {
-			populateLocations('cmt');
-			const location = hotelList[locations.options[locations.selectedIndex].value].location;
-			const tourCard3 = document.querySelector('#cmtCard3');
-			const tourcash3pax = document.querySelector('#cmtcash3pax');
-			const tourCardReturn3 = document.querySelector('#cmtCardReturn3');
-			const tourcashReturn3pax = document.querySelector('#cmtcashReturn3pax');
-			const tourCard8 = document.querySelector('#cmtCard8');
-			const tourcash8pax = document.querySelector('#cmtcash8pax');
-			const tourCardReturn8 = document.querySelector('#cmtCardReturn8');
-			const tourcashReturn8pax = document.querySelector('#cmtcashReturn8pax');
+// const nonDivingPricing = {
+// 	chichenItzaAdults: {
+// 		name: 'Chichen Itza - Adults',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-chichen-itza.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-cenote',
+// 		ticketCost: 0,
+// 		entranceFee: 125,
+// 		transportCost: 0,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('chichenItza');
+// 			const tourAdultCard = document.querySelector('#chichenItzaAdultCard');
+// 			tourAdultCard.textContent = roundUp(this.entranceFee);
+// 		},
+// 	},
+// 	chichenItzaKids: {
+// 		name: 'Chichen Itza - Kids',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-chichen-itza.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-cenote',
+// 		ticketCost: 0,
+// 		entranceFee: 105,
+// 		transportCost: 0,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('chichenItza');
+// 			const tourKidsCard = document.querySelector('#chichenItzaKidsCard');
+// 			tourKidsCard.textContent = roundUp(this.entranceFee);
+// 		},
+// 	},
+// 	chichenItzaEarlyAdults: {
+// 		name: 'Chichen Itza Early Bird - Adults',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-chichen-itza-early.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-early-bird',
+// 		ticketCost: 0,
+// 		entranceFee: 155,
+// 		transportCost: 0,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('chichenItzaEarly');
+// 			const tourEarlyAdultCard = document.querySelector('#chichenItzaEarlyAdultCard');
+// 			const tourEarlyKidsCard = document.querySelector('#chichenItzaEarlyKidsCard');
+// 			tourEarlyAdultCard.textContent = roundUp(this.ticketAdult);
+// 			tourEarlyKidsCard.textContent = roundUp(this.ticketKids);
+// 		},
+// 	},
+// 	chichenItzaEarlyKids: {
+// 		name: 'Chichen Itza Early Bird - Kids',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-chichen-itza-early.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-chichen-itza-early-bird',
+// 		ticketCost: 0,
+// 		entranceFee: 135,
+// 		transportCost: 0,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('chichenItzaEarly');
+// 			const tourEarlyAdultCard = document.querySelector('#chichenItzaEarlyAdultCard');
+// 			const tourEarlyKidsCard = document.querySelector('#chichenItzaEarlyKidsCard');
+// 			tourEarlyAdultCard.textContent = roundUp(this.ticketAdult);
+// 			tourEarlyKidsCard.textContent = roundUp(this.ticketKids);
+// 		},
+// 	},
+// 	cancunaMataTransfers: {
+// 		name: 'Cancuna Matata Transfers',
+// 		cardImg: '../img/cards/non-diving-cancuna-mata-transfers.webp',
+// 		pricing: {
+// 			cun: {
+// 				cash3pax: 35,
+// 				cashReturn3pax: 65,
+// 				cash8pax: 55,
+// 				cashReturn8pax: 85,
+// 			},
+// 			cm: {
+// 				cash3pax: 75,
+// 				cashReturn3pax: 145,
+// 				cash8pax: 95,
+// 				cashReturn8pax: 165,
+// 			},
+// 			pm: {
+// 				cash3pax: 60,
+// 				cashReturn3pax: 115,
+// 				cash8pax: 80,
+// 				cashReturn8pax: 135,
+// 			},
+// 			puertoMorelos: {
+// 				cash3pax: 55,
+// 				cashReturn3pax: 105,
+// 				cash8pax: 75,
+// 				cashReturn8pax: 125,
+// 			},
+// 			pdc: {
+// 				cash3pax: 85,
+// 				cashReturn3pax: 155,
+// 				cash8pax: 105,
+// 				cashReturn8pax: 175,
+// 			},
+// 			maya: {
+// 				cash3pax: 100,
+// 				cashReturn3pax: 180,
+// 				cash8pax: 130,
+// 				cashReturn8pax: 200,
+// 			},
+// 			unknown: {
+// 				cash3pax: 0,
+// 				cashReturn3pax: 0,
+// 				cash8pax: 0,
+// 				cashReturn8pax: 0,
+// 			},
+// 		},
+// 		get info() {
+// 			populateLocations('cmt');
+// 			const location = hotelList[locations.options[locations.selectedIndex].value].location;
+// 			const tourCard3 = document.querySelector('#cmtCard3');
+// 			const tourcash3pax = document.querySelector('#cmtcash3pax');
+// 			const tourCardReturn3 = document.querySelector('#cmtCardReturn3');
+// 			const tourcashReturn3pax = document.querySelector('#cmtcashReturn3pax');
+// 			const tourCard8 = document.querySelector('#cmtCard8');
+// 			const tourcash8pax = document.querySelector('#cmtcash8pax');
+// 			const tourCardReturn8 = document.querySelector('#cmtCardReturn8');
+// 			const tourcashReturn8pax = document.querySelector('#cmtcashReturn8pax');
 
-			tourcash3pax.textContent = cmtPricing[location].cash3pax;
-			tourcashReturn3pax.textContent = cmtPricing[location].cashReturn3pax;
-			tourCard3.textContent = roundUp(tourcash3pax.innerHTML * 1.16);
-			tourCardReturn3.textContent = roundUp(tourcashReturn3pax.innerHTML * 1.16);
-			tourcash8pax.textContent = cmtPricing[location].cash8pax;
-			tourcashReturn8pax.textContent = cmtPricing[location].cashReturn8pax;
-			tourCard8.textContent = roundUp(tourcash8pax.innerHTML * 1.16);
-			tourCardReturn8.textContent = roundUp(tourcashReturn8pax.innerHTML * 1.16);
-		},
-	},
-	columbusLobster: {
-		name: 'Lobster Dinner Cruise',
-		cardImg: '../img/cards/non-diving-columbus.webp',
-		available: 'Daily',
-		dockFee: 15,
-		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
-		ticketCost: 0,
-		entranceFee: 119,
-		transportCost: 35,
-		transport: 'Included',
-		sunsetArrival: '17:00',
-		sunsetDeparture: '20:15',
-		moonlightArrival: '20:00',
-		moonlightDeparture: '23:15',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('sb805');
-			const tourTransport = document.querySelector('#columbusSunsetTransport');
-			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
-			const tourPickUp = document.querySelector('#columbusPickUp');
-			const tourDropOff = document.querySelector('#columbusDropOff');
-			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
-			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
-			const tourLobsterCard = document.querySelector('#columbusLobsterCard');
-			const tourDockFee = document.querySelector('#columbusDockFee');
-			const selectedHotel = locations.options[locations.selectedIndex].value;
-			const travelTime = hotelList[selectedHotel].sb805;
+// 			tourcash3pax.textContent = cmtPricing[location].cash3pax;
+// 			tourcashReturn3pax.textContent = cmtPricing[location].cashReturn3pax;
+// 			tourCard3.textContent = roundUp(tourcash3pax.innerHTML * 1.16);
+// 			tourCardReturn3.textContent = roundUp(tourcashReturn3pax.innerHTML * 1.16);
+// 			tourcash8pax.textContent = cmtPricing[location].cash8pax;
+// 			tourcashReturn8pax.textContent = cmtPricing[location].cashReturn8pax;
+// 			tourCard8.textContent = roundUp(tourcash8pax.innerHTML * 1.16);
+// 			tourCardReturn8.textContent = roundUp(tourcashReturn8pax.innerHTML * 1.16);
+// 		},
+// 	},
+// 	columbusLobster: {
+// 		name: 'Lobster Dinner Cruise',
+// 		cardImg: '../img/cards/non-diving-columbus.webp',
+// 		available: 'Daily',
+// 		dockFee: 15,
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
+// 		ticketCost: 0,
+// 		entranceFee: 119,
+// 		transportCost: 35,
+// 		transport: 'Included',
+// 		sunsetArrival: '17:00',
+// 		sunsetDeparture: '20:15',
+// 		moonlightArrival: '20:00',
+// 		moonlightDeparture: '23:15',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('sb805');
+// 			const tourTransport = document.querySelector('#columbusSunsetTransport');
+// 			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
+// 			const tourPickUp = document.querySelector('#columbusPickUp');
+// 			const tourDropOff = document.querySelector('#columbusDropOff');
+// 			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
+// 			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
+// 			const tourLobsterCard = document.querySelector('#columbusLobsterCard');
+// 			const tourDockFee = document.querySelector('#columbusDockFee');
+// 			const selectedHotel = locations.options[locations.selectedIndex].value;
+// 			const travelTime = hotelList[selectedHotel].sb805;
 
-			tourTransport.textContent = this.transport;
-			tourTransport2.textContent = this.transport;
+// 			tourTransport.textContent = this.transport;
+// 			tourTransport2.textContent = this.transport;
 
-			let arr = convertTime(this.sunsetArrival);
-			let dep = convertTime(this.sunsetDeparture);
-			tourPickUp.textContent = revertTime(arr - travelTime);
-			tourDropOff.textContent = revertTime(dep + travelTime);
+// 			let arr = convertTime(this.sunsetArrival);
+// 			let dep = convertTime(this.sunsetDeparture);
+// 			tourPickUp.textContent = revertTime(arr - travelTime);
+// 			tourDropOff.textContent = revertTime(dep + travelTime);
 
-			arr = convertTime(this.moonlightArrival);
-			dep = convertTime(this.moonlightDeparture);
-			tourPickUpD2.textContent = revertTime(arr - travelTime);
-			tourDropOffD2.textContent = revertTime(dep + travelTime);
+// 			arr = convertTime(this.moonlightArrival);
+// 			dep = convertTime(this.moonlightDeparture);
+// 			tourPickUpD2.textContent = revertTime(arr - travelTime);
+// 			tourDropOffD2.textContent = revertTime(dep + travelTime);
 
-			tourDockFee.textContent = this.dockFee;
-			tourLobsterCard.textContent = roundUp(this.lobster);
-		},
-	},
-	columbusSteak: {
-		name: 'Steak Dinner Cruise',
-		cardImg: '../img/cards/non-diving-columbus.webp',
-		available: 'Daily',
-		dockFee: 15,
-		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
-		ticketCost: 0,
-		entranceFee: 99,
-		transportCost: 35,
-		transport: 'Included',
-		sunsetArrival: '17:00',
-		sunsetDeparture: '20:15',
-		moonlightArrival: '20:00',
-		moonlightDeparture: '23:15',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('sb805');
-			const tourTransport = document.querySelector('#columbusSunsetTransport');
-			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
-			const tourPickUp = document.querySelector('#columbusPickUp');
-			const tourDropOff = document.querySelector('#columbusDropOff');
-			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
-			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
-			const tourRibeyeCard = document.querySelector('#columbusRibeyeCard');
-			const tourDockFee = document.querySelector('#columbusDockFee');
-			const selectedHotel = locations.options[locations.selectedIndex].value;
-			const travelTime = hotelList[selectedHotel].sb805;
+// 			tourDockFee.textContent = this.dockFee;
+// 			tourLobsterCard.textContent = roundUp(this.lobster);
+// 		},
+// 	},
+// 	columbusSteak: {
+// 		name: 'Steak Dinner Cruise',
+// 		cardImg: '../img/cards/non-diving-columbus.webp',
+// 		available: 'Daily',
+// 		dockFee: 15,
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
+// 		ticketCost: 0,
+// 		entranceFee: 99,
+// 		transportCost: 35,
+// 		transport: 'Included',
+// 		sunsetArrival: '17:00',
+// 		sunsetDeparture: '20:15',
+// 		moonlightArrival: '20:00',
+// 		moonlightDeparture: '23:15',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('sb805');
+// 			const tourTransport = document.querySelector('#columbusSunsetTransport');
+// 			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
+// 			const tourPickUp = document.querySelector('#columbusPickUp');
+// 			const tourDropOff = document.querySelector('#columbusDropOff');
+// 			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
+// 			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
+// 			const tourRibeyeCard = document.querySelector('#columbusRibeyeCard');
+// 			const tourDockFee = document.querySelector('#columbusDockFee');
+// 			const selectedHotel = locations.options[locations.selectedIndex].value;
+// 			const travelTime = hotelList[selectedHotel].sb805;
 
-			tourTransport.textContent = this.transport;
-			tourTransport2.textContent = this.transport;
+// 			tourTransport.textContent = this.transport;
+// 			tourTransport2.textContent = this.transport;
 
-			let arr = convertTime(this.sunsetArrival);
-			let dep = convertTime(this.sunsetDeparture);
-			tourPickUp.textContent = revertTime(arr - travelTime);
-			tourDropOff.textContent = revertTime(dep + travelTime);
+// 			let arr = convertTime(this.sunsetArrival);
+// 			let dep = convertTime(this.sunsetDeparture);
+// 			tourPickUp.textContent = revertTime(arr - travelTime);
+// 			tourDropOff.textContent = revertTime(dep + travelTime);
 
-			arr = convertTime(this.moonlightArrival);
-			dep = convertTime(this.moonlightDeparture);
-			tourPickUpD2.textContent = revertTime(arr - travelTime);
-			tourDropOffD2.textContent = revertTime(dep + travelTime);
+// 			arr = convertTime(this.moonlightArrival);
+// 			dep = convertTime(this.moonlightDeparture);
+// 			tourPickUpD2.textContent = revertTime(arr - travelTime);
+// 			tourDropOffD2.textContent = revertTime(dep + travelTime);
 
-			tourDockFee.textContent = this.dockFee;
-			tourRibeyeCard.textContent = roundUp(this.ribeye);
-		},
-	},
-	columbusSurfTurf: {
-		name: 'S&T Dinner Cruise',
-		cardImg: '../img/cards/non-diving-columbus.webp',
-		available: 'Daily',
-		dockFee: 15,
-		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
-		ticketCost: 0,
-		entranceFee: 119,
-		transportCost: 0,
-		transport: 35,
-		sunsetArrival: '17:00',
-		sunsetDeparture: '20:15',
-		moonlightArrival: '20:00',
-		moonlightDeparture: '23:15',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('sb805');
-			const tourTransport = document.querySelector('#columbusSunsetTransport');
-			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
-			const tourPickUp = document.querySelector('#columbusPickUp');
-			const tourDropOff = document.querySelector('#columbusDropOff');
-			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
-			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
-			const tourSurfTurfCard = document.querySelector('#columbusSurfTurfCard');
-			const tourDockFee = document.querySelector('#columbusDockFee');
-			const selectedHotel = locations.options[locations.selectedIndex].value;
-			const travelTime = hotelList[selectedHotel].sb805;
+// 			tourDockFee.textContent = this.dockFee;
+// 			tourRibeyeCard.textContent = roundUp(this.ribeye);
+// 		},
+// 	},
+// 	columbusSurfTurf: {
+// 		name: 'S&T Dinner Cruise',
+// 		cardImg: '../img/cards/non-diving-columbus.webp',
+// 		available: 'Daily',
+// 		dockFee: 15,
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
+// 		ticketCost: 0,
+// 		entranceFee: 119,
+// 		transportCost: 0,
+// 		transport: 35,
+// 		sunsetArrival: '17:00',
+// 		sunsetDeparture: '20:15',
+// 		moonlightArrival: '20:00',
+// 		moonlightDeparture: '23:15',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('sb805');
+// 			const tourTransport = document.querySelector('#columbusSunsetTransport');
+// 			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
+// 			const tourPickUp = document.querySelector('#columbusPickUp');
+// 			const tourDropOff = document.querySelector('#columbusDropOff');
+// 			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
+// 			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
+// 			const tourSurfTurfCard = document.querySelector('#columbusSurfTurfCard');
+// 			const tourDockFee = document.querySelector('#columbusDockFee');
+// 			const selectedHotel = locations.options[locations.selectedIndex].value;
+// 			const travelTime = hotelList[selectedHotel].sb805;
 
-			tourTransport.textContent = this.transport;
-			tourTransport2.textContent = this.transport;
+// 			tourTransport.textContent = this.transport;
+// 			tourTransport2.textContent = this.transport;
 
-			let arr = convertTime(this.sunsetArrival);
-			let dep = convertTime(this.sunsetDeparture);
-			tourPickUp.textContent = revertTime(arr - travelTime);
-			tourDropOff.textContent = revertTime(dep + travelTime);
+// 			let arr = convertTime(this.sunsetArrival);
+// 			let dep = convertTime(this.sunsetDeparture);
+// 			tourPickUp.textContent = revertTime(arr - travelTime);
+// 			tourDropOff.textContent = revertTime(dep + travelTime);
 
-			arr = convertTime(this.moonlightArrival);
-			dep = convertTime(this.moonlightDeparture);
-			tourPickUpD2.textContent = revertTime(arr - travelTime);
-			tourDropOffD2.textContent = revertTime(dep + travelTime);
+// 			arr = convertTime(this.moonlightArrival);
+// 			dep = convertTime(this.moonlightDeparture);
+// 			tourPickUpD2.textContent = revertTime(arr - travelTime);
+// 			tourDropOffD2.textContent = revertTime(dep + travelTime);
 
-			tourDockFee.textContent = this.dockFee;
-			tourSurfTurfCard.textContent = roundUp(this.surfTurf);
-		},
-	},
-	columbusVeg: {
-		name: 'Veg Dinner Cruise',
-		cardImg: '../img/cards/non-diving-columbus.webp',
-		available: 'Daily',
-		dockFee: 15,
-		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
-		ticketCost: 0,
-		entranceFee: 99,
-		transportCost: 0,
-		transport: 35,
-		sunsetArrival: '17:00',
-		sunsetDeparture: '20:15',
-		moonlightArrival: '20:00',
-		moonlightDeparture: '23:15',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('sb805');
-			const tourTransport = document.querySelector('#columbusSunsetTransport');
-			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
-			const tourPickUp = document.querySelector('#columbusPickUp');
-			const tourDropOff = document.querySelector('#columbusDropOff');
-			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
-			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
-			const tourVegCard = document.querySelector('#columbusVegCard');
-			const tourDockFee = document.querySelector('#columbusDockFee');
-			const selectedHotel = locations.options[locations.selectedIndex].value;
-			const travelTime = hotelList[selectedHotel].sb805;
+// 			tourDockFee.textContent = this.dockFee;
+// 			tourSurfTurfCard.textContent = roundUp(this.surfTurf);
+// 		},
+// 	},
+// 	columbusVeg: {
+// 		name: 'Veg Dinner Cruise',
+// 		cardImg: '../img/cards/non-diving-columbus.webp',
+// 		available: 'Daily',
+// 		dockFee: 15,
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-columbus-lobster-dinner-cruise',
+// 		ticketCost: 0,
+// 		entranceFee: 99,
+// 		transportCost: 0,
+// 		transport: 35,
+// 		sunsetArrival: '17:00',
+// 		sunsetDeparture: '20:15',
+// 		moonlightArrival: '20:00',
+// 		moonlightDeparture: '23:15',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('sb805');
+// 			const tourTransport = document.querySelector('#columbusSunsetTransport');
+// 			const tourTransport2 = document.querySelector('#columbusMoonlightTransport');
+// 			const tourPickUp = document.querySelector('#columbusPickUp');
+// 			const tourDropOff = document.querySelector('#columbusDropOff');
+// 			const tourPickUpD2 = document.querySelector('#columbusPickUpD2');
+// 			const tourDropOffD2 = document.querySelector('#columbusDropOffD2');
+// 			const tourVegCard = document.querySelector('#columbusVegCard');
+// 			const tourDockFee = document.querySelector('#columbusDockFee');
+// 			const selectedHotel = locations.options[locations.selectedIndex].value;
+// 			const travelTime = hotelList[selectedHotel].sb805;
 
-			tourTransport.textContent = this.transport;
-			tourTransport2.textContent = this.transport;
+// 			tourTransport.textContent = this.transport;
+// 			tourTransport2.textContent = this.transport;
 
-			let arr = convertTime(this.sunsetArrival);
-			let dep = convertTime(this.sunsetDeparture);
-			tourPickUp.textContent = revertTime(arr - travelTime);
-			tourDropOff.textContent = revertTime(dep + travelTime);
+// 			let arr = convertTime(this.sunsetArrival);
+// 			let dep = convertTime(this.sunsetDeparture);
+// 			tourPickUp.textContent = revertTime(arr - travelTime);
+// 			tourDropOff.textContent = revertTime(dep + travelTime);
 
-			arr = convertTime(this.moonlightArrival);
-			dep = convertTime(this.moonlightDeparture);
-			tourPickUpD2.textContent = revertTime(arr - travelTime);
-			tourDropOffD2.textContent = revertTime(dep + travelTime);
+// 			arr = convertTime(this.moonlightArrival);
+// 			dep = convertTime(this.moonlightDeparture);
+// 			tourPickUpD2.textContent = revertTime(arr - travelTime);
+// 			tourDropOffD2.textContent = revertTime(dep + travelTime);
 
-			tourDockFee.textContent = this.dockFee;
-			tourVegCard.textContent = roundUp(this.veg);
-		},
-	},
-	wakeHalf: {
-		name: 'Wakeboarding Half Day',
-		available: 'Daily except Tuesdays',
-		cardImg: '../img/cards/non-diving-wake.webp',
-		boat: 150,
-		ticketCost: 0,
-		entranceFee: 1500,
-		transportCost: 0,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('wake');
-			const tourCard = document.querySelector('#wakeCard');
-			tourCard.textContent = roundUp(this.boat * this.profitPercent * 1.16);
-		},
-	},
-	wakeFull: {
-		name: 'Wakeboarding Full Day',
-		available: 'Daily except Tuesdays',
-		cardImg: '../img/cards/non-diving-wake.webp',
-		boat: 150,
-		ticketCost: 0,
-		entranceFee: 2000,
-		transportCost: 0,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-		get info() {
-			populateLocations('wake');
-			const tourCard = document.querySelector('#wakeCard');
-			tourCard.textContent = roundUp(this.boat * this.profitPercent * 1.16);
-		},
-	},
-	xcaretAdults: {
-		name: 'Xcaret - Adults',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xcaret.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xcaret',
-		ticketCost: 0,
-		entranceFee: 120.99,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xcaretKids: {
-		name: 'Xcaret - Kids',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xcaret.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xcaret',
-		ticketCost: 0,
-		entranceFee: 90.74,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xoximilcoAdults: {
-		name: 'Xoximilco - Adults',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xoximilco.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xoximilco',
-		ticketCost: 0,
-		entranceFee: 109.99,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xoximilcoKids: {
-		name: 'Xoximilco - Kids',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xoximilco.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xoximilco',
-		ticketCost: 0,
-		entranceFee: 82.49,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xplorAdults: {
-		name: 'Xplor - Adults',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xplor.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor',
-		ticketCost: 0,
-		entranceFee: 142.99,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xplorKids: {
-		name: 'Xplor - Kids',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xplor.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor',
-		ticketCost: 0,
-		entranceFee: 107.24,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xplorFuegoAdults: {
-		name: 'Xplor Fuego - Adults',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xplor-fuego.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor-fuego',
-		ticketCost: 0,
-		entranceFee: 120.99,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xplorFuegoKids: {
-		name: 'Xplor Fuego - Kids',
-		available: 'Daily',
-		cardImg: '../img/cards/non-diving-xplor-fuego.webp',
-		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor-fuego',
-		ticketCost: 0,
-		entranceFee: 90.74,
-		transportCost: 33,
-		transport: 'Included',
-		get cost() {
-			return this.ticketCost + this.transportCost;
-		},
-		get deposit() {
-			return this.ticketCost + this.transportCost;
-		},
-	},
-	xParks: function (site) {
-		populateLocations(site);
-		const tourPickUp = document.querySelector(`#${site}PickUp`);
-		const tourAdultCard = document.querySelector(`#${site}AdultCard`);
-		const tourKidsCard = document.querySelector(`#${site}KidsCard`);
+// 			tourDockFee.textContent = this.dockFee;
+// 			tourVegCard.textContent = roundUp(this.veg);
+// 		},
+// 	},
+// 	wakeHalf: {
+// 		name: 'Wakeboarding Half Day',
+// 		available: 'Daily except Tuesdays',
+// 		cardImg: '../img/cards/non-diving-wake.webp',
+// 		boat: 150,
+// 		ticketCost: 0,
+// 		entranceFee: 1500,
+// 		transportCost: 0,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('wake');
+// 			const tourCard = document.querySelector('#wakeCard');
+// 			tourCard.textContent = roundUp(this.boat * this.profitPercent * 1.16);
+// 		},
+// 	},
+// 	wakeFull: {
+// 		name: 'Wakeboarding Full Day',
+// 		available: 'Daily except Tuesdays',
+// 		cardImg: '../img/cards/non-diving-wake.webp',
+// 		boat: 150,
+// 		ticketCost: 0,
+// 		entranceFee: 2000,
+// 		transportCost: 0,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get info() {
+// 			populateLocations('wake');
+// 			const tourCard = document.querySelector('#wakeCard');
+// 			tourCard.textContent = roundUp(this.boat * this.profitPercent * 1.16);
+// 		},
+// 	},
+// 	xcaretAdults: {
+// 		name: 'Xcaret - Adults',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xcaret.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xcaret',
+// 		ticketCost: 0,
+// 		entranceFee: 120.99,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xcaretKids: {
+// 		name: 'Xcaret - Kids',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xcaret.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xcaret',
+// 		ticketCost: 0,
+// 		entranceFee: 90.74,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xoximilcoAdults: {
+// 		name: 'Xoximilco - Adults',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xoximilco.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xoximilco',
+// 		ticketCost: 0,
+// 		entranceFee: 109.99,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xoximilcoKids: {
+// 		name: 'Xoximilco - Kids',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xoximilco.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xoximilco',
+// 		ticketCost: 0,
+// 		entranceFee: 82.49,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xplorAdults: {
+// 		name: 'Xplor - Adults',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xplor.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor',
+// 		ticketCost: 0,
+// 		entranceFee: 142.99,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xplorKids: {
+// 		name: 'Xplor - Kids',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xplor.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor',
+// 		ticketCost: 0,
+// 		entranceFee: 107.24,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xplorFuegoAdults: {
+// 		name: 'Xplor Fuego - Adults',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xplor-fuego.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor-fuego',
+// 		ticketCost: 0,
+// 		entranceFee: 120.99,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xplorFuegoKids: {
+// 		name: 'Xplor Fuego - Kids',
+// 		available: 'Daily',
+// 		cardImg: '../img/cards/non-diving-xplor-fuego.webp',
+// 		href: 'https://cthulhudivers.com/non-diving/cancun-playa-mujeres-xplor-fuego',
+// 		ticketCost: 0,
+// 		entranceFee: 90.74,
+// 		transportCost: 33,
+// 		transport: 'Included',
+// 		get cost() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 		get deposit() {
+// 			return this.ticketCost + this.transportCost;
+// 		},
+// 	},
+// 	xParks: function (site) {
+// 		populateLocations(site);
+// 		const tourPickUp = document.querySelector(`#${site}PickUp`);
+// 		const tourAdultCard = document.querySelector(`#${site}AdultCard`);
+// 		const tourKidsCard = document.querySelector(`#${site}KidsCard`);
 
-		tourPickUp.textContent = hotelList[locations.options[locations.selectedIndex].value][site];
-		tourAdultCard.textContent = roundUp(nonDivingPricing[site].ticketAdult + nonDivingPricing[site].transport);
-		tourKidsCard.textContent = roundUp(nonDivingPricing[site].ticketKids + nonDivingPricing[site].transport);
-	},
-};
+// 		tourPickUp.textContent = hotelList[locations.options[locations.selectedIndex].value][site];
+// 		tourAdultCard.textContent = roundUp(nonDivingPricing[site].ticketAdult + nonDivingPricing[site].transport);
+// 		tourKidsCard.textContent = roundUp(nonDivingPricing[site].ticketKids + nonDivingPricing[site].transport);
+// 	},
+// };
 
 const tourPricing = (activity) => {
 	const cenoteSites = ['actunHa', 'angelita', 'calavera', 'chacMool', 'dosOjos', 'dreamgate', 'elPit', 'maravilla', 'ponderosa', 'sucActun', 'tajmaHa', 'zapote'];

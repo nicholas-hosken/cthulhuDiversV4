@@ -179,16 +179,18 @@
 	width: 100%;
 	margin: auto;
 }
-
 #tour-breakdown span {
 	color: #00aace;
+}
+#tour-breakdown em {
+	color: #555;
 }
 #tour-cash-costs-total p,
 #tour-cash-profit-total p,
 #tour-card-costs-total p,
 #tour-card-profit-total p {
 	border-top: 1px dashed #fff;
-	padding-top: 12px;
+	padding-top: 15px;
 	color: red;
 }
 #tour-cash-profit-total p,
