@@ -77,12 +77,6 @@
 							<a href="../about" class="nav-link text-white navLinkText">About</a>
 							<div class="navScore"></div>
 						</li>
-						<!--
-					<li class="nav-item mx-2">
-						<a href="#" class="nav-link text-white navLinkText">Airport Pickups</a>
-						<div class="navScore"></div>
-					</li>
--->
 						<li class="nav-item mx-2" id="waterNavBtn">
 							<a href="#" class="nav-link text-white navLinkText">Scuba &amp; Snorkeling</a>
 							<div class="navScore"></div>
@@ -224,7 +218,7 @@
 				<div class="row g-5">
 					<div id="content">
 						<!-- InstanceBeginEditable name="Content" -->
-						<div class="summary">
+						<div id="summary">
 							<div class="hotelSelect">
 								<label for="locations">Select your hotel:</label>
 								<select name="locations" id="locations"></select>
@@ -232,36 +226,27 @@
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">Hotel Specific Info:</p></li>
-									<li>Transportation: <span>Included</span></li>
-									<li>Pickup Time: <span id="calaveraPickUp"></span></li>
-									<li>Approx. Return Time: <span id="calaveraDropOff"></span></li>
+									<li>Transportation: <span id="transport"></span></li>
+									<li>Pickup Time: <span id="pickUp1"></span></li>
+									<li>Approx. Return Time: <span id="dropOff1"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>
-										Card (PayPal) Price: <span>U$<span id="calaveraCard"></span></span>
-									</li>
-									<li>
-										Cash Price: <span>U$<span id="calaveraCash"></span></span>
-									</li>
-									<li>
-										Deposit Required: <span>U$<span id="calaveraDeposit"></span></span>
-									</li>
+									<li>Card (PayPal) Price: <span id="cardPrice"></span></li>
+									<li>Cash Price: <span id="cashPrice4One"></span></li>
+									<li>Deposit Required: <span id="deposit"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">General Info</p></li>
-									<li>Elearning: <span>Included</span></li>
 									<li>Equipment rental: <span>Included</span></li>
-									<li>Minimum Age: <span>15</span></li>
+									<li>Max Depth: <span id="maxDepth"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>Max Depth: <span id="calaveraDepth"></span></li>
-									<li>
-										Optional EANx32: <span>U$<span id="calaveraEANx32"></span></span>
-									</li>
+									<li>Minimum Age: <span id="minAge"></span></li>
+									<li>Optional EANx32: <span id="nitroxUSD"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex justify-content-around align-self-center summaryNote">
@@ -273,10 +258,6 @@
 							<div class="video">
 								<iframe src="https://www.youtube.com/embed/U940-x0KXSE" frameborder="0" allowfullscreen></iframe>
 							</div>
-							<blockquote class="nbInfo">
-								<em>"If you only have got one day for cavern diving here visit this place. Unforgettable experience!"</em>
-								<p class="blockquote-em">-- <a href="http://divescover.com/dive-site/cenote-calavera/41186" target="_blank">divescover.com</a></p>
-							</blockquote>
 							<p>
 								We begin this dive by literally jumping off a 3m/10ft ledge into the cool fresh water of the cenote below. Once our heads have popped back up, and we have all donned our scuba gear, we will begin our decent into the darkness. Initially we pass through a halocline at 10m/33ft into
 								warmer salt water before fully entering into the large cavern underneath which boasts an average diameter of more than 50m/165ft. Look up at this point and you might notice the noonday sun shining through three holes in the ceiling giving the impression of a grining skull and giving
@@ -288,6 +269,11 @@
 								through three holes in the ceiling giving the impression of a grinning skull and giving the cenote its disturbing Spanish name: Cenote Calavera (Skull Cave).
 							</p>
 							<p>Unlike many other cenotes, Casavera has an abundance of life in its waters and much of it is as interested in you as you are in them - don't be surprised if the fish swim within inches of your mask just as much interest in you as you have in them.</p>
+							<blockquote class="nbInfo">
+								<h2>Divescover.com</h2>
+								<em>"If you only have got one day for cavern diving here visit this place. Unforgettable experience!"</em>
+								<p class="blockquote-em">-- <a href="http://divescover.com/dive-site/cenote-calavera/41186" target="_blank">divescover.com</a></p>
+							</blockquote>
 							<img class="img-fluid map" src="../img/maps/calavera.webp" alt="Cenote Calavera map." />
 						</article>
 						<!-- InstanceEndEditable -->
@@ -523,6 +509,7 @@
 		<!-- InstanceBeginEditable name="Scripts" -->
 		<script src="../js/times.math.js" defer></script>
 		<script src="../js/pricing.math.js" defer></script>
+		<script src="../js/pricelist.js" defer></script>
 		<!-- InstanceEndEditable -->
 	</body>
 	<!-- InstanceEnd -->

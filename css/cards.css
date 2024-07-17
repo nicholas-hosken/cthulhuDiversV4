@@ -2,10 +2,17 @@
 	width: 100%;
 	margin: 0 auto 30px;
 	padding: 0;
+	border: 1px solid #00aace;
+	background-image: url(../img/layout/cthulhu-pattern-5tran2.webp);
 }
+.cardsMenu > h2 {
+	background-color: #00aace;
+}
+
 .cardsMenu h2,
 .cardsMenu h3 {
 	text-align: center !important;
+	margin-bottom: 0px;
 }
 .card {
 	background-color: #181818;

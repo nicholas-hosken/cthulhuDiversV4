@@ -227,25 +227,28 @@
 						<form onsubmit="return false">
 							<div class="mb-3">
 								<select class="form-select" name="locations" id="locations">
-									<option value="0">Select Hotel</option>
+									<option value="NA">Select Hotel</option>
 									<option value="notApplicable">Not Applicable</option>
 								</select>
 							</div>
 						</form>
+						<button class="btn" id="necro-refresh-btn">Refresh</button>
+
 						<div id="necro-menu">
 							<div class="btn-group" role="group">
 								<button class="btn">Email Scripts</button>
-								<button class="btn">Tour Specifics</button>
+								<button class="btn">Tour Price</button>
 								<button class="btn">Pricing Overview</button>
 								<button class="btn">Day Prep</button>
 							</div>
 						</div>
+
 						<div class="info" id="scripts">
 							<div id="known-info">
 								<div class="row">
 									<div class="col">
-										<p>Name: <span id="known-client-name"></span></p>
 										<p>Hotel: <span id="known-client-hotel"></span></p>
+										<p>Name: <span id="known-client-name"></span></p>
 										<p>Pax: <span id="known-client-pax"></span></p>
 									</div>
 									<div class="col">
@@ -260,13 +263,13 @@
 							</div>
 							<br />
 							<div>
-								<form onsubmit="return false" class="questions" id="q0">
+								<form onsubmit="return false" class="question" id="q0">
 									<div class="input-group">
 										<input type="text" class="form-control" placeholder="Client Name" id="client-name" />
 										<button class="btn btn-outline-secondary" id="submit-client-name">Submit</button>
 									</div>
 								</form>
-								<form onsubmit="return false" class="questions" id="q1">
+								<form onsubmit="return false" class="question" id="q1">
 									<div class="mb-3">
 										<select class="form-select" id="client-pax">
 											<option value="0">Number of pax</option>
@@ -303,7 +306,7 @@
 										</select>
 									</div>
 								</form>
-								<form onsubmit="return false" class="questions calendar" id="q2">
+								<form onsubmit="return false" class="question calendar" id="q2">
 									<div class="mb-3">
 										<div>
 											<label for="client-arrival-date">Arrival Date:</label>
@@ -311,7 +314,7 @@
 										</div>
 									</div>
 								</form>
-								<form onsubmit="return false" class="questions calendar" id="q3">
+								<form onsubmit="return false" class="question calendar" id="q3">
 									<div class="mb-3">
 										<div>
 											<label for="client-departure-date">Departure Date:</label>
@@ -319,7 +322,7 @@
 										</div>
 									</div>
 								</form>
-								<form onsubmit="return false" class="questions" id="q4">
+								<form onsubmit="return false" class="question" id="q4">
 									<div class="mb-3">
 										<div>
 											<select class="form-select" id="client-message-type">
@@ -340,48 +343,101 @@
 							</div>
 						</div>
 
-						<div class="info" id="specifics">
+						<div class="info" id="tour-price">
 							<form onsubmit="return false">
 								<div class="mb-3">
-									<select class="form-select" id="necro-tour">
+									<select class="form-select" name="tour-price-select" id="tour-price-select">
 										<option value="NA">Select Tour</option>
 									</select>
-								</div>
-								<div id="tour-breakdown">
-									<h3></h3>
-									<div class="row">
-										<div class="col-md-6" id="tour-transport"></div>
-										<div class="col-md-6" id="tour-requirements"></div>
-									</div>
-									<div class="row">
-										<div class="col-md-6" id="tour-card-costs"></div>
-										<div class="col-md-6" id="tour-card-profit"></div>
-									</div>
-									<div class="row">
-										<div class="col-md-6" id="tour-card-costs-total"></div>
-										<div class="col-md-6" id="tour-card-profit-total"></div>
-									</div>
-									<div class="row">
-										<div class="col-md-6" id="tour-cash-costs"></div>
-										<div class="col-md-6" id="tour-cash-profit"></div>
-									</div>
-									<div class="row">
-										<div class="col-md-6" id="tour-cash-costs-total"></div>
-										<div class="col-md-6" id="tour-cash-profit-total"></div>
-									</div>
-									<div class="row">
-										<div class="col-md-6" id="tour-extras"></div>
-										<div class="col-md-6" id="tour-prep"></div>
-									</div>
+									<select class="form-select" name="tour-price-pax" id="tour-price-pax">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option>
+										<option value="23">23</option>
+										<option value="24">24</option>
+										<option value="25">25</option>
+										<option value="26">26</option>
+										<option value="27">27</option>
+										<option value="28">28</option>
+										<option value="29">29</option>
+										<option value="30">30</option>
+										<option value="31">31</option>
+										<option value="32">32</option>
+										<option value="33">33</option>
+										<option value="34">34</option>
+										<option value="35">35</option>
+										<option value="36">36</option>
+										<option value="37">37</option>
+										<option value="38">38</option>
+										<option value="39">39</option>
+										<option value="40">40</option>
+										<option value="41">41</option>
+										<option value="42">42</option>
+										<option value="43">43</option>
+										<option value="44">44</option>
+										<option value="45">45</option>
+										<option value="46">46</option>
+										<option value="47">47</option>
+										<option value="48">48</option>
+										<option value="49">49</option>
+										<option value="50">50</option>
+									</select>
 								</div>
 							</form>
+
+							<div id="tour-price-sheet">
+								<h3></h3>
+								<div class="row">
+									<div class="col-md-6" id="tour-transport"></div>
+									<div class="col-md-6" id="tour-requirements"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6" id="tour-card-costs"></div>
+									<div class="col-md-6" id="tour-card-profit"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6" id="tour-card-costs-total"></div>
+									<div class="col-md-6" id="tour-card-profit-total"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6" id="tour-cash-costs"></div>
+									<div class="col-md-6" id="tour-cash-profit"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6" id="tour-cash-costs-total"></div>
+									<div class="col-md-6" id="tour-cash-profit-total"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6" id="tour-extras"></div>
+									<div class="col-md-6" id="tour-prep"></div>
+								</div>
+							</div>
 						</div>
 
 						<div class="info" id="overview">
-							<table id="oceanTable">
+							<table id="certifiedTable">
 								<thead>
 									<tr>
-										<th colspan="11">Ocean Dives</th>
+										<th colspan="11">Standard Tours for Certified Divers</th>
 									</tr>
 								</thead>
 								<tbody></tbody>
@@ -571,6 +627,7 @@
 		<!-- InstanceBeginEditable name="Scripts" -->
 		<script src="../js/times.math.js" defer></script>
 		<script src="../js/pricing.math.js" defer></script>
+		<script src="../js/pricelist.js" defer></script>
 		<script src="../js/sizing.js" defer></script>
 		<script src="../js/necronomicon.main.js" defer></script>
 		<script src="../js/necronomicon.specifics.js" defer></script>

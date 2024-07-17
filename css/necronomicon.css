@@ -1,29 +1,33 @@
+/* Menu */
 #heroNecronomicon {
 	background-image: url(../img/hero/necronomicon.webp);
+}
+#content {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 #sidebar {
 	display: none;
 }
 #locations,
-#necro-tour,
+#tour-price-select,
+#tour-price-pax,
 #q0 .input-group,
 .questions select {
 	width: 80%;
 	max-width: 500px;
-	margin: 0px auto;
+	margin: 20px auto;
 }
-.calendar {
-	margin: 0px auto;
-	width: 215px;
-}
-.calendar label {
-	margin: 0 auto 5px;
-	/* background-color: #00aace; */
-	width: 215px;
-	text-align: center;
-}
-.calendar input {
-	color: #000;
+
+#necro-refresh-btn {
+	display: flex;
+	background-color: #00aace;
+	color: #fff;
+	border: 1px solid #fff;
+	margin: 20px auto;
+	text-align: center !important;
+	font-weight: bold;
 }
 #necro-menu {
 	display: none;
@@ -51,12 +55,29 @@
 .info {
 	display: none;
 }
+
+/* Scripts
+======================================================*/
+.calendar {
+	margin: 0px auto;
+	width: 215px;
+}
+.calendar label {
+	margin: 0 auto 5px;
+	/* background-color: #00aace; */
+	width: 215px;
+	text-align: center;
+}
+.calendar input {
+	color: #000;
+}
 #scripts {
 	width: 80%;
 	margin: 15px auto;
 }
 #known-info {
-	background-color: #1f2e32;
+	/* background-color: #1f2e32; */
+	background-image: url(../img/layout/cthulhu-pattern-10tran.webp);
 	border: 1px solid #fff;
 	color: #00aace;
 	padding: 10px;
@@ -111,9 +132,78 @@
 	color: blue;
 	font-size: 13px;
 }
-#overview table {
+
+/* Tour Specifics 
+======================================================*/
+#tour-price {
+	border: 1px solid #00aace;
+	margin: 0px auto 20px;
+	width: 80%;
+	display: none;
+}
+#tour-price h3,
+#tour-price h4 {
+	background-color: #00aace;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+#tour-price-sheet {
+	display: none;
+}
+#tour-price h5 {
+	text-decoration: underline;
+	text-decoration-color: #00aace;
+}
+#tour-price p {
+	line-height: 25px;
+	margin-bottom: 15px;
+}
+#tour-price .row {
 	width: 100%;
-	visibility: hidden;
+	margin: auto;
+}
+#tour-price span {
+	color: #00aace;
+}
+#tour-price em {
+	color: #555;
+}
+#tour-cash-costs-total p,
+#tour-cash-profit-total p,
+#tour-card-costs-total p,
+#tour-card-profit-total p {
+	border-top: 1px dashed #fff;
+	padding-top: 15px;
+	color: orange;
+}
+#tour-cash-profit-total p,
+#tour-card-profit-total p {
+	color: greenyellow;
+}
+#tour-price .note {
+	border: 1px solid #fff;
+	background-color: #1f2e32;
+	width: 100%;
+	margin: 0px auto 10px;
+	padding: 10px;
+	line-height: 25px;
+}
+#tour-price .note strong {
+	color: #00aace;
+}
+
+#tour-price .note ul {
+	margin: 0px;
+	padding-left: 20px;
+	list-style-type: disc;
+}
+
+/* Pricing Overview
+======================================================*/
+#overview table {
+	width: 80%;
+	margin: auto;
 }
 #overview .table-column-names td {
 	width: 5%;
@@ -138,71 +228,13 @@
 #overview tbody tr:hover td {
 	color: #fff !important;
 }
-#prep thead,
-#prep td {
-	text-align: center;
-}
 .highlighted-row {
 	background-color: #334d54;
 }
-#content {
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-}
 
-/* Tour Specifics 
+/* Day Prep
 ======================================================*/
-
-#tour-breakdown {
-	border: 1px solid #00aace;
-	margin: 0px auto 20px;
-	width: 80%;
-	min-height: 200px;
-	display: none;
-}
-#tour-breakdown h3,
-#tour-breakdown h4 {
-	background-color: #00aace;
-	color: #fff;
-	padding: 10px;
+#prep thead,
+#prep td {
 	text-align: center;
-}
-#tour-breakdown h5 {
-	text-decoration: underline;
-	text-decoration-color: #00aace;
-}
-#tour-breakdown p {
-	line-height: 20px;
-}
-#tour-breakdown .row {
-	width: 100%;
-	margin: auto;
-}
-#tour-breakdown span {
-	color: #00aace;
-}
-#tour-breakdown em {
-	color: #555;
-}
-#tour-cash-costs-total p,
-#tour-cash-profit-total p,
-#tour-card-costs-total p,
-#tour-card-profit-total p {
-	border-top: 1px dashed #fff;
-	padding-top: 15px;
-	color: red;
-}
-#tour-cash-profit-total p,
-#tour-card-profit-total p {
-	color: greenyellow;
-}
-
-#tour-breakdown .prep-notes {
-	border: 1px solid #fff;
-	background-color: #1f2e32;
-	width: 100%;
-	margin: auto;
-	padding: 10px;
-	line-height: 25px;
 }

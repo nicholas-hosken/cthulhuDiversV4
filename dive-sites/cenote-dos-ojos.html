@@ -222,7 +222,7 @@
 				<div class="row g-5">
 					<div id="content">
 						<!-- InstanceBeginEditable name="Content" -->
-						<div class="summary">
+						<div id="summary">
 							<div class="hotelSelect">
 								<label for="locations">Select your hotel:</label>
 								<select name="locations" id="locations"></select>
@@ -230,36 +230,27 @@
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">Hotel Specific Info:</p></li>
-									<li>Transportation: <span>Included</span></li>
-									<li>Pickup Time: <span id="dosOjosPickUp"></span></li>
-									<li>Approx. Return Time: <span id="dosOjosDropOff"></span></li>
+									<li>Transportation: <span id="transport"></span></li>
+									<li>Pickup Time: <span id="pickUp1"></span></li>
+									<li>Approx. Return Time: <span id="dropOff1"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>
-										Card (PayPal) Price: <span>U$<span id="dosOjosCard"></span></span>
-									</li>
-									<li>
-										Cash Price: <span>U$<span id="dosOjosCash"></span></span>
-									</li>
-									<li>
-										Deposit Required: <span>U$<span id="dosOjosDeposit"></span></span>
-									</li>
+									<li>Card (PayPal) Price: <span id="cardPrice"></span></li>
+									<li>Cash Price: <span id="cashPrice4One"></span></li>
+									<li>Deposit Required: <span id="deposit"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">General Info</p></li>
-									<li>Elearning: <span>Included</span></li>
 									<li>Equipment rental: <span>Included</span></li>
-									<li>Minimum Age: <span>15</span></li>
+									<li>Max Depth: <span id="maxDepth"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>Max Depth: <span id="dosOjosDepth"></span></li>
-									<li>
-										Optional EANx32: <span>U$<span id="dosOjosEANx32"></span></span>
-									</li>
+									<li>Minimum Age: <span id="minAge"></span></li>
+									<li>Optional EANx32: <span id="nitroxUSD"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex justify-content-around align-self-center summaryNote">
@@ -537,6 +528,7 @@
 		<!-- InstanceBeginEditable name="Scripts" -->
 		<script src="../js/times.math.js" defer></script>
 		<script src="../js/pricing.math.js" defer></script>
+		<script src="../js/pricelist.js" defer></script>
 		<!-- InstanceEndEditable -->
 	</body>
 	<!-- InstanceEnd -->

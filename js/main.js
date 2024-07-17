@@ -136,8 +136,12 @@ function sidebarImgDisplay(vw) {
 	if (vw > 1199) {
 		if (contentHeight > sbMenuHeight) {
 			let imgCalc = Math.ceil(remaining / 1203);
-			for (var i = 0; i < imgCalc; i++) {
-				sidebarImg[i].style.height = `${remaining / imgCalc - 5}px`;
+			if (sidebarImg[0] !== undefined) {
+				for (var i = 0; i < imgCalc; i++) {
+					if (sidebarImg[i] !== undefined) {
+						sidebarImg[i].style.height = `${remaining / imgCalc - 5}px`;
+					}
+				}
 			}
 			sidebar.style.height = `${contentHeight}px`;
 			sidebar.style.overflow = 'hidden';

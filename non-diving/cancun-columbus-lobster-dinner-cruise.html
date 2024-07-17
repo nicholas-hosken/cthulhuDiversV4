@@ -224,7 +224,7 @@
 				<div class="row g-5">
 					<div id="content">
 						<!-- InstanceBeginEditable name="Content" -->
-						<div class="summary">
+						<div id="summary">
 							<div class="hotelSelect">
 								<label for="locations">Select your hotel:</label>
 								<select name="locations" id="locations"></select>
@@ -236,44 +236,36 @@
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>Minimum Age: <span>14</span></li>
+									<li>Minimum Age: <span id="minAge"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">Sunset Option</p></li>
-									<li>Transportation: <span id="columbusSunsetTransport"></span></li>
-									<li>Pickup Time: <span id="columbusPickUp"></span></li>
-									<li>Approx. Return Time: <span id="columbusDropOff"></span></li>
+									<li>Pickup Time: <span id="pickUp1"></span></li>
+									<li>Approx. Return Time: <span id="dropOff1"></span></li>
+									<li>Transportation: <span id="transport"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li><p class="summaryHeading">Moonlight Option</p></li>
-									<li>Transportation: <span id="columbusMoonlightTransport"></span></li>
-									<li>Pickup Time: <span id="columbusPickUpD2"></span></li>
-									<li>Approx. Return Time: <span id="columbusDropOffD2"></span></li>
+									<li>Pickup Time: <span id="pickUp2"></span></li>
+									<li>Approx. Return Time: <span id="dropOff2"></span></li>
+									<li>Transportation: <span>Not Included</span></li>
 								</ul>
 							</div>
 							<div class="d-flex justify-content-around align-self-center summaryNote">
-								<p class="align-self-center">Please note that an additional U$<span id="columbusDockFee"></span> per person will need to be paid, in cash, to a park representative at the dock before departure.</p>
+								<p class="align-self-center">Please note that an additional <span id="dockFee"></span> per person will need to be paid, in cash, to a park representative at the dock before departure.</p>
 							</div>
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">Mains Options</p></li>
-									<li>
-										Lobster Tail: <span>U$<span id="columbusLobsterCard"></span></span>
-									</li>
-									<li>
-										Ribeye Steak: <span>U$<span id="columbusRibeyeCard"></span></span>
-									</li>
+									<li>Lobster Tail: <span id="lobsterCardPrice"></span></li>
+									<li>Ribeye Steak: <span id="ribeyeCardPrice"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li><p class="hide750">&nbsp;</p></li>
-									<li>
-										Surf & Turf: <span>U$<span id="columbusSurfTurfCard"></span></span>
-									</li>
-									<li>
-										Vegetarian Lasagna: <span>U$<span id="columbusVegCard"></span></span>
-									</li>
+									<li>Surf & Turf: <span id="surfTurfCardPrice"></span></li>
+									<li>Vegetarian Lasagna: <span id="vegCardPrice"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex justify-content-around align-content-center tc"><a href="../terms-and-conditions" class="align-self-center">Terms &amp; Conditions</a></div>
@@ -296,13 +288,13 @@
 								your creativity to help them create something new and focused on you. National beers, wines and spirits are also available.
 							</p>
 							<div class="nbInfo">
+								<h2>Columbus Dinner Cruise Tips and Terms</h2>
 								<ul>
-									<h2>Columbus Dinner Cruise Tips and Terms</h2>
 									<li>Transportation from Riviera Maya available with additional cost</li>
-									<li>Dress code: Casual (We suggest you to bring a sweater)</li>
-									<li>Dock fee not included ($15 USD)</li>
+									<li>Dress code: Casual (We suggest that you bring a sweater)</li>
+									<li>Dock fee not included ($20 USD)</li>
 									<li>Bring money for photos</li>
-									<li>Minimum age: 14years old</li>
+									<li>Minimum age: 15</li>
 									<li>The sale and consumption of alcoholic beverages is for adults only</li>
 								</ul>
 							</div>
@@ -542,6 +534,7 @@
 		<!-- InstanceBeginEditable name="Scripts" -->
 		<script src="../js/times.math.js" defer></script>
 		<script src="../js/pricing.math.js" defer></script>
+		<script src="../js/pricelist.js" defer></script>
 		<!-- InstanceEndEditable -->
 	</body>
 	<!-- InstanceEnd -->

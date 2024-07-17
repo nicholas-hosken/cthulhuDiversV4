@@ -675,18 +675,36 @@ article strong {
 	margin: 0;
 }
 .nbInfo {
-	background-color: #1f2e32;
-	padding: 15px 15px 0px 15px;
-	border: 1px solid #fff;
+	background-image: url('../img/layout/cthulhu-pattern-5tran2.webp');
+	border: 1px solid #00aace;
 	margin-bottom: 15px;
 }
-blockquote.nbInfo {
-	margin-top: 15px;
+.nbInfo p {
 	padding: 15px;
 }
+.nbInfo li {
+	margin-bottom: 15px;
+	padding-right: 15px;
+}
+
+blockquote.nbInfo {
+	margin-top: 15px;
+	/* padding: 15px; */
+}
+blockquote.nbInfo em {
+	padding: 15px;
+	line-height: 30px;
+}
 blockquote.nbInfo p {
-	margin: 0;
-	padding: 0;
+	padding-right: 15px;
+	text-align: right;
+}
+.nbInfo h2 {
+	color: #fff;
+	background-color: #00aace;
+	width: 100%;
+	text-align: center;
+	text-shadow: 2px 2px #000;
 }
 .nbinfo ul,
 .nbInfo p {
@@ -993,14 +1011,14 @@ input[type='checkbox'] {
 
 /* 8.3 Main - Summary
 ======================================================*/
-.summary,
+#summary,
 #padiCenters {
 	width: 100%;
 	margin: 0px auto 20px;
 	border: 1px solid #00aace;
-	background-image: url('../img/layout/cthulhu-pattern-5tran.webp');
+	background-image: url('../img/layout/cthulhu-pattern-5tran2.webp');
 }
-.summary span {
+#summary span {
 	font-family: inherit;
 }
 .hotelSelect {
@@ -1336,7 +1354,7 @@ footer a:hover {
 		width: 80%;
 		height: auto;
 	}
-	.summary .flex-wrap {
+	#summary .flex-wrap {
 		margin: 25px 0;
 	}
 	.locationText {

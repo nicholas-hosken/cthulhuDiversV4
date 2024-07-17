@@ -225,7 +225,7 @@
 				<div class="row g-5">
 					<div id="content">
 						<!-- InstanceBeginEditable name="Content" -->
-						<div class="summary">
+						<div id="summary">
 							<div class="hotelSelect">
 								<label for="locations">Select your hotel:</label>
 								<select name="locations" id="locations"></select>
@@ -233,23 +233,17 @@
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">Hotel Specific Info:</p></li>
-									<li>Pickup Time: <span id="referralPickUp"></span></li>
-									<li>Approx. Return Time: <span id="referralDropOff"></span></li>
-									<li>Day 2 Pickup Time: <span id="referralPickUpD2"></span></li>
-									<li>Day 2 Approx. Return: <span id="referralDropOffD2"></span></li>
+									<li>Day 1 Pickup Time: <span id="pickUp1"></span></li>
+									<li>Day 1 Approx. Return: <span id="dropOff1"></span></li>
+									<li>Day 2 Pickup Time: <span id="pickUp2"></span></li>
+									<li>Day 2 Approx. Return: <span id="dropOff2"></span></li>
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>Transportation: <span>Included</span></li>
-									<li>
-										Card (PayPal) Price: <span>U$<span id="referralCard"></span></span>
-									</li>
-									<li>
-										Cash Price: <span>U$<span id="referralCash"></span></span>
-									</li>
-									<li>
-										Deposit Required: <span>U$<span id="referralDeposit"></span></span>
-									</li>
+									<li>Transportation: <span id="transport"></span></li>
+									<li>Card (PayPal) Price: <span id="cardPrice"></span></li>
+									<li>Cash Price: <span id="cashPrice4One"></span></li>
+									<li>Deposit Required: <span id="deposit"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex flex-wrap justify-content-around">
@@ -267,19 +261,13 @@
 							<div class="d-flex flex-wrap justify-content-around">
 								<ul class="locationText">
 									<li><p class="summaryHeading">General Info</p></li>
-									<li>Elearning: <span>Included</span></li>
 									<li>Equipment rental: <span>Included</span></li>
-									<li>Minimum Age: <span id="referralMinAge"></span></li>
+									<li>Equipment rental: <span>Included</span></li>
 								</ul>
 								<ul class="locationText">
 									<li class="hide750">&nbsp;</li>
-									<li>Max Depth: <span id="referralDepth"></span></li>
-									<li>
-										Optional Photos: <span>U$<span id="referralPhotos"></span></span>
-									</li>
-									<li>
-										Optional EANx32: <span>U$<span id="referralEANx32"></span></span>
-									</li>
+									<li>Minimum Age: <span id="minAge"></span></li>
+									<li>Optional Photos: <span id="photos"></span></li>
 								</ul>
 							</div>
 							<div class="d-flex justify-content-around align-self-center summaryNote">
@@ -292,7 +280,7 @@
 								A PADI referral allows you to complete most of your scuba training for the <a href="cancun-padi-open-water-scuba-diver">PADI Open Water Course</a> at home and then finish your certification dives with Cthulhu Divers here in Cancún. This means you can support your local dive center
 								and avoid studying during your vacation at the same time. You'll complete all of the classroom theory and pool exercises in advance and then join us for your first underwater ocean adventures!
 							</p>
-							<img class="img-fluid" src="img/content/referral-reef.webp" alt="Couple glide across a reef" />
+							<img class="img-fluid" src="img/content/referral-smile.webp" alt="Cthulhu Divers student, Kelly, shows off while performing a regulator replacement skill" />
 							<h2>Theory Options</h2>
 							<p>
 								You can begine your use PADI adventure by contacting your local dive center <em>(we also have a list of trusted US and UK dive shops in our <a href="#padiCenters">dive shop locator</a> towards the bottom of this page)</em>. When you speak with them, they will go over your options
@@ -307,8 +295,8 @@
 								you with PADI for this online material and to provide you with your login details, your chosen dive center will ask you to provide them with the following details:
 							</p>
 							<div class="nbInfo">
+								<h2 class="infoHeading">Info required to begin a PADI course:</h2>
 								<ul>
-									<h2>Info required to start a PADI course:</h2>
 									<li>Full Name:</li>
 									<li>Date of Birth:</li>
 									<li>Email:</li>
@@ -321,9 +309,9 @@
 								pool to practice skills with one of their PADI instructors. PADI instructors are experts in their field and so you will be encouraged to ask questions and practice the skills until you feel confident in your abilities as a diver.
 							</p>
 							<p>Time spent in the classroom and pool will differ from student group to student group but you can expect to spend roughly 2 to 3 hours in the class and 3 to 4 hours practising skills in the pool.</p>
-							<img class="img-fluid" src="img/content/referral-pool.webp" alt="PADI Open Water students in pool" />
 							<h2>On The Dives</h2>
 							<p>You will have completed most of the hard work during the skill rehearsal and so can expect an almost typical diving experience. The only difference will be that you will be pulled to one side every so often in order to complete the practiced skills under real-life conditions.</p>
+							<img class="img-fluid" src="img/content/referral-cool-beans.webp" alt="Diver Kelly finds a turtle on the Mesoamerican Reef" />
 							<h2>Dive Site Options (Day 1)</h2>
 							<p>
 								<strong>Musa &amp; Reef - 2 Tanks - 27ft / 9m</strong><br />
@@ -339,7 +327,7 @@
 								Musa is also a great option if you are traveling with any non-divers who aren't quite ready to commit to a full certification but would like to give the sport a try. For more info on this option, please visit our
 								<a href="cancun-padi-discover-scuba-diving-dsd">PADI Discover Scuba Diving</a> page.
 							</p>
-							<img class="img-fluid" src="img/content/referral-cool-beans.webp" alt="Diver gets comfortable in the water" />
+							<img class="img-fluid" src="img/content/referral-reef.webp" alt="Kelly explors a chasm in the reef " />
 							<h2>Dive Site Options (Day 2)</h2>
 							<p><strong>Mesoamerican Reefs - 2 Tanks - 55ft / 16m</strong></p>
 							<p>
@@ -1393,9 +1381,9 @@
 							</ul>
 						</div>
 						<!-- InstanceBeginEditable name="Sidebar Images" -->
-						<img class="sidebarImg" src="img/sidebar/referral.webp" alt="Pod of dolphins swim above" />
-						<img class="sidebarImg" src="img/sidebar/referral02.webp" alt="Diver admires the water above" />
-						<img class="sidebarImg" src="img/sidebar/referral03.webp" alt="Heres looking at you" />
+						<img class="sidebarImg" src="img/sidebar/referral01.webp" alt="Diver stares in wonder at the underwater view" />
+						<img class="sidebarImg" src="img/sidebar/referral02.webp" alt="Kelly looking confident and competent in the water" />
+						<img class="sidebarImg" src="img/sidebar/referral03.webp" alt="Perfect buoyancy" />
 						<!-- InstanceEndEditable -->
 					</div>
 				</div>
@@ -1470,6 +1458,7 @@
 		<script src="js/times.math.js" defer></script>
 		<script src="js/pricing.math.js" defer></script>
 		<script src="js/padiCenters.js" defer></script>
+		<script src="js/pricelist.js" defer></script>
 		<!-- InstanceEndEditable -->
 	</body>
 	<!-- InstanceEnd -->
