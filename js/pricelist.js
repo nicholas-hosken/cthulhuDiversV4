@@ -39,7 +39,7 @@ const cthulhuTours = {
 			},
 			nitroxAllowed: true,
 			photosAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '12:20',
 				departure1: '16:45',
@@ -87,7 +87,7 @@ const cthulhuTours = {
 			},
 			nitroxAllowed: true,
 			photosAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '12:20',
 				departure1: '16:45',
@@ -134,7 +134,7 @@ const cthulhuTours = {
 			},
 			nitroxAllowed: true,
 			photosAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '8:05',
 				departure1: '12:30',
@@ -181,7 +181,7 @@ const cthulhuTours = {
 			},
 			nitroxAllowed: true,
 			photosAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '8:05',
 				departure1: '12:30',
@@ -278,7 +278,7 @@ const cthulhuTours = {
 			},
 			nitroxAllowed: true,
 			photosAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '8:05',
 				departure1: '12:30',
@@ -380,7 +380,7 @@ const cthulhuTours = {
 			},
 			href: 'https://cthulhudivers.com/cancun-night-diving',
 			nitroxAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '18:00',
 				departure1: '21:00',
@@ -432,7 +432,7 @@ const cthulhuTours = {
 			days: 1,
 			href: 'https://cthulhudivers.com/cancun-padi-discover-scuba-diving-dsd',
 			photosAllowed: true,
-			profitPercent: 1.3,
+			profitPercent: 1.35,
 			transport: {
 				arrival1: '10:00',
 				departure1: '16:45',

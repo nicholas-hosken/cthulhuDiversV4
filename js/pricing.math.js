@@ -1,6 +1,6 @@
 const activity = document.querySelector('.hero h1').innerHTML;
 const locations = document.getElementById('locations');
-const exchangeRate = 17.9;
+const exchangeRate = 17.2;
 const pageName = document.querySelector('.hero h1').innerHTML;
 const kidsCardPrice = document.getElementById('kidsCardPrice');
 
